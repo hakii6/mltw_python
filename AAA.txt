@@ -1,0 +1,4877 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-112158135-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'UA-112158135-1');
+	</script>
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+	
+	<meta charset="utf-8">
+<title>ミリシタ譜面ビューア</title>
+<link rel="icon" type="image/x-icon" href="https://million.hyrorre.com/assets/musictypes/3-7ab4f84834a42642fd37f9e8278e913ea1b74b0fb91271094033a77547c44148.png">
+<meta name="description" content="アイドルマスター ミリオンライブ！シアターデイズ(ミリシタ)の音ゲー譜面を見やすく表示します。譜面確認にどうぞ。">
+<meta name="keywords" content="ミリシタ,譜面確認,アイドルマスター,ミリオンライブ">
+<link rel="canonical" href="https://million.hyrorre.com/">
+<meta property="og:site_name" content="ミリシタ譜面ビューア">
+<meta property="og:title" content="ミリシタ譜面ビューア">
+<meta property="og:description" content="アイドルマスター ミリオンライブ！シアターデイズ(ミリシタ)の音ゲー譜面を見やすく表示します。譜面確認にどうぞ。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://million.hyrorre.com/">
+<meta property="og:image" content="https://million.hyrorre.com/assets/musictypes/3-7ab4f84834a42642fd37f9e8278e913ea1b74b0fb91271094033a77547c44148.png">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@MillionScore">
+<meta name="twitter:creator" content="@hyrorre">
+	<meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="EAr8eyix4NFA0DWMPr4We941cCB2N/83wdJa7S7xdaEyUV7OTZJKOmURNc6EZFWY05WKWl5iIGmRx/sMueWcIw==" />
+	
+	<link rel="stylesheet" media="all" href="/assets/application-83fade2f81e3bf1d6e7397f8b1daba84a83eb38190c9ce3965e76e10904f3271.css" />
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+	<script>
+		(adsbygoogle = window.adsbygoogle || []).push({
+			google_ad_client: "ca-pub-1154104535471881",
+			enable_page_level_ads: true
+		});
+	</script>
+</head>
+
+<body data-controller="musics" data-action="index">
+	<div id="pagetop"></div>
+	<p class="notice"></p>
+	<p class="alert"></p>
+	<meta name="viewport" content="width=480">
+<div class="musics_index_container">
+	<h1>ミリシタ譜面ビューア</h1>
+	<p>
+		PCなどでも動作しますが、スマホなどの縦画面端末推奨です<br>
+		(Smartphone portrait is recommended.)<br>
+		Android版ChromeおよびiOS版Safari最新版にて動作確認済<br>
+		問題などがあれば作者のTwitter(<a target="_blank" href="https://twitter.com/hyrorre">@hyrorre</a>)、<br>
+		または以下のフォームまで<br>
+		<a href="https://hyrorre.com/contact/" target="_blank">Contact | HY Techs</a>
+	</p>
+	<div class="ad-rectangle">
+		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+		<!-- million-rectangle -->
+		<ins class="adsbygoogle"
+			style="display:inline-block;width:336px;height:280px"
+			data-ad-client="ca-pub-1154104535471881"
+			data-ad-slot="1424163788"></ins>
+		<script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script>
+	</div>
+	<h2>曲一覧</h2>
+	<div id="itemLists">
+		<details>
+			<summary>検索・並び替え</summary>
+			<h5>検索</h5>
+			<input type="text" class="search" placeholder=""><br>
+
+			<h5>並び替え</h5>
+			<button class="sort" data-sort="order">Default</button>
+			<button class="sort" data-sort="kana">Title</button>
+			<button class="sort" data-sort="musictype">Type</button>
+			<button class="sort" data-sort="diffnum0">2M</button>
+			<button class="sort" data-sort="diffnum1">2M+</button>
+			<button class="sort" data-sort="diffnum2">4M</button>
+			<button class="sort" data-sort="diffnum3">6M</button>
+			<button class="sort" data-sort="diffnum4">MM</button>
+			<button class="sort" data-sort="added_on">Date</button>
+
+			<h5>Other</h5>
+			<label><input id="date_sw" type="checkbox"> 楽曲追加日を表示</label>
+		</details>
+
+		<ul id="musiclist" class="list">
+				<li>
+					<img class="jacket" src="/assets/jackets/brand-9099dc23c708bee49f28d17005a000d8303c7af8a187926bc080a6db81d7b35a.jpg" alt="Brand" />
+					<h3 class="title">Brand New Theater!</h3>
+					<img class="musictypeimage" src="/assets/musictypes/3-7ab4f84834a42642fd37f9e8278e913ea1b74b0fb91271094033a77547c44148.png" alt="3" />
+					<table class="scoretable">
+						<tr>
+								<th>2M</th>
+								<th>2M+</th>
+								<th>4M</th>
+								<th>6M</th>
+								<th>MM</th>
+						</tr>
+						<tr>
+								<td class="diff0 bms_exist_true">
+									<a href="/musics/brand/0">3</a>
+								</td>
+								<p class="diffnum diffnum0">3</p>
+								<td class="diff1 bms_exist_true">
+									<a href="/musics/brand/1">10</a>
+								</td>
+								<p class="diffnum diffnum1">10</p>
+								<td class="diff2 bms_exist_true">
+									<a href="/musics/brand/2">6</a>
+								</td>
+								<p class="diffnum diffnum2">6</p>
+								<td class="diff3 bms_exist_true">
+									<a href="/musics/brand/3">11</a>
+								</td>
+								<p class="diffnum diffnum3">11</p>
+								<td class="diff4 bms_exist_true">
+									<a href="/musics/brand/4">15</a>
+								</td>
+								<p class="diffnum diffnum4">15</p>
+						</tr>
+					</table>
+					<p class="added_on">2017-06-29</p>
+					<p class="kana">Brand New Theater!</p>
+					<p class="order">1001</p>
+					<p class="musictype">3</p>
+				</li>
+				<li>
+					<img class="jacket" src="/assets/jackets/thankyou-14c6701eacef3441c637a4543acd3d3b765bb81a8052f4c4c31de68714fe5707.jpg" alt="Thankyou" />
+					<h3 class="title">Thank You!</h3>
+					<img class="musictypeimage" src="/assets/musictypes/3-7ab4f84834a42642fd37f9e8278e913ea1b74b0fb91271094033a77547c44148.png" alt="3" />
+					<table class="scoretable">
+						<tr>
+								<th>2M</th>
+								<th>2M+</th>
+								<th>4M</th>
+								<th>6M</th>
+								<th>MM</th>
+						</tr>
+						<tr>
+								<td class="diff0 bms_exist_true">
+									<a href="/musics/thankyou/0">3</a>
+								</td>
+								<p class="diffnum diffnum0">3</p>
+								<td class="diff1 bms_exist_true">
+									<a href="/musics/thankyou/1">10</a>
+								</td>
+								<p class="diffnum diffnum1">10</p>
+								<td class="diff2 bms_exist_true">
+									<a href="/musics/thankyou/2">6</a>
+								</td>
+								<p class="diffnum diffnum2">6</p>
+								<td class="diff3 bms_exist_true">
+									<a href="/musics/thankyou/3">11</a>
+								</td>
+								<p class="diffnum diffnum3">11</p>
+								<td class="diff4 bms_exist_true">
+									<a href="/musics/thankyou/4">16</a>
+								</td>
+								<p class="diffnum diffnum4">16</p>
+						</tr>
+					</table>
+					<p class="added_on">2017-08-22</p>
+					<p class="kana">Thank You!</p>
+					<p class="order">1002</p>
+					<p class="musictype">3</p>
+				</li>
+				<li>
+					<img class="jacket" src="/assets/jackets/welcome-591bb569689ba80dbf2801a9e9eaf2876f5844c42d46f853397d54d6d22e975e.jpg" alt="Welcome" />
+					<h3 class="title">Welcome!!</h3>
+					<img class="musictypeimage" src="/assets/musictypes/3-7ab4f84834a42642fd37f9e8278e913ea1b74b0fb91271094033a77547c44148.png" alt="3" />
+					<table class="scoretable">
+						<tr>
+								<th>2M</th>
+								<th>2M+</th>
+								<th>4M</th>
+								<th>6M</th>
+								<th>MM</th>
+						</tr>
+						<tr>
+								<td class="diff0 bms_exist_true">
+									<a href="/musics/welcome/0">4</a>
+								</td>
+								<p class="diffnum diffnum0">4</p>
+								<td class="diff1 bms_exist_true">
+									<a href="/musics/welcome/1">11</a>
+								</td>
+								<p class="diffnum diffnum1">11</p>
+								<td class="diff2 bms_exist_true">
+									<a href="/musics/welcome/2">7</a>
+								</td>
+								<p class="diffnum diffnum2">7</p>
+								<td class="diff3 bms_exist_true">
+									<a href="/musics/welcome/3">12</a>
+								</td>
+								<p class="diffnum diffnum3">12</p>
+								<td class="diff4 bms_exist_true">
+									<a href="/musics/welcome/4">17</a>
+								</td>
+								<p class="diffnum diffnum4">17</p>
+						</tr>
+					</table>
+					<p class="added_on">2018-02-08</p>
+					<p class="kana">Welcome</p>
+					<p class="order">1003</p>
+					<p class="musictype">3</p>
+				</li>
+				<li>
+					<img class="jacket" src="/assets/jackets/union-752979034732e282768384dd861ab00020d30f1d6230a3a62c5ee9b8c81f9540.jpg" alt="Union" />
+					<h3 class="title">UNION!!</h3>
+					<img class="musictypeimage" src="/assets/musictypes/3-7ab4f84834a42642fd37f9e8278e913ea1b74b0fb91271094033a77547c44148.png" alt="3" />
+					<table class="scoretable">
+						<tr>
+								<th>2M</th>
+								<th>2M+</th>
+								<th>4M</th>
+								<th>6M</th>
+								<th>MM</th>
+						</tr>
+						<tr>
+								<td class="diff0 bms_exist_true">
+									<a href="/musics/union/0">4</a>
+								</td>
+								<p class="diffnum diffnum0">4</p>
+								<td class="diff1 bms_exist_true">
+									<a href="/musics/union/1">11</a>
+								</td>
+								<p class="diffnum diffnum1">11</p>
+								<td class="diff2 bms_exist_true">
+									<a href="/musics/union/2">7</a>
+								</td>
+								<p class="diffnum diffnum2">7</p>
+								<td class="diff3 bms_exist_true">
+									<a href="/musics/union/3">12</a>
+								</td>
+								<p class="diffnum diffnum3">12</p>
+								<td class="diff4 bms_exist_true">
+									<a href="/musics/union/4">17</a>
+								</td>
+								<p class="diffnum diffnum4">17</p>
+						</tr>
+					</table>
+					<p class="added_on">2018-06-29</p>
+					<p class="kana">UNION</p>
+					<p class="order">1004</p>
+					<p class="musictype">3</p>
+				</li>
+				<li>
+					<img class="jacket" src="/assets/jackets/dreaming-d0aac5c5318879a1db82cef5f23717d6ad1e066f0a552951330ec924cc0576ae.jpg" alt="Dreaming" />
+					<h3 class="title">Dreaming!</h3>
+					<img class="musictypeimage" src="/assets/musictypes/3-7ab4f84834a42642fd37f9e8278e913ea1b74b0fb91271094033a77547c44148.png" alt="3" />
+					<table class="scoretable">
+						<tr>
+								<th>2M</th>
+								<th>2M+</th>
+								<th>4M</th>
+								<th>6M</th>
+								<th>MM</th>
+						</tr>
+						<tr>
+								<td class="diff0 bms_exist_true">
+									<a href="/musics/dreaming/0">4</a>
+								</td>
+								<p class="diffnum diffnum0">4</p>
+								<td class="diff1 bms_exist_true">
+									<a href="/musics/dreaming/1">12</a>
+								</td>
+								<p class="diffnum diffnum1">12</p>
+								<td class="diff2 bms_exist_true">
+									<a href="/musics/dreaming/2">8</a>
+								</td>
+								<p class="diffnum diffnum2">8</p>
+								<td class="diff3 bms_exist_true">
+									<a href="/musics/dreaming/3">13</a>
+								</td>
+								<p class="diffnum diffnum3">13</p>
+								<td class="diff4 bms_exist_true">
+									<a href="/musics/dreaming/4">17</a>
+								</td>
+								<p class="diffnum diffnum4">17</p>
+						</tr>
+					</table>
+					<p class="added_on">2018-12-14</p>
+					<p class="kana">Dreaming</p>
+					<p class="order">1005</p>
+					<p class="musictype">3</p>
+				</li>
+				<li>
+					<img class="jacket" src="/assets/jackets/flyers-5c145a2d9a86fed531d65a35f7fc745890238d2830d24fdae89fee475365850e.jpg" alt="Flyers" />
+					<h3 class="title">Flyers!!!</h3>
+					<img class="musictypeimage" src="/assets/musictypes/3-7ab4f84834a42642fd37f9e8278e913ea1b74b0fb91271094033a77547c44148.png" alt="3" />
+					<table class="scoretable">
+						<tr>
+								<th>2M</th>
+								<th>2M+</th>
+								<th>4M</th>
+								<th>6M</th>
+								<th>MM</th>
+						</tr>
+						<tr>
+								<td class="diff0 bms_exist_true">
+									<a href="/musics/flyers/0">4</a>
+								</td>
+								<p class="diffnum diffnum0">4</p>
+								<td class="diff1 bms_exist_true">
+									<a href="/musics/flyers/1">11</a>
+								</td>
+								<p class="diffnum diffnum1">11</p>
+								<td class="diff2 bms_exist_true">
+									<a href="/musics/flyers/2">7</a>
+								</td>
+								<p class="diffnum diffnum2">7</p>
+								<td class="diff3 bms_exist_true">
+									<a href="/musics/flyers/3">12</a>
+								</td>
+								<p class="diffnum diffnum3">12</p>
+								<td class="diff4 bms_exist_true">
+									<a href="/musics/flyers/4">17</a>
+								</td>
+								<p class="diffnum diffnum4">17</p>
+						</tr>
+					</table>
+					<p class="added_on">2019-07-01</p>
+					<p class="kana">Flyers</p>
+					<p class="order">1006</p>
+					<p class="musictype">3</p>
+				</li>
+				<li>
+					<img class="jacket" src="/assets/jackets/utamas-231ded4416cf4b0ba03e0984ec6f3c804d4defa31f069e4a28fa17471d24d944.jpg" alt="Utamas" />
+					<h3 class="title">THE IDOLM@STER</h3>
+					<img class="musictypeimage" src="/assets/musictypes/3-7ab4f84834a42642fd37f9e8278e913ea1b74b0fb91271094033a77547c44148.png" alt="3" />
+					<table class="scoretable">
+						<tr>
+								<th>2M</th>
+								<th>2M+</th>
+								<th>4M</th>
+								<th>6M</th>
+								<th>MM</th>
+						</tr>
+						<tr>
+								<td class="diff0 bms_exist_true">
+									<a href="/musics/utamas/0">2</a>
+								</td>
+								<p class="diffnum diffnum0">2</p>
+								<td class="diff1 bms_exist_true">
+									<a href="/musics/utamas/1">11</a>
+								</td>
+								<p class="diffnum diffnum1">11</p>
+								<td class="diff2 bms_exist_true">
+									<a href="/musics/utamas/2">7</a>
+								</td>
+								<p class="diffnum diffnum2">7</p>
+								<td class="diff3 bms_exist_true">
+									<a href="/musics/utamas/3">12</a>
+								</td>
+								<p class="diffnum diffnum3">12</p>
+								<td class="diff4 bms_exist_true">
+									<a href="/musics/utamas/4">17</a>
+								</td>
+								<p class="diffnum diffnum4">17</p>
+						</tr>
+					</table>
+					<p class="added_on">2017-06-29</p>
+					<p class="kana">THE IDOLMASTER</p>
+					<p class="order">1101</p>
+					<p class="musictype">3</p>
+				</li>
+				<li>
+					<img class="jacket" src="/assets/jackets/jibure-e16d7f3ab16746d9e8f0510c2fed0c8b068b28ebad35176093cc96dacd8c46d4.jpg" alt="Jibure" />
+					<h3 class="title">自分REST＠RT</h3>
+					<img class="musictypeimage" src="/assets/musictypes/3-7ab4f84834a42642fd37f9e8278e913ea1b74b0fb91271094033a77547c44148.png" alt="3" />
+					<table class="scoretable">
+						<tr>
+								<th>2M</th>
+								<th>2M+</th>
+								<th>4M</th>
+								<th>6M</th>
+								<th>MM</th>
+						</tr>
+						<tr>
+								<td class="diff0 bms_exist_true">
+									<a href="/musics/jibure/0">4</a>
+								</td>
+								<p class="diffnum diffnum0">4</p>
+								<td class="diff1 bms_exist_true">
+									<a href="/musics/jibure/1">10</a>
+								</td>
+								<p class="diffnum diffnum1">10</p>
+								<td class="diff2 bms_exist_true">
+									<a href="/musics/jibure/2">7</a>
+								</td>
+								<p class="diffnum diffnum2">7</p>
+								<td class="diff3 bms_exist_true">
+									<a href="/musics/jibure/3">12</a>
+								</td>
+								<p class="diffnum diffnum3">12</p>
+								<td class="diff4 bms_exist_true">
+									<a href="/musics/jibure/4">18</a>
+								</td>
+								<p class="diffnum diffnum4">18</p>
+						</tr>
+					</table>
+					<p class="added_on">2017-10-08</p>
+					<p class="kana">じぶんRESTART</p>
+					<p class="order">1201</p>
+					<p class="musictype">3</p>
+				</li>
+				<li>
+					<img class="jacket" src="/assets/jackets/ready-09337458af9b6a99a88aeb3e3d53c096f2dbe99d7e9d8c1f83aead3ebde5667a.jpg" alt="Ready" />
+					<h3 class="title">READY!!</h3>
+					<img class="musictypeimage" src="/assets/musictypes/3-7ab4f84834a42642fd37f9e8278e913ea1b74b0fb91271094033a77547c44148.png" alt="3" />
+					<table class="scoretable">
+						<tr>
+								<th>2M</th>
+								<th>2M+</th>
+								<th>4M</th>
+								<th>6M</th>
+								<th>MM</th>
+						</tr>
+						<tr>
+								<td class="diff0 bms_exist_true">
+									<a href="/musics/ready/0">3</a>
+								</td>
+								<p class="diffnum diffnum0">3</p>
+								<td class="diff1 bms_exist_true">
+									<a href="/musics/ready/1">10</a>
+								</td>
+								<p class="diffnum diffnum1">10</p>
+								<td class="diff2 bms_exist_true">
+									<a href="/musics/ready/2">7</a>
+								</td>
+								<p class="diffnum diffnum2">7</p>
+								<td class="diff3 bms_exist_true">
+									<a href="/musics/ready/3">11</a>
+								</td>
+								<p class="diffnum diffnum3">11</p>
+								<td class="diff4 bms_exist_true">
+									<a href="/musics/ready/4">16</a>
+								</td>
+								<p class="diffnum diffnum4">16</p>
+						</tr>
+					</table>
+					<p class="added_on">2018-01-07</p>
+					<p class="kana">READY</p>
+					<p class="order">1202</p>
+					<p class="musictype">3</p>
+						<!-- <div class="ad-infeed">
+							<script type="text/javascript">
+								var nend_params = {"media":41408, "site":287098, "spot":838045, "type":10, "oriented":1};
+							</script>
+							<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+							<ins class="adsbygoogle"
+								style="display:block"
+								data-ad-format="fluid"
+								data-ad-layout-key="-hl-4+2z-7s+4c"
+								data-ad-client="ca-pub-1154104535471881"
+								data-ad-slot="7155950731"></ins>
+							<script>
+								(adsbygoogle = window.adsbygoogle || []).push({});
+							</script>
+						</div> -->
+				</li>
+				<li>
+					<img class="jacket" src="/assets/jackets/machipri-c6e258b212a3a89ddfb4b8d6f2549280849036f4430baeebb09511228ab4d329.jpg" alt="Machipri" />
+					<h3 class="title">待ち受けプリンス</h3>
+					<img class="musictypeimage" src="/assets/musictypes/3-7ab4f84834a42642fd37f9e8278e913ea1b74b0fb91271094033a77547c44148.png" alt="3" />
+					<table class="scoretable">
+						<tr>
+								<th>2M</th>
+								<th>2M+</th>
+								<th>4M</th>
+								<th>6M</th>
+								<th>MM</th>
+						</tr>
+						<tr>
+								<td class="diff0 bms_exist_true">
+									<a href="/musics/machipri/0">5</a>
+								</td>
+								<p class="diffnum diffnum0">5</p>
+								<td class="diff1 bms_exist_true">
+									<a href="/musics/machipri/1">11</a>
+								</td>
+								<p class="diffnum diffnum1">11</p>
+								<td class="diff2 bms_exist_true">
+									<a href="/musics/machipri/2">8</a>
+								</td>
+								<p class="diffnum diffnum2">8</p>
+								<td class="diff3 bms_exist_true">
+									<a href="/musics/machipri/3">12</a>
+								</td>
+								<p class="diffnum diffnum3">12</p>
+								<td class="diff4 bms_exist_true">
+									<a href="/musics/machipri/4">18</a>
+								</td>
+								<p class="diffnum diffnum4">18</p>
+						</tr>
+					</table>
+					<p class="added_on">2018-04-01</p>
+					<p class="kana">まちうけぷりんす</p>
+					<p class="order">1203</p>
+					<p class="musictype">3</p>
+				</li>
+				<li>
+					<img class="jacket" src="/assets/jackets/top-fe8b83389247f76cbc81e25f6a8634bf91b9f07d09d2eea3621809e27368e883.jpg" alt="Top" />
+					<h3 class="title">ToP!!!!!!!!!!!!!</h3>
+					<img class="musictypeimage" src="/assets/musictypes/3-7ab4f84834a42642fd37f9e8278e913ea1b74b0fb91271094033a77547c44148.png" alt="3" />
+					<table class="scoretable">
+						<tr>
+								<th>2M</th>
+								<th>2M+</th>
+								<th>4M</th>
+								<th>6M</th>
+								<th>MM</th>
+						</tr>
+						<tr>
+								<td class="diff0 bms_exist_true">
+									<a href="/musics/top/0">4</a>
+								</td>
+								<p class="diffnum diffnum0">4</p>
+								<td class="diff1 bms_exist_true">
+									<a href="/musics/top/1">11</a>
+								</td>
+								<p class="diffnum diffnum1">11</p>
+								<td class="diff2 bms_exist_true">
+									<a href="/musics/top/2">7</a>
+								</td>
+								<p class="diffnum diffnum2">7</p>
+								<td class="diff3 bms_exist_true">
+									<a href="/musics/top/3">12</a>
+								</td>
+								<p class="diffnum diffnum3">12</p>
+								<td class="diff4 bms_exist_true">
+									<a href="/musics/top/4">16</a>
+								</td>
+								<p class="diffnum diffnum4">16</p>
+						</tr>
+					</table>
+					<p class="added_on">2018-08-05</p>
+					<p class="kana">top</p>
+					<p class="order">1204</p>
+					<p class="musictype">3</p>
+				</li>
+				<li>
+					<img class="jacket" src="/assets/jackets/merry-1a11c0a65503682ec126d986b56167ea50ec04edac82a6011bf9d709a6b00614.jpg" alt="Merry" />
+					<h3 class="title">メリー</h3>
+					<img class="musictypeimage" src="/assets/musictypes/3-7ab4f84834a42642fd37f9e8278e913ea1b74b0fb91271094033a77547c44148.png" alt="3" />
+					<table class="scoretable">
+						<tr>
+								<th>2M</th>
+								<th>2M+</th>
+								<th>4M</th>
+								<th>6M</th>
+								<th>MM</th>
+						</tr>
+						<tr>
+								<td class="diff0 bms_exist_true">
+									<a href="/musics/merry/0">4</a>
+								</td>
+								<p class="diffnum diffnum0">4</p>
+								<td class="diff1 bms_exist_true">
+									<a href="/musics/merry/1">11</a>
+								</td>
+								<p class="diffnum diffnum1">11</p>
+								<td class="diff2 bms_exist_true">
+									<a href="/musics/merry/2">8</a>
+								</td>
+								<p class="diffnum diffnum2">8</p>
+								<td class="diff3 bms_exist_true">
+									<a href="/musics/merry/3">12</a>
+								</td>
+								<p class="diffnum diffnum3">12</p>
+								<td class="diff4 bms_exist_true">
+									<a href="/musics/merry/4">17</a>
+								</td>
+								<p class="diffnum diffnum4">17</p>
+						</tr>
+					</table>
+					<p class="added_on">2018-12-25</p>
+					<p class="kana">めりー</p>
+					<p class="order">1205</p>
+					<p class="musictype">3</p>
+				</li>
+				<li>
+					<img class="jacket" src="/assets/jackets/overmas-8946e51e98aab52a3e92f8f5ae3ecd9293191e0092047a6af533368e251df742.jpg" alt="Overmas" />
+					<h3 class="title">オーバーマスター</h3>
+					<img class="musictypeimage" src="/assets/musictypes/3-7ab4f84834a42642fd37f9e8278e913ea1b74b0fb91271094033a77547c44148.png" alt="3" />
+					<table class="scoretable">
+						<tr>
+								<th>2M</th>
+								<th>2M+</th>
+								<th>4M</th>
+								<th>6M</th>
+								<th>MM</th>
+						</tr>
+						<tr>
+								<td class="diff0 bms_exist_true">
+									<a href="/musics/overmas/0">4</a>
+								</td>
+								<p class="diffnum diffnum0">4</p>
+								<td class="diff1 bms_exist_true">
+									<a href="/musics/overmas/1">11</a>
+								</td>
+								<p class="diffnum diffnum1">11</p>
+								<td class="diff2 bms_exist_true">
+									<a href="/musics/overmas/2">7</a>
+								</td>
+								<p class="diffnum diffnum2">7</p>
+								<td class="diff3 bms_exist_true">
+									<a href="/musics/overmas/3">12</a>
+								</td>
+								<p class="diffnum diffnum3">12</p>
+								<td class="diff4 bms_exist_true">
+									<a href="/musics/overmas/4">17</a>
+								</td>
+								<p class="diffnum diffnum4">17</p>
+						</tr>
+					</table>
+					<p class="added_on">2019-03-29</p>
+					<p class="kana">おーばーますたー</p>
+					<p class="order">1206</p>
+					<p class="musictype">3</p>
+				</li>
+				<li>
+					<img class="jacket" src="/assets/jackets/leader-b858855cf8d792fee70b34876d8b96885f93e573c7537cd47d089f4a147843dd.jpg" alt="Leader" />
+					<h3 class="title">LEADER!!</h3>
+					<img class="musictypeimage" src="/assets/musictypes/3-7ab4f84834a42642fd37f9e8278e913ea1b74b0fb91271094033a77547c44148.png" alt="3" />
+					<table class="scoretable">
+						<tr>
+								<th>2M</th>
+								<th>2M+</th>
+								<th>4M</th>
+								<th>6M</th>
+								<th>MM</th>
+						</tr>
+						<tr>
+								<td class="diff0 bms_exist_true">
+									<a href="/musics/leader/0">4</a>
+								</td>
+								<p class="diffnum diffnum0">4</p>
+								<td class="diff1 bms_exist_true">
+									<a href="/musics/leader/1">10</a>
+								</td>
+								<p class="diffnum diffnum1">10</p>
+								<td class="diff2 bms_exist_true">
+									<a href="/musics/leader/2">7</a>
+								</td>
+								<p class="diffnum diffnum2">7</p>
+								<td class="diff3 bms_exist_true">
+									<a href="/musics/leader/3">11</a>
+								</td>
+								<p class="diffnum diffnum3">11</p>
+								<td class="diff4 bms_exist_true">
+									<a href="/musics/leader/4">17</a>
+								</td>
+								<p class="diffnum diffnum4">17</p>
+						</tr>
+					</table>
+					<p class="added_on">2019-05-20</p>
+					<p class="kana">LEADER</p>
+					<p class="order">1207</p>
+					<p class="musictype">3</p>
+				</li>
+				<li>
+					<img class="jacket" src="/assets/jackets/music-71fe4d128dd1db1561762492894ede85b9758ab52d110850d25b3df6d5d27350.jpg" alt="Music" />
+					<h3 class="title">MUSIC♪</h3>
+					<img class="musictypeimage" src="/assets/musictypes/3-7ab4f84834a42642fd37f9e8278e913ea1b74b0fb91271094033a77547c44148.png" alt="3" />
+					<table class="scoretable">
+						<tr>
+								<th>2M</th>
+								<th>2M+</th>
+								<th>4M</th>
+								<th>6M</th>
+								<th>MM</th>
+						</tr>
+						<tr>
+								<td class="diff0 bms_exist_true">
+									<a href="/musics/music/0">4</a>
+								</td>
+								<p class="diffnum diffnum0">4</p>
+								<td class="diff1 bms_exist_true">
+									<a href="/musics/music/1">12</a>
+								</td>
+								<p class="diffnum diffnum1">12</p>
+								<td class="diff2 bms_exist_true">
+									<a href="/musics/music/2">8</a>
+								</td>
+								<p class="diffnum diffnum2">8</p>
+								<td class="diff3 bms_exist_true">
+									<a href="/musics/music/3">13</a>
+								</td>
+								<p class="diffnum diffnum3">13</p>
+								<td class="diff4 bms_exist_true">
+									<a href="/musics/music/4">18</a>
+								</td>
+								<p class="diffnum diffnum4">18</p>
+						</tr>
+					</table>
+					<p class="added_on">2019-06-27</p>
+					<p class="kana">MUSIC</p>
+					<p class="order">1208</p>
+					<p class="musictype">3</p>
+				</li>
+				<li>
+					<img class="jacket" src="/assets/jackets/vampiregirl-79ecca7f73c22aff48401e897ee96db793d206a2d90cef159035db85b5b77a5f.jpg" alt="Vampiregirl" />
+					<h3 class="title">きゅんっ!ヴァンパイアガール</h3>
+					<img class="musictypeimage" src="/assets/musictypes/3-7ab4f84834a42642fd37f9e8278e913ea1b74b0fb91271094033a77547c44148.png" alt="3" />
+					<table class="scoretable">
+						<tr>
+								<th>2M</th>
+								<th>2M+</th>
+								<th>4M</th>
+								<th>6M</th>
+								<th>MM</th>
+						</tr>
+						<tr>
+								<td class="diff0 bms_exist_true">
+									<a href="/musics/vampiregirl/0">4</a>
+								</td>
+								<p class="diffnum diffnum0">4</p>
+								<td class="diff1 bms_exist_true">
+									<a href="/musics/vampiregirl/1">10</a>
+								</td>
+								<p class="diffnum diffnum1">10</p>
+								<td class="diff2 bms_exist_true">
+									<a href="/musics/vampiregirl/2">7</a>
+								</td>
+								<p class="diffnum diffnum2">7</p>
+								<td class="diff3 bms_exist_true">
+									<a href="/musics/vampiregirl/3">11</a>
+								</td>
+								<p class="diffnum diffnum3">11</p>
+								<td class="diff4 bms_exist_true">
+									<a href="/musics/vampiregirl/4">16</a>
+								</td>
+								<p class="diffnum diffnum4">16</p>
+						</tr>
+					</table>
+					<p class="added_on">2019-09-27</p>
+					<p class="kana">きゅんっゔぁんぱいあがーる</p>
+					<p class="order">1209</p>
+					<p class="musictype">3</p>
+				</li>
+				<li>
+					<img class="jacket" src="/assets/jackets/invjus-04b712df93da66d895a67b676980027cf1e5f4ebd09fd4747eb91ef054fb0039.jpg" alt="Invjus" />
+					<h3 class="title">インヴィンシブル・ジャスティス</h3>
+					<img class="musictypeimage" src="/assets/musictypes/3-7ab4f84834a42642fd37f9e8278e913ea1b74b0fb91271094033a77547c44148.png" alt="3" />
+					<table class="scoretable">
+						<tr>
+								<th>2M</th>
+								<th>2M+</th>
+								<th>4M</th>
+								<th>6M</th>
+								<th>MM</th>
+						</tr>
+						<tr>
+								<td class="diff0 bms_exist_true">
+									<a href="/musics/invjus/0">4</a>
+								</td>
+								<p class="diffnum diffnum0">4</p>
+								<td class="diff1 bms_exist_true">
+									<a href="/musics/invjus/1">11</a>
+								</td>
+								<p class="diffnum diffnum1">11</p>
+								<td class="diff2 bms_exist_true">
+									<a href="/musics/invjus/2">7</a>
+								</td>
+								<p class="diffnum diffnum2">7</p>
+								<td class="diff3 bms_exist_true">
+									<a href="/musics/invjus/3">12</a>
+								</td>
+								<p class="diffnum diffnum3">12</p>
+								<td class="diff4 bms_exist_true">
+									<a href="/musics/invjus/4">17</a>
+								</td>
+								<p class="diffnum diffnum4">17</p>
+						</tr>
+					</table>
+					<p class="added_on">2019-04-01</p>
+					<p class="kana">いんゔぃんしぶるじゃすてぃす</p>
+					<p class="order">1403</p>
+					<p class="musictype">3</p>
+				</li>
+				<li>
+					<img class="jacket" src="/assets/jackets/jusvoi-04c4c1e657f857cdb8257a000be00e37e6c529254b36921077a19221c5732ac2.jpg" alt="Jusvoi" />
+					<h3 class="title">Justice OR Voice</h3>
+					<img class="musictypeimage" src="/assets/musictypes/3-7ab4f84834a42642fd37f9e8278e913ea1b74b0fb91271094033a77547c44148.png" alt="3" />
+					<table class="scoretable">
+						<tr>
+								<th>2M</th>
+								<th>2M+</th>
+								<th>4M</th>
+								<th>6M</th>
+								<th>MM</th>
+						</tr>
+						<tr>
+								<td class="diff0 bms_exist_true">
+									<a href="/musics/jusvoi/0">4</a>
+								</td>
+								<p class="diffnum diffnum0">4</p>
+								<td class="diff1 bms_exist_true">
+									<a href="/musics/jusvoi/1">12</a>
+								</td>
+								<p class="diffnum diffnum1">12</p>
+								<td class="diff2 bms_exist_true">
+									<a href="/musics/jusvoi/2">7</a>
+								</td>
+								<p class="diffnum diffnum2">7</p>
+								<td class="diff3 bms_exist_true">
+									<a href="/musics/jusvoi/3">13</a>
+								</td>
+								<p class="diffnum diffnum3">13</p>
+								<td class="diff4 bms_exist_true">
+									<a href="/musics/jusvoi/4">18</a>
+								</td>
+								<p class="diffnum diffnum4">18</p>
+						</tr>
+					</table>
+					<p class="added_on">2019-04-02</p>
+					<p class="kana">Justice OR Voice</p>
+					<p class="order">1500</p>
+					<p class="musictype">3</p>
+				</li>
+				<li>
+					<img class="jacket" src="/assets/jackets/kokokae-eebf4db29432d041855639b252f9570bbd6c6ef190bf6d38445264a685faa768.jpg" alt="Kokokae" />
+					<h3 class="title">ココロがかえる場所</h3>
+					<img class="musictypeimage" src="/assets/musictypes/0-b88f61a6ecab0e60a288b49f1c83cc68a8b8364d1d29d90348a20e1f32003c6a.png" alt="0" />
+					<table class="scoretable">
+						<tr>
+								<th>2M</th>
+								<th>2M+</th>
+								<th>4M</th>
+								<th>6M</th>
+								<th>MM</th>
+						</tr>
+						<tr>
+								<td class="diff0 bms_exist_true">
+									<a href="/musics/kokokae/0">2</a>
+								</td>
+								<p class="diffnum diffnum0">2</p>
+								<td class="diff1 bms_exist_true">
+									<a href="/musics/kokokae/1">8</a>
+								</td>
+								<p class="diffnum diffnum1">8</p>
+								<td class="diff2 bms_exist_true">
+									<a href="/musics/kokokae/2">5</a>
+								</td>
+								<p class="diffnum diffnum2">5</p>
+								<td class="diff3 bms_exist_true">
+									<a href="/musics/kokokae/3">9</a>
+								</td>
+								<p class="diffnum diffnum3">9</p>
+								<td class="diff4 bms_exist_true">
+									<a href="/musics/kokokae/4">13</a>
+								</td>
+								<p class="diffnum diffnum4">13</p>
+						</tr>
+					</table>
+					<p class="added_on">2017-06-29</p>
+					<p class="kana">こころがかえるばしょ</p>
+					<p class="order">2001</p>
+					<p class="musictype">0</p>
+				</li>
+				<li>
+					<img class="jacket" src="/assets/jackets/sympho-4f8c24234ace8f10b70016d8035fe8a08ac4e2ec6e305923ca0719a6d763b14b.jpg" alt="Sympho" />
+					<h3 class="title">Blue Symphony</h3>
+					<img class="musictypeimage" src="/assets/musictypes/1-c83a4defb0f7fd6d47d3e58aacef446916b4f1a7f16628081d36706d76a6c610.png" alt="1" />
+					<table class="scoretable">
+						<tr>
+								<th>2M</th>
+								<th>2M+</th>
+								<th>4M</th>
+								<th>6M</th>
+								<th>MM</th>
+						</tr>
+						<tr>
+								<td class="diff0 bms_exist_true">
+									<a href="/musics/sympho/0">3</a>
+								</td>
+								<p class="diffnum diffnum0">3</p>
+								<td class="diff1 bms_exist_true">
+									<a href="/musics/sympho/1">10</a>
+								</td>
+								<p class="diffnum diffnum1">10</p>
+								<td class="diff2 bms_exist_true">
+									<a href="/musics/sympho/2">6</a>
+								</td>
+								<p class="diffnum diffnum2">6</p>
+								<td class="diff3 bms_exist_true">
+									<a href="/musics/sympho/3">11</a>
+								</td>
+								<p class="diffnum diffnum3">11</p>
+								<td class="diff4 bms_exist_true">
+									<a href="/musics/sympho/4">16</a>
+								</td>
+								<p class="diffnum diffnum4">16</p>
+						</tr>
+					</table>
+					<p class="added_on">2017-06-29</p>
+					<p class="kana">Blue Symphony</p>
+					<p class="order">2002</p>
+					<p class="musictype">1</p>
+				</li>
+				<li>
+					<img class="jacket" src="/assets/jackets/senti-388835e6f219881343a9889f45d742d49158e5c3cbf0d16444f0d79d9eef1fb5.jpg" alt="Senti" />
+					<h3 class="title">Sentimental Venus</h3>
+					<img class="musictypeimage" src="/assets/musictypes/1-c83a4defb0f7fd6d47d3e58aacef446916b4f1a7f16628081d36706d76a6c610.png" alt="1" />
+					<table class="scoretable">
+						<tr>
+								<th>2M</th>
+								<th>2M+</th>
+								<th>4M</th>
+								<th>6M</th>
+								<th>MM</th>
+						</tr>
+						<tr>
+								<td class="diff0 bms_exist_true">
+									<a href="/musics/senti/0">4</a>
+								</td>
+								<p class="diffnum diffnum0">4</p>
+								<td class="diff1 bms_exist_true">
+									<a href="/musics/senti/1">11</a>
+								</td>
+								<p class="diffnum diffnum1">11</p>
+								<td class="diff2 bms_exist_true">
+									<a href="/musics/senti/2">7</a>
+								</td>
+								<p class="diffnum diffnum2">7</p>
+								<td class="diff3 bms_exist_true">
+									<a href="/musics/senti/3">12</a>
+								</td>
+								<p class="diffnum diffnum3">12</p>
+								<td class="diff4 bms_exist_true">
+									<a href="/musics/senti/4">16</a>
+								</td>
+								<p class="diffnum diffnum4">16</p>
+						</tr>
+					</table>
+					<p class="added_on">2017-06-29</p>
+					<p class="kana">Sentimental Venus</p>
+					<p class="order">2003</p>
+					<p class="musictype">1</p>
+				</li>
+				<li>
+					<img class="jacket" src="/assets/jackets/neversleep-31f27b4d68d15bc7e118759a4be40c6e619a815c3d77e9a9b43ed8a4dd508078.jpg" alt="Neversleep" />
+					<h3 class="title">Marionetteは眠らない</h3>
+					<img class="musictypeimage" src="/assets/musictypes/2-44c8eb726796f5d53966ac2e47d287cab7247c05e5c577c10e5afd6bb334cfea.png" alt="2" />
+					<table class="scoretable">
+						<tr>
+								<th>2M</th>
+								<th>2M+</th>
+								<th>4M</th>
+								<th>6M</th>
+								<th>MM</th>
+						</tr>
+						<tr>
+								<td class="diff0 bms_exist_true">
+									<a href="/musics/neversleep/0">4</a>
+								</td>
+								<p class="diffnum diffnum0">4</p>
+								<td class="diff1 bms_exist_true">
+									<a href="/musics/neversleep/1">11</a>
+								</td>
+								<p class="diffnum diffnum1">11</p>
+								<td class="diff2 bms_exist_true">
+									<a href="/musics/neversleep/2">7</a>
+								</td>
+								<p class="diffnum diffnum2">7</p>
+								<td class="diff3 bms_exist_true">
+									<a href="/musics/neversleep/3">12</a>
+								</td>
+								<p class="diffnum diffnum3">12</p>
+								<td class="diff4 bms_exist_true">
+									<a href="/musics/neversleep/4">17</a>
+								</td>
+								<p class="diffnum diffnum4">17</p>
+						</tr>
+					</table>
+					<p class="added_on">2017-06-29</p>
+					<p class="kana">Marionetteはねむらない</p>
+					<p class="order">2004</p>
+					<p class="musictype">2</p>
+				</li>
+				<li>
+					<img class="jacket" src="/assets/jackets/sss-20980933b76367697e7d1109c93189c13173d0ca2699d6a9d456639cc5131f05.jpg" alt="Sss" />
+					<h3 class="title">Shooting Stars</h3>
+					<img class="musictypeimage" src="/assets/musictypes/1-c83a4defb0f7fd6d47d3e58aacef446916b4f1a7f16628081d36706d76a6c610.png" alt="1" />
+					<table class="scoretable">
+						<tr>
+								<th>2M</th>
+								<th>2M+</th>
+								<th>4M</th>
+								<th>6M</th>
+								<th>MM</th>
+						</tr>
+						<tr>
+								<td class="diff0 bms_exist_true">
+									<a href="/musics/sss/0">3</a>
+								</td>
+								<p class="diffnum diffnum0">3</p>
+								<td class="diff1 bms_exist_true">
+									<a href="/musics/sss/1">10</a>
+								</td>
+								<p class="diffnum diffnum1">10</p>
+								<td class="diff2 bms_exist_true">
+									<a href="/musics/sss/2">7</a>
+								</td>
+								<p class="diffnum diffnum2">7</p>
+								<td class="diff3 bms_exist_true">
+									<a href="/musics/sss/3">12</a>
+								</td>
+								<p class="diffnum diffnum3">12</p>
+								<td class="diff4 bms_exist_true">
+									<a href="/musics/sss/4">17</a>
+								</td>
+								<p class="diffnum diffnum4">17</p>
+						</tr>
+					</table>
+					<p class="added_on">2017-08-12</p>
+					<p class="kana">Shooting Stars</p>
+					<p class="order">2005</p>
+					<p class="musictype">1</p>
+				</li>
+				<li>
+					<img class="jacket" src="/assets/jackets/goodsleep-834d569f674e9153df46ceed0de398b59265f36f97e1779c86d3c4d3329e5a42.jpg" alt="Goodsleep" />
+					<h3 class="title">Good-Sleep, Baby♡</h3>
+					<img class="musictypeimage" src="/assets/musictypes/2-44c8eb726796f5d53966ac2e47d287cab7247c05e5c577c10e5afd6bb334cfea.png" alt="2" />
+					<table class="scoretable">
+						<tr>
+								<th>2M</th>
+								<th>2M+</th>
+								<th>4M</th>
+								<th>6M</th>
+								<th>MM</th>
+						</tr>
+						<tr>
+								<td class="diff0 bms_exist_true">
+									<a href="/musics/goodsleep/0">3</a>
+								</td>
+								<p class="diffnum diffnum0">3</p>
+								<td class="diff1 bms_exist_true">
+									<a href="/musics/goodsleep/1">9</a>
+								</td>
+								<p class="diffnum diffnum1">9</p>
+								<td class="diff2 bms_exist_true">
+									<a href="/musics/goodsleep/2">6</a>
+								</td>
+								<p class="diffnum diffnum2">6</p>
+								<td class="diff3 bms_exist_true">
+									<a href="/musics/goodsleep/3">10</a>
+								</td>
+								<p class="diffnum diffnum3">10</p>
+								<td class="diff4 bms_exist_true">
+									<a href="/musics/goodsleep/4">16</a>
+								</td>
+								<p class="diffnum diffnum4">16</p>
+						</tr>
+					</table>
+					<p class="added_on">2017-09-08</p>
+					<p class="kana">Good-Sleep, Baby♡</p>
+					<p class="order">2006</p>
+					<p class="musictype">2</p>
+				</li>
+				<li>
+					<img class="jacket" src="/assets/jackets/grosto-8f7e5923726bacbe2927616ae9d07d4689b9ba3559e94ea1777cea11b1e929e9.jpg" alt="Grosto" />
+					<h3 class="title">Growing Storm!</h3>
+					<img class="musictypeimage" src="/assets/musictypes/0-b88f61a6ecab0e60a288b49f1c83cc68a8b8364d1d29d90348a20e1f32003c6a.png" alt="0" />
+					<table class="scoretable">
+						<tr>
+								<th>2M</th>
+								<th>2M+</th>
+								<th>4M</th>
+								<th>6M</th>
+								<th>MM</th>
+						</tr>
+						<tr>
+								<td class="diff0 bms_exist_true">
+									<a href="/musics/grosto/0">4</a>
+								</td>
+								<p class="diffnum diffnum0">4</p>
+								<td class="diff1 bms_exist_true">
+									<a href="/musics/grosto/1">11</a>
+								</td>
+								<p class="diffnum diffnum1">11</p>
+								<td class="diff2 bms_exist_true">
+									<a href="/musics/grosto/2">7</a>
+								</td>
+								<p class="diffnum diffnum2">7</p>
+								<td class="diff3 bms_exist_true">
+									<a href="/musics/grosto/3">11</a>
+								</td>
+								<p class="diffnum diffnum3">11</p>
+								<td class="diff4 bms_exist_true">
+									<a href="/musics/grosto/4">17</a>
+								</td>
+								<p class="diffnum diffnum4">17</p>
+						</tr>
+					</table>
+					<p class="added_on">2017-09-30</p>
+					<p class="kana">Growing Storm!</p>
+					<p class="order">2007</p>
+					<p class="musictype">0</p>
+				</li>
+				<li>
+					<img class="jacket" src="/assets/jackets/fairytale-407f68172a6fd36b79e7b2a59b8fa626e26302522fe569aab573379181804d64.jpg" alt="Fairytale" />
+					<h3 class="title">FairyTaleじゃいられない</h3>
+					<img class="musictypeimage" src="/assets/musictypes/1-c83a4defb0f7fd6d47d3e58aacef446916b4f1a7f16628081d36706d76a6c610.png" alt="1" />
+					<table class="scoretable">
+						<tr>
+								<th>2M</th>
+								<th>2M+</th>
+								<th>4M</th>
+								<th>6M</th>
+								<th>MM</th>
+						</tr>
+						<tr>
+								<td class="diff0 bms_exist_true">
+									<a href="/musics/fairytale/0">4</a>
+								</td>
+								<p class="diffnum diffnum0">4</p>
+								<td class="diff1 bms_exist_true">
+									<a href="/musics/fairytale/1">12</a>
+								</td>
+								<p class="diffnum diffnum1">12</p>
+								<td class="diff2 bms_exist_true">
+									<a href="/musics/fairytale/2">8</a>
+								</td>
+								<p class="diffnum diffnum2">8</p>
+								<td class="diff3 bms_exist_true">
+									<a href="/musics/fairytale/3">13</a>
+								</td>
+								<p class="diffnum diffnum3">13</p>
+								<td class="diff4 bms_exist_true">
+									<a href="/musics/fairytale/4">17</a>
+								</td>
+								<p class="diffnum diffnum4">17</p>
+						</tr>
+					</table>
+					<p class="added_on">2017-10-20</p>
+					<p class="kana">FairyTaleじゃいられない</p>
+					<p class="order">2008</p>
+					<p class="musictype">1</p>
+				</li>
+				<li>
+					<img class="jacket" src="/assets/jackets/standing-0f5f91f9eb0718ae06b7e602d0f59e715adcb35bab87711fcb51c4aceb6b3e0a.jpg" alt="Standing" />
+					<h3 class="title">STANDING ALIVE</h3>
+					<img class="musictypeimage" src="/assets/musictypes/2-44c8eb726796f5d53966ac2e47d287cab7247c05e5c577c10e5afd6bb334cfea.png" alt="2" />
+					<table class="scoretable">
+						<tr>
+								<th>2M</th>
+								<th>2M+</th>
+								<th>4M</th>
+								<th>6M</th>
+								<th>MM</th>
+						</tr>
+						<tr>
+								<td class="diff0 bms_exist_true">
+									<a href="/musics/standing/0">3</a>
+								</td>
+								<p class="diffnum diffnum0">3</p>
+								<td class="diff1 bms_exist_true">
+									<a href="/musics/standing/1">9</a>
+								</td>
+								<p class="diffnum diffnum1">9</p>
+								<td class="diff2 bms_exist_true">
+									<a href="/musics/standing/2">6</a>
+								</td>
+								<p class="diffnum diffnum2">6</p>
+								<td class="diff3 bms_exist_true">
+									<a href="/musics/standing/3">11</a>
+								</td>
+								<p class="diffnum diffnum3">11</p>
+								<td class="diff4 bms_exist_true">
+									<a href="/musics/standing/4">16</a>
+								</td>
+								<p class="diffnum diffnum4">16</p>
+						</tr>
+					</table>
+					<p class="added_on">2017-11-01</p>
+					<p class="kana">STANDING ALIVE</p>
+					<p class="order">2009</p>
+					<p class="musictype">2</p>
+				</li>
+				<li>
+					<img class="jacket" src="/assets/jackets/anpara-dc6cdcbf5e0e68e676218fe52517c874d2c458693e3fe66a610791371fa36f33.jpg" alt="Anpara" />
+					<h3 class="title">Angelic Parade♪</h3>
+					<img class="musictypeimage" src="/assets/musictypes/2-44c8eb726796f5d53966ac2e47d287cab7247c05e5c577c10e5afd6bb334cfea.png" alt="2" />
+					<table class="scoretable">
+						<tr>
+								<th>2M</th>
+								<th>2M+</th>
+								<th>4M</th>
+								<th>6M</th>
+								<th>MM</th>
+						</tr>
+						<tr>
+								<td class="diff0 bms_exist_true">
+									<a href="/musics/anpara/0">4</a>
+								</td>
+								<p class="diffnum diffnum0">4</p>
+								<td class="diff1 bms_exist_true">
+									<a href="/musics/anpara/1">9</a>
+								</td>
+								<p class="diffnum diffnum1">9</p>
+								<td class="diff2 bms_exist_true">
+									<a href="/musics/anpara/2">8</a>
+								</td>
+								<p class="diffnum diffnum2">8</p>
+								<td class="diff3 bms_exist_true">
+									<a href="/musics/anpara/3">11</a>
+								</td>
+								<p class="diffnum diffnum3">11</p>
+								<td class="diff4 bms_exist_true">
+									<a href="/musics/anpara/4">17</a>
+								</td>
+								<p class="diffnum diffnum4">17</p>
+						</tr>
+					</table>
+					<p class="added_on">2017-11-21</p>
+					<p class="kana">Angelic Parade</p>
+					<p class="order">2010</p>
+					<p class="musictype">2</p>
+				</li>
+				<li>
+					<img class="jacket" src="/assets/jackets/dretra-c3f8419e7c67fba68fb01d05c99848511e36fbf6966cac4a53149a8bba9de498.jpg" alt="Dretra" />
+					<h3 class="title">ドリームトラベラー</h3>
+					<img class="musictypeimage" src="/assets/musictypes/2-44c8eb726796f5d53966ac2e47d287cab7247c05e5c577c10e5afd6bb334cfea.png" alt="2" />
+					<table class="scoretable">
+						<tr>
+								<th>2M</th>
+								<th>2M+</th>
+								<th>4M</th>
+								<th>6M</th>
+								<th>MM</th>
+						</tr>
+						<tr>
+								<td class="diff0 bms_exist_true">
+									<a href="/musics/dretra/0">4</a>
+								</td>
+								<p class="diffnum diffnum0">4</p>
+								<td class="diff1 bms_exist_true">
+									<a href="/musics/dretra/1">11</a>
+								</td>
+								<p class="diffnum diffnum1">11</p>
+								<td class="diff2 bms_exist_true">
+									<a href="/musics/dretra/2">7</a>
+								</td>
+								<p class="diffnum diffnum2">7</p>
+								<td class="diff3 bms_exist_true">
+									<a href="/musics/dretra/3">12</a>
+								</td>
+								<p class="diffnum diffnum3">12</p>
+								<td class="diff4 bms_exist_true">
+									<a href="/musics/dretra/4">16</a>
+								</td>
+								<p class="diffnum diffnum4">16</p>
+						</tr>
+					</table>
+					<p class="added_on">2017-11-21</p>
+					<p class="kana">ドリームトラベラー</p>
+					<p class="order">2011</p>
+					<p class="musictype">2</p>
+						<!-- <div class="ad-infeed">
+							<script type="text/javascript">
+								var nend_params = {"media":41408, "site":287098, "spot":838045, "type":10, "oriented":1};
+							</script>
+							<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+							<ins class="adsbygoogle"
+								style="display:block"
+								data-ad-format="fluid"
+								data-ad-layout-key="-hl-4+2z-7s+4c"
+								data-ad-client="ca-pub-1154104535471881"
+								data-ad-slot="7155950731"></ins>
+							<script>
+								(adsbygoogle = window.adsbygoogle || []).push({});
+							</script>
+						</div> -->
+				</li>
+				<li>
+					<img class="jacket" src="/assets/jackets/priamb-c74935a30c3c339d357c4e14d79887ec313e4717b499969a7bdf44da069c4be1.jpg" alt="Priamb" />
+					<h3 class="title">Princess Be Ambitious!!</h3>
+					<img class="musictypeimage" src="/assets/musictypes/0-b88f61a6ecab0e60a288b49f1c83cc68a8b8364d1d29d90348a20e1f32003c6a.png" alt="0" />
+					<table class="scoretable">
+						<tr>
+								<th>2M</th>
+								<th>2M+</th>
+								<th>4M</th>
+								<th>6M</th>
+								<th>MM</th>
+						</tr>
+						<tr>
+								<td class="diff0 bms_exist_true">
+									<a href="/musics/priamb/0">4</a>
+								</td>
+								<p class="diffnum diffnum0">4</p>
+								<td class="diff1 bms_exist_true">
+									<a href="/musics/priamb/1">10</a>
+								</td>
+								<p class="diffnum diffnum1">10</p>
+								<td class="diff2 bms_exist_true">
+									<a href="/musics/priamb/2">6</a>
+								</td>
+								<p class="diffnum diffnum2">6</p>
+								<td class="diff3 bms_exist_true">
+									<a href="/musics/priamb/3">11</a>
+								</td>
+								<p class="diffnum diffnum3">11</p>
+								<td class="diff4 bms_exist_true">
+									<a href="/musics/priamb/4">17</a>
+								</td>
+								<p class="diffnum diffnum4">17</p>
+						</tr>
+					</table>
+					<p class="added_on">2017-12-21</p>
+					<p class="kana">Princess Be Ambitious</p>
+					<p class="order">2012</p>
+					<p class="musictype">0</p>
+				</li>
+				<li>
+					<img class="jacket" src="/assets/jackets/homesf-1c9da0adb27df05310aafaa192bfa64d8c29990099424669a212125f04f9833a.jpg" alt="Homesf" />
+					<h3 class="title">HOME, SWEET FRIENDSHIP</h3>
+					<img class="musictypeimage" src="/assets/musictypes/0-b88f61a6ecab0e60a288b49f1c83cc68a8b8364d1d29d90348a20e1f32003c6a.png" alt="0" />
+					<table class="scoretable">
+						<tr>
+								<th>2M</th>
+								<th>2M+</th>
+								<th>4M</th>
+								<th>6M</th>
+								<th>MM</th>
+						</tr>
+						<tr>
+								<td class="diff0 bms_exist_true">
+									<a href="/musics/homesf/0">3</a>
+								</td>
+								<p class="diffnum diffnum0">3</p>
+								<td class="diff1 bms_exist_true">
+									<a href="/musics/homesf/1">11</a>
+								</td>
+								<p class="diffnum diffnum1">11</p>
+								<td class="diff2 bms_exist_true">
+									<a href="/musics/homesf/2">7</a>
+								</td>
+								<p class="diffnum diffnum2">7</p>
+								<td class="diff3 bms_exist_true">
+									<a href="/musics/homesf/3">12</a>
+								</td>
+								<p class="diffnum diffnum3">12</p>
+								<td class="diff4 bms_exist_true">
+									<a href="/musics/homesf/4">17</a>
+								</td>
+								<p class="diffnum diffnum4">17</p>
+						</tr>
+					</table>
+					<p class="added_on">2018-01-04</p>
+					<p class="kana">HOME SWEET FRIENDSHIP</p>
+					<p class="order">2013</p>
+					<p class="musictype">0</p>
+				</li>
+				<li>
+					<img class="jacket" src="/assets/jackets/kuraki-269e3470d4f56200471e8efa7948e5590168930d9202ec80b807923d33d824e1.jpg" alt="Kuraki" />
+					<h3 class="title">昏き星、遠い月</h3>
+					<img class="musictypeimage" src="/assets/musictypes/1-c83a4defb0f7fd6d47d3e58aacef446916b4f1a7f16628081d36706d76a6c610.png" alt="1" />
+					<table class="scoretable">
+						<tr>
+								<th>2M</th>
+								<th>2M+</th>
+								<th>4M</th>
+								<th>6M</th>
+								<th>MM</th>
+						</tr>
+						<tr>
+								<td class="diff0 bms_exist_true">
+									<a href="/musics/kuraki/0">4</a>
+								</td>
+								<p class="diffnum diffnum0">4</p>
+								<td class="diff1 bms_exist_true">
+									<a href="/musics/kuraki/1">10</a>
+								</td>
+								<p class="diffnum diffnum1">10</p>
+								<td class="diff2 bms_exist_true">
+									<a href="/musics/kuraki/2">7</a>
+								</td>
+								<p class="diffnum diffnum2">7</p>
+								<td class="diff3 bms_exist_true">
+									<a href="/musics/kuraki/3">11</a>
+								</td>
+								<p class="diffnum diffnum3">11</p>
+								<td class="diff4 bms_exist_true">
+									<a href="/musics/kuraki/4">17</a>
+								</td>
+								<p class="diffnum diffnum4">17</p>
+						</tr>
+					</table>
+					<p class="added_on">2018-01-19</p>
+					<p class="kana">くらきほしとおいつき</p>
+					<p class="order">2014</p>
+					<p class="musictype">1</p>
+				</li>
+				<li>
+					<img class="jacket" src="/assets/jackets/aikost-d2f32d5154b9ae05525c89107b5d3212a37418d2e5cb64742cca3648057e5389.jpg" alt="Aikost" />
+					<h3 class="title">合言葉はスタートアップ！</h3>
+					<img class="musictypeimage" src="/assets/musictypes/0-b88f61a6ecab0e60a288b49f1c83cc68a8b8364d1d29d90348a20e1f32003c6a.png" alt="0" />
+					<table class="scoretable">
+						<tr>
+								<th>2M</th>
+								<th>2M+</th>
+								<th>4M</th>
+								<th>6M</th>
+								<th>MM</th>
+						</tr>
+						<tr>
+								<td class="diff0 bms_exist_true">
+									<a href="/musics/aikost/0">4</a>
+								</td>
+								<p class="diffnum diffnum0">4</p>
+								<td class="diff1 bms_exist_true">
+									<a href="/musics/aikost/1">11</a>
+								</td>
+								<p class="diffnum diffnum1">11</p>
+								<td class="diff2 bms_exist_true">
+									<a href="/musics/aikost/2">7</a>
+								</td>
+								<p class="diffnum diffnum2">7</p>
+								<td class="diff3 bms_exist_true">
+									<a href="/musics/aikost/3">12</a>
+								</td>
+								<p class="diffnum diffnum3">12</p>
+								<td class="diff4 bms_exist_true">
+									<a href="/musics/aikost/4">16</a>
+								</td>
+								<p class="diffnum diffnum4">16</p>
+						</tr>
+					</table>
+					<p class="added_on">2018-01-31</p>
+					<p class="kana">あいことばはすたーとあっぷ</p>
+					<p class="order">2015</p>
+					<p class="musictype">0</p>
+				</li>
+				<li>
+					<img class="jacket" src="/assets/jackets/nijile-b5d3d9676956de2e532152eaf4b7a26234b58dd189205fb7043bac5df8069138.jpg" alt="Nijile" />
+					<h3 class="title">虹色letters</h3>
+					<img class="musictypeimage" src="/assets/musictypes/2-44c8eb726796f5d53966ac2e47d287cab7247c05e5c577c10e5afd6bb334cfea.png" alt="2" />
+					<table class="scoretable">
+						<tr>
+								<th>2M</th>
+								<th>2M+</th>
+								<th>4M</th>
+								<th>6M</th>
+								<th>MM</th>
+						</tr>
+						<tr>
+								<td class="diff0 bms_exist_true">
+									<a href="/musics/nijile/0">3</a>
+								</td>
+								<p class="diffnum diffnum0">3</p>
+								<td class="diff1 bms_exist_true">
+									<a href="/musics/nijile/1">10</a>
+								</td>
+								<p class="diffnum diffnum1">10</p>
+								<td class="diff2 bms_exist_true">
+									<a href="/musics/nijile/2">6</a>
+								</td>
+								<p class="diffnum diffnum2">6</p>
+								<td class="diff3 bms_exist_true">
+									<a href="/musics/nijile/3">11</a>
+								</td>
+								<p class="diffnum diffnum3">11</p>
+								<td class="diff4 bms_exist_true">
+									<a href="/musics/nijile/4">16</a>
+								</td>
+								<p class="diffnum diffnum4">16</p>
+						</tr>
+					</table>
+					<p class="added_on">2018-02-16</p>
+					<p class="kana">にじいろletters</p>
+					<p class="order">2016</p>
+					<p class="musictype">2</p>
+				</li>
+				<li>
+					<img class="jacket" src="/assets/jackets/hsymph-67048d90b65b261e880d23a0d1a7ca3fb62f05a8aabfaf8b2b92480ec766a1ac.jpg" alt="Hsymph" />
+					<h3 class="title">星屑のシンフォニア</h3>
+					<img class="musictypeimage" src="/assets/musictypes/2-44c8eb726796f5d53966ac2e47d287cab7247c05e5c577c10e5afd6bb334cfea.png" alt="2" />
+					<table class="scoretable">
+						<tr>
+								<th>2M</th>
+								<th>2M+</th>
+								<th>4M</th>
+								<th>6M</th>
+								<th>MM</th>
+						</tr>
+						<tr>
+								<td class="diff0 bms_exist_true">
+									<a href="/musics/hsymph/0">4</a>
+								</td>
+								<p class="diffnum diffnum0">4</p>
+								<td class="diff1 bms_exist_true">
+									<a href="/musics/hsymph/1">11</a>
+								</td>
+								<p class="diffnum diffnum1">11</p>
+								<td class="diff2 bms_exist_true">
+									<a href="/musics/hsymph/2">7</a>
+								</td>
+								<p class="diffnum diffnum2">7</p>
+								<td class="diff3 bms_exist_true">
+									<a href="/musics/hsymph/3">12</a>
+								</td>
+								<p class="diffnum diffnum3">12</p>
+								<td class="diff4 bms_exist_true">
+									<a href="/musics/hsymph/4">17</a>
+								</td>
+								<p class="diffnum diffnum4">17</p>
+						</tr>
+					</table>
+					<p class="added_on">2018-03-03</p>
+					<p class="kana">ほしくずのしんふぉにあ</p>
+					<p class="order">2017</p>
+					<p class="musictype">2</p>
+				</li>
+				<li>
+					<img class="jacket" src="/assets/jackets/zettaibreak-707b85f0cdab5e59da4a7bb19210cb7e6cd0e71faaf799e2badc6b8966217fa8.jpg" alt="Zettaibreak" />
+					<h3 class="title">ZETTAI × BREAK!! トゥインクルリズム</h3>
+					<img class="musictypeimage" src="/assets/musictypes/0-b88f61a6ecab0e60a288b49f1c83cc68a8b8364d1d29d90348a20e1f32003c6a.png" alt="0" />
+					<table class="scoretable">
+						<tr>
+								<th>2M</th>
+								<th>2M+</th>
+								<th>4M</th>
+								<th>6M</th>
+								<th>MM</th>
+						</tr>
+						<tr>
+								<td class="diff0 bms_exist_true">
+									<a href="/musics/zettaibreak/0">5</a>
+								</td>
+								<p class="diffnum diffnum0">5</p>
+								<td class="diff1 bms_exist_true">
+									<a href="/musics/zettaibreak/1">12</a>
+								</td>
+								<p class="diffnum diffnum1">12</p>
+								<td class="diff2 bms_exist_true">
+									<a href="/musics/zettaibreak/2">8</a>
+								</td>
+								<p class="diffnum diffnum2">8</p>
+								<td class="diff3 bms_exist_true">
+									<a href="/musics/zettaibreak/3">13</a>
+								</td>
+								<p class="diffnum diffnum3">13</p>
+								<td class="diff4 bms_exist_true">
+									<a href="/musics/zettaibreak/4">18</a>
+								</td>
+								<p class="diffnum diffnum4">18</p>
+						</tr>
+					</table>
+					<p class="added_on">2018-03-20</p>
+					<p class="kana">ZETTAIBREAKてぅいんくるりずむ</p>
+					<p class="order">2018</p>
+					<p class="musictype">0</p>
+				</li>
+				<li>
+					<img class="jacket" src="/assets/jackets/jireha-5d621b6a1e049b3cb026d3a52f712b4945d29e642ce1f35c715bf77afc7743e5.jpg" alt="Jireha" />
+					<h3 class="title">ジレるハートに火をつけて</h3>
+					<img class="musictypeimage" src="/assets/musictypes/0-b88f61a6ecab0e60a288b49f1c83cc68a8b8364d1d29d90348a20e1f32003c6a.png" alt="0" />
+					<table class="scoretable">
+						<tr>
+								<th>2M</th>
+								<th>2M+</th>
+								<th>4M</th>
+								<th>6M</th>
+								<th>MM</th>
+						</tr>
+						<tr>
+								<td class="diff0 bms_exist_true">
+									<a href="/musics/jireha/0">4</a>
+								</td>
+								<p class="diffnum diffnum0">4</p>
+								<td class="diff1 bms_exist_true">
+									<a href="/musics/jireha/1">11</a>
+								</td>
+								<p class="diffnum diffnum1">11</p>
+								<td class="diff2 bms_exist_true">
+									<a href="/musics/jireha/2">7</a>
+								</td>
+								<p class="diffnum diffnum2">7</p>
+								<td class="diff3 bms_exist_true">
+									<a href="/musics/jireha/3">12</a>
+								</td>
+								<p class="diffnum diffnum3">12</p>
+								<td class="diff4 bms_exist_true">
+									<a href="/musics/jireha/4">16</a>
+								</td>
+								<p class="diffnum diffnum4">16</p>
+						</tr>
+					</table>
+					<p class="added_on">2018-04-03</p>
+					<p class="kana">じれるはーとにひをつけて</p>
+					<p class="order">2019</p>
+					<p class="musictype">0</p>
+				</li>
+				<li>
+					<img class="jacket" src="/assets/jackets/meltyf-f1e06289901c2547660190175fedb5d7177bd6d3b96e6b6e5fb541c64f39012b.jpg" alt="Meltyf" />
+					<h3 class="title">Melty Fantasia</h3>
+					<img class="musictypeimage" src="/assets/musictypes/1-c83a4defb0f7fd6d47d3e58aacef446916b4f1a7f16628081d36706d76a6c610.png" alt="1" />
+					<table class="scoretable">
+						<tr>
+								<th>2M</th>
+								<th>2M+</th>
+								<th>4M</th>
+								<th>6M</th>
+								<th>MM</th>
+						</tr>
+						<tr>
+								<td class="diff0 bms_exist_true">
+									<a href="/musics/meltyf/0">4</a>
+								</td>
+								<p class="diffnum diffnum0">4</p>
+								<td class="diff1 bms_exist_true">
+									<a href="/musics/meltyf/1">12</a>
+								</td>
+								<p class="diffnum diffnum1">12</p>
+								<td class="diff2 bms_exist_true">
+									<a href="/musics/meltyf/2">7</a>
+								</td>
+								<p class="diffnum diffnum2">7</p>
+								<td class="diff3 bms_exist_true">
+									<a href="/musics/meltyf/3">13</a>
+								</td>
+								<p class="diffnum diffnum3">13</p>
+								<td class="diff4 bms_exist_true">
+									<a href="/musics/meltyf/4">17</a>
+								</td>
+								<p class="diffnum diffnum4">17</p>
+						</tr>
+					</table>
+					<p class="added_on">2018-04-20</p>
+					<p class="kana">Melty Fantasia</p>
+					<p class="order">2020</p>
+					<p class="musictype">1</p>
+				</li>
+				<li>
+					<img class="jacket" src="/assets/jackets/boc-8fc3a99711df5de27ff9f66498156604e22db1ced50781413c721c50f9d42b93.jpg" alt="Boc" />
+					<h3 class="title">Birth of Color</h3>
+					<img class="musictypeimage" src="/assets/musictypes/0-b88f61a6ecab0e60a288b49f1c83cc68a8b8364d1d29d90348a20e1f32003c6a.png" alt="0" />
+					<table class="scoretable">
+						<tr>
+								<th>2M</th>
+								<th>2M+</th>
+								<th>4M</th>
+								<th>6M</th>
+								<th>MM</th>
+						</tr>
+						<tr>
+								<td class="diff0 bms_exist_true">
+									<a href="/musics/boc/0">4</a>
+								</td>
+								<p class="diffnum diffnum0">4</p>
+								<td class="diff1 bms_exist_true">
+									<a href="/musics/boc/1">11</a>
+								</td>
+								<p class="diffnum diffnum1">11</p>
+								<td class="diff2 bms_exist_true">
+									<a href="/musics/boc/2">7</a>
+								</td>
+								<p class="diffnum diffnum2">7</p>
+								<td class="diff3 bms_exist_true">
+									<a href="/musics/boc/3">12</a>
+								</td>
+								<p class="diffnum diffnum3">12</p>
+								<td class="diff4 bms_exist_true">
+									<a href="/musics/boc/4">17</a>
+								</td>
+								<p class="diffnum diffnum4">17</p>
+						</tr>
+					</table>
+					<p class="added_on">2018-05-04</p>
+					<p class="kana">Birth of Color</p>
+					<p class="order">2021</p>
+					<p class="musictype">0</p>
+				</li>
+				<li>
+					<img class="jacket" src="/assets/jackets/hweekend-709d55885826f94c324e999d4f4d8d6cab445417b106545a29e88da619730586.jpg" alt="Hweekend" />
+					<h3 class="title">花ざかりWeekend✿</h3>
+					<img class="musictypeimage" src="/assets/musictypes/2-44c8eb726796f5d53966ac2e47d287cab7247c05e5c577c10e5afd6bb334cfea.png" alt="2" />
+					<table class="scoretable">
+						<tr>
+								<th>2M</th>
+								<th>2M+</th>
+								<th>4M</th>
+								<th>6M</th>
+								<th>MM</th>
+						</tr>
+						<tr>
+								<td class="diff0 bms_exist_true">
+									<a href="/musics/hweekend/0">4</a>
+								</td>
+								<p class="diffnum diffnum0">4</p>
+								<td class="diff1 bms_exist_true">
+									<a href="/musics/hweekend/1">11</a>
+								</td>
+								<p class="diffnum diffnum1">11</p>
+								<td class="diff2 bms_exist_true">
+									<a href="/musics/hweekend/2">7</a>
+								</td>
+								<p class="diffnum diffnum2">7</p>
+								<td class="diff3 bms_exist_true">
+									<a href="/musics/hweekend/3">12</a>
+								</td>
+								<p class="diffnum diffnum3">12</p>
+								<td class="diff4 bms_exist_true">
+									<a href="/musics/hweekend/4">17</a>
+								</td>
+								<p class="diffnum diffnum4">17</p>
+						</tr>
+					</table>
+					<p class="added_on">2018-05-21</p>
+					<p class="kana">はなざかりWeekend</p>
+					<p class="order">2022</p>
+					<p class="musictype">2</p>
+				</li>
+				<li>
+					<img class="jacket" src="/assets/jackets/ethamo-c276f21b8b03548f4e34073c48d0bed90ea06d6d596dd9c8dbaa5da3ebbea059.jpg" alt="Ethamo" />
+					<h3 class="title">Eternal Harmony</h3>
+					<img class="musictypeimage" src="/assets/musictypes/1-c83a4defb0f7fd6d47d3e58aacef446916b4f1a7f16628081d36706d76a6c610.png" alt="1" />
+					<table class="scoretable">
+						<tr>
+								<th>2M</th>
+								<th>2M+</th>
+								<th>4M</th>
+								<th>6M</th>
+								<th>MM</th>
+						</tr>
+						<tr>
+								<td class="diff0 bms_exist_true">
+									<a href="/musics/ethamo/0">5</a>
+								</td>
+								<p class="diffnum diffnum0">5</p>
+								<td class="diff1 bms_exist_true">
+									<a href="/musics/ethamo/1">12</a>
+								</td>
+								<p class="diffnum diffnum1">12</p>
+								<td class="diff2 bms_exist_true">
+									<a href="/musics/ethamo/2">8</a>
+								</td>
+								<p class="diffnum diffnum2">8</p>
+								<td class="diff3 bms_exist_true">
+									<a href="/musics/ethamo/3">13</a>
+								</td>
+								<p class="diffnum diffnum3">13</p>
+								<td class="diff4 bms_exist_true">
+									<a href="/musics/ethamo/4">18</a>
+								</td>
+								<p class="diffnum diffnum4">18</p>
+						</tr>
+					</table>
+					<p class="added_on">2018-06-04</p>
+					<p class="kana">Eternal Harmony</p>
+					<p class="order">2023</p>
+					<p class="musictype">1</p>
+				</li>
+				<li>
+					<img class="jacket" src="/assets/jackets/kimihanabi-255b0436ce093cc4403b915be1926d832cec02803192b7e2a7dddc5a6e736564.jpg" alt="Kimihanabi" />
+					<h3 class="title">咲くは浮世の君花火</h3>
+					<img class="musictypeimage" src="/assets/musictypes/0-b88f61a6ecab0e60a288b49f1c83cc68a8b8364d1d29d90348a20e1f32003c6a.png" alt="0" />
+					<table class="scoretable">
+						<tr>
+								<th>2M</th>
+								<th>2M+</th>
+								<th>4M</th>
+								<th>6M</th>
+								<th>MM</th>
+						</tr>
+						<tr>
+								<td class="diff0 bms_exist_true">
+									<a href="/musics/kimihanabi/0">4</a>
+								</td>
+								<p class="diffnum diffnum0">4</p>
+								<td class="diff1 bms_exist_true">
+									<a href="/musics/kimihanabi/1">12</a>
+								</td>
+								<p class="diffnum diffnum1">12</p>
+								<td class="diff2 bms_exist_true">
+									<a href="/musics/kimihanabi/2">7</a>
+								</td>
+								<p class="diffnum diffnum2">7</p>
+								<td class="diff3 bms_exist_true">
+									<a href="/musics/kimihanabi/3">13</a>
+								</td>
+								<p class="diffnum diffnum3">13</p>
+								<td class="diff4 bms_exist_true">
+									<a href="/musics/kimihanabi/4">17</a>
+								</td>
+								<p class="diffnum diffnum4">17</p>
+						</tr>
+					</table>
+					<p class="added_on">2018-06-20</p>
+					<p class="kana">さくはうきよのきみはなび</p>
+					<p class="order">2024</p>
+					<p class="musictype">0</p>
+				</li>
+				<li>
+					<img class="jacket" src="/assets/jackets/sunrhythm-bc96acca480afac43ef48deda442b7f10bd49963433838c7293f49b0758fa685.jpg" alt="Sunrhythm" />
+					<h3 class="title">サンリズム・オーケストラ♪</h3>
+					<img class="musictypeimage" src="/assets/musictypes/2-44c8eb726796f5d53966ac2e47d287cab7247c05e5c577c10e5afd6bb334cfea.png" alt="2" />
+					<table class="scoretable">
+						<tr>
+								<th>2M</th>
+								<th>2M+</th>
+								<th>4M</th>
+								<th>6M</th>
+								<th>MM</th>
+						</tr>
+						<tr>
+								<td class="diff0 bms_exist_true">
+									<a href="/musics/sunrhythm/0">5</a>
+								</td>
+								<p class="diffnum diffnum0">5</p>
+								<td class="diff1 bms_exist_true">
+									<a href="/musics/sunrhythm/1">11</a>
+								</td>
+								<p class="diffnum diffnum1">11</p>
+								<td class="diff2 bms_exist_true">
+									<a href="/musics/sunrhythm/2">8</a>
+								</td>
+								<p class="diffnum diffnum2">8</p>
+								<td class="diff3 bms_exist_true">
+									<a href="/musics/sunrhythm/3">12</a>
+								</td>
+								<p class="diffnum diffnum3">12</p>
+								<td class="diff4 bms_exist_true">
+									<a href="/musics/sunrhythm/4">17</a>
+								</td>
+								<p class="diffnum diffnum4">17</p>
+						</tr>
+					</table>
+					<p class="added_on">2018-08-03</p>
+					<p class="kana">さんりずむおーけすとら</p>
+					<p class="order">2025</p>
+					<p class="musictype">2</p>
+				</li>
+				<li>
+					<img class="jacket" src="/assets/jackets/bibabo-d8311ed78ba2095ceb938969cfdb96e9e6f7bbe511513ccf3bb2bebc3cd0326a.jpg" alt="Bibabo" />
+					<h3 class="title">ビッグバンズバリボー!!!!!</h3>
+					<img class="musictypeimage" src="/assets/musictypes/0-b88f61a6ecab0e60a288b49f1c83cc68a8b8364d1d29d90348a20e1f32003c6a.png" alt="0" />
+					<table class="scoretable">
+						<tr>
+								<th>2M</th>
+								<th>2M+</th>
+								<th>4M</th>
+								<th>6M</th>
+								<th>MM</th>
+						</tr>
+						<tr>
+								<td class="diff0 bms_exist_true">
+									<a href="/musics/bibabo/0">5</a>
+								</td>
+								<p class="diffnum diffnum0">5</p>
+								<td class="diff1 bms_exist_true">
+									<a href="/musics/bibabo/1">11</a>
+								</td>
+								<p class="diffnum diffnum1">11</p>
+								<td class="diff2 bms_exist_true">
+									<a href="/musics/bibabo/2">8</a>
+								</td>
+								<p class="diffnum diffnum2">8</p>
+								<td class="diff3 bms_exist_true">
+									<a href="/musics/bibabo/3">12</a>
+								</td>
+								<p class="diffnum diffnum3">12</p>
+								<td class="diff4 bms_exist_true">
+									<a href="/musics/bibabo/4">18</a>
+								</td>
+								<p class="diffnum diffnum4">18</p>
+						</tr>
+					</table>
+					<p class="added_on">2018-08-20</p>
+					<p class="kana">びっぐばんずばりぼー</p>
+					<p class="order">2026</p>
+					<p class="musictype">0</p>
+				</li>
+				<li>
+					<img class="jacket" src="/assets/jackets/bharmony-7894dd886dfad1ea1d9bdac0136eb42d8bff3ffbf11492a466316fed7cd99664.jpg" alt="Bharmony" />
+					<h3 class="title">brave HARMONY</h3>
+					<img class="musictypeimage" src="/assets/musictypes/1-c83a4defb0f7fd6d47d3e58aacef446916b4f1a7f16628081d36706d76a6c610.png" alt="1" />
+					<table class="scoretable">
+						<tr>
+								<th>2M</th>
+								<th>2M+</th>
+								<th>4M</th>
+								<th>6M</th>
+								<th>MM</th>
+						</tr>
+						<tr>
+								<td class="diff0 bms_exist_true">
+									<a href="/musics/bharmony/0">4</a>
+								</td>
+								<p class="diffnum diffnum0">4</p>
+								<td class="diff1 bms_exist_true">
+									<a href="/musics/bharmony/1">11</a>
+								</td>
+								<p class="diffnum diffnum1">11</p>
+								<td class="diff2 bms_exist_true">
+									<a href="/musics/bharmony/2">7</a>
+								</td>
+								<p class="diffnum diffnum2">7</p>
+								<td class="diff3 bms_exist_true">
+									<a href="/musics/bharmony/3">10</a>
+								</td>
+								<p class="diffnum diffnum3">10</p>
+								<td class="diff4 bms_exist_true">
+									<a href="/musics/bharmony/4">17</a>
+								</td>
+								<p class="diffnum diffnum4">17</p>
+						</tr>
+					</table>
+					<p class="added_on">2018-09-03</p>
+					<p class="kana">brave HARMONY</p>
+					<p class="order">2027</p>
+					<p class="musictype">1</p>
+				</li>
+				<li>
+					<img class="jacket" src="/assets/jackets/siscafe-dba18990a8808b19478bb22ed954667adc88edbb4f0a275348cdb54c51369ba5.jpg" alt="Siscafe" />
+					<h3 class="title">オーディナリィ・クローバー</h3>
+					<img class="musictypeimage" src="/assets/musictypes/2-44c8eb726796f5d53966ac2e47d287cab7247c05e5c577c10e5afd6bb334cfea.png" alt="2" />
+					<table class="scoretable">
+						<tr>
+								<th>2M</th>
+								<th>2M+</th>
+								<th>4M</th>
+								<th>6M</th>
+								<th>MM</th>
+						</tr>
+						<tr>
+								<td class="diff0 bms_exist_true">
+									<a href="/musics/siscafe/0">4</a>
+								</td>
+								<p class="diffnum diffnum0">4</p>
+								<td class="diff1 bms_exist_true">
+									<a href="/musics/siscafe/1">11</a>
+								</td>
+								<p class="diffnum diffnum1">11</p>
+								<td class="diff2 bms_exist_true">
+									<a href="/musics/siscafe/2">8</a>
+								</td>
+								<p class="diffnum diffnum2">8</p>
+								<td class="diff3 bms_exist_true">
+									<a href="/musics/siscafe/3">12</a>
+								</td>
+								<p class="diffnum diffnum3">12</p>
+								<td class="diff4 bms_exist_true">
+									<a href="/musics/siscafe/4">16</a>
+								</td>
+								<p class="diffnum diffnum4">16</p>
+						</tr>
+					</table>
+					<p class="added_on">2018-09-21</p>
+					<p class="kana">おーでぃなりぃくろーばー</p>
+					<p class="order">2028</p>
+					<p class="musictype">2</p>
+				</li>
+				<li>
+					<img class="jacket" src="/assets/jackets/stamelo-7beb36304d37eb0ad1c9ec92b9dc97f70510aac38d2a440c4f151eea5a00af84.jpg" alt="Stamelo" />
+					<h3 class="title">Starry Melody</h3>
+					<img class="musictypeimage" src="/assets/musictypes/0-b88f61a6ecab0e60a288b49f1c83cc68a8b8364d1d29d90348a20e1f32003c6a.png" alt="0" />
+					<table class="scoretable">
+						<tr>
+								<th>2M</th>
+								<th>2M+</th>
+								<th>4M</th>
+								<th>6M</th>
+								<th>MM</th>
+						</tr>
+						<tr>
+								<td class="diff0 bms_exist_true">
+									<a href="/musics/stamelo/0">4</a>
+								</td>
+								<p class="diffnum diffnum0">4</p>
+								<td class="diff1 bms_exist_true">
+									<a href="/musics/stamelo/1">10</a>
+								</td>
+								<p class="diffnum diffnum1">10</p>
+								<td class="diff2 bms_exist_true">
+									<a href="/musics/stamelo/2">7</a>
+								</td>
+								<p class="diffnum diffnum2">7</p>
+								<td class="diff3 bms_exist_true">
+									<a href="/musics/stamelo/3">11</a>
+								</td>
+								<p class="diffnum diffnum3">11</p>
+								<td class="diff4 bms_exist_true">
+									<a href="/musics/stamelo/4">17</a>
+								</td>
+								<p class="diffnum diffnum4">17</p>
+						</tr>
+					</table>
+					<p class="added_on">2018-10-03</p>
+					<p class="kana">Starry Melody</p>
+					<p class="order">2029</p>
+					<p class="musictype">0</p>
+				</li>
+				<li>
+					<img class="jacket" src="/assets/jackets/lastress-6727f5719a497591bba0c393b2f1ceec740cd090f8c970db7f977ce76724ee1b.jpg" alt="Lastress" />
+					<h3 class="title">ラスト・アクトレス</h3>
+					<img class="musictypeimage" src="/assets/musictypes/1-c83a4defb0f7fd6d47d3e58aacef446916b4f1a7f16628081d36706d76a6c610.png" alt="1" />
+					<table class="scoretable">
+						<tr>
+								<th>2M</th>
+								<th>2M+</th>
+								<th>4M</th>
+								<th>6M</th>
+								<th>MM</th>
+						</tr>
+						<tr>
+								<td class="diff0 bms_exist_true">
+									<a href="/musics/lastress/0">5</a>
+								</td>
+								<p class="diffnum diffnum0">5</p>
+								<td class="diff1 bms_exist_true">
+									<a href="/musics/lastress/1">12</a>
+								</td>
+								<p class="diffnum diffnum1">12</p>
+								<td class="diff2 bms_exist_true">
+									<a href="/musics/lastress/2">8</a>
+								</td>
+								<p class="diffnum diffnum2">8</p>
+								<td class="diff3 bms_exist_true">
+									<a href="/musics/lastress/3">13</a>
+								</td>
+								<p class="diffnum diffnum3">13</p>
+								<td class="diff4 bms_exist_true">
+									<a href="/musics/lastress/4">17</a>
+								</td>
+								<p class="diffnum diffnum4">17</p>
+						</tr>
+					</table>
+					<p class="added_on">2018-10-22</p>
+					<p class="kana">らすとあくとれす</p>
+					<p class="order">2030</p>
+					<p class="musictype">1</p>
+				</li>
+				<li>
+					<img class="jacket" src="/assets/jackets/jparty-c6763709a6b352d178369f68b690689a573ae5fba5874d9e92985e6829cec26e.jpg" alt="Jparty" />
+					<h3 class="title">ジャングル☆パーティー</h3>
+					<img class="musictypeimage" src="/assets/musictypes/2-44c8eb726796f5d53966ac2e47d287cab7247c05e5c577c10e5afd6bb334cfea.png" alt="2" />
+					<table class="scoretable">
+						<tr>
+								<th>2M</th>
+								<th>2M+</th>
+								<th>4M</th>
+								<th>6M</th>
+								<th>MM</th>
+						</tr>
+						<tr>
+								<td class="diff0 bms_exist_true">
+									<a href="/musics/jparty/0">5</a>
+								</td>
+								<p class="diffnum diffnum0">5</p>
+								<td class="diff1 bms_exist_true">
+									<a href="/musics/jparty/1">12</a>
+								</td>
+								<p class="diffnum diffnum1">12</p>
+								<td class="diff2 bms_exist_true">
+									<a href="/musics/jparty/2">8</a>
+								</td>
+								<p class="diffnum diffnum2">8</p>
+								<td class="diff3 bms_exist_true">
+									<a href="/musics/jparty/3">13</a>
+								</td>
+								<p class="diffnum diffnum3">13</p>
+								<td class="diff4 bms_exist_true">
+									<a href="/musics/jparty/4">18</a>
+								</td>
+								<p class="diffnum diffnum4">18</p>
+						</tr>
+					</table>
+					<p class="added_on">2018-11-05</p>
+					<p class="kana">じゃんぐるぱーてぃー</p>
+					<p class="order">2031</p>
+					<p class="musictype">2</p>
+						<!-- <div class="ad-infeed">
+							<script type="text/javascript">
+								var nend_params = {"media":41408, "site":287098, "spot":838045, "type":10, "oriented":1};
+							</script>
+							<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+							<ins class="adsbygoogle"
+								style="display:block"
+								data-ad-format="fluid"
+								data-ad-layout-key="-hl-4+2z-7s+4c"
+								data-ad-client="ca-pub-1154104535471881"
+								data-ad-slot="7155950731"></ins>
+							<script>
+								(adsbygoogle = window.adsbygoogle || []).push({});
+							</script>
+						</div> -->
+				</li>
+				<li>
+					<img class="jacket" src="/assets/jackets/harmonics-2cde51f69fb91f7617c1321bdb727060ca6a3878effdd0c8c00c66d7e21a77a8.jpg" alt="Harmonics" />
+					<h3 class="title">ハーモニクス</h3>
+					<img class="musictypeimage" src="/assets/musictypes/1-c83a4defb0f7fd6d47d3e58aacef446916b4f1a7f16628081d36706d76a6c610.png" alt="1" />
+					<table class="scoretable">
+						<tr>
+								<th>2M</th>
+								<th>2M+</th>
+								<th>4M</th>
+								<th>6M</th>
+								<th>MM</th>
+						</tr>
+						<tr>
+								<td class="diff0 bms_exist_true">
+									<a href="/musics/harmonics/0">4</a>
+								</td>
+								<p class="diffnum diffnum0">4</p>
+								<td class="diff1 bms_exist_true">
+									<a href="/musics/harmonics/1">11</a>
+								</td>
+								<p class="diffnum diffnum1">11</p>
+								<td class="diff2 bms_exist_true">
+									<a href="/musics/harmonics/2">7</a>
+								</td>
+								<p class="diffnum diffnum2">7</p>
+								<td class="diff3 bms_exist_true">
+									<a href="/musics/harmonics/3">12</a>
+								</td>
+								<p class="diffnum diffnum3">12</p>
+								<td class="diff4 bms_exist_true">
+									<a href="/musics/harmonics/4">17</a>
+								</td>
+								<p class="diffnum diffnum4">17</p>
+						</tr>
+					</table>
+					<p class="added_on">2018-11-21</p>
+					<p class="kana">はーもにくす</p>
+					<p class="order">2032</p>
+					<p class="musictype">1</p>
+				</li>
+				<li>
+					<img class="jacket" src="/assets/jackets/pdreamer-b936d79d0aceda47ed96ad4528de0f6c60272dd9b0512c316fa6f53a71028c63.jpg" alt="Pdreamer" />
+					<h3 class="title">PRETTY DREAMER</h3>
+					<img class="musictypeimage" src="/assets/musictypes/0-b88f61a6ecab0e60a288b49f1c83cc68a8b8364d1d29d90348a20e1f32003c6a.png" alt="0" />
+					<table class="scoretable">
+						<tr>
+								<th>2M</th>
+								<th>2M+</th>
+								<th>4M</th>
+								<th>6M</th>
+								<th>MM</th>
+						</tr>
+						<tr>
+								<td class="diff0 bms_exist_true">
+									<a href="/musics/pdreamer/0">4</a>
+								</td>
+								<p class="diffnum diffnum0">4</p>
+								<td class="diff1 bms_exist_true">
+									<a href="/musics/pdreamer/1">11</a>
+								</td>
+								<p class="diffnum diffnum1">11</p>
+								<td class="diff2 bms_exist_true">
+									<a href="/musics/pdreamer/2">7</a>
+								</td>
+								<p class="diffnum diffnum2">7</p>
+								<td class="diff3 bms_exist_true">
+									<a href="/musics/pdreamer/3">12</a>
+								</td>
+								<p class="diffnum diffnum3">12</p>
+								<td class="diff4 bms_exist_true">
+									<a href="/musics/pdreamer/4">17</a>
+								</td>
+								<p class="diffnum diffnum4">17</p>
+						</tr>
+					</table>
+					<p class="added_on">2018-12-04</p>
+					<p class="kana">PRETTY DREAMER</p>
+					<p class="order">2033</p>
+					<p class="musictype">0</p>
+				</li>
+				<li>
+					<img class="jacket" src="/assets/jackets/harumachi-8799e5fae50fd407ed00c58dc6745f12ae14dda96dff80932bb1bed8846fa56f.jpg" alt="Harumachi" />
+					<h3 class="title">ハルマチ女子</h3>
+					<img class="musictypeimage" src="/assets/musictypes/2-44c8eb726796f5d53966ac2e47d287cab7247c05e5c577c10e5afd6bb334cfea.png" alt="2" />
+					<table class="scoretable">
+						<tr>
+								<th>2M</th>
+								<th>2M+</th>
+								<th>4M</th>
+								<th>6M</th>
+								<th>MM</th>
+						</tr>
+						<tr>
+								<td class="diff0 bms_exist_true">
+									<a href="/musics/harumachi/0">4</a>
+								</td>
+								<p class="diffnum diffnum0">4</p>
+								<td class="diff1 bms_exist_true">
+									<a href="/musics/harumachi/1">10</a>
+								</td>
+								<p class="diffnum diffnum1">10</p>
+								<td class="diff2 bms_exist_true">
+									<a href="/musics/harumachi/2">7</a>
+								</td>
+								<p class="diffnum diffnum2">7</p>
+								<td class="diff3 bms_exist_true">
+									<a href="/musics/harumachi/3">11</a>
+								</td>
+								<p class="diffnum diffnum3">11</p>
+								<td class="diff4 bms_exist_true">
+									<a href="/musics/harumachi/4">16</a>
+								</td>
+								<p class="diffnum diffnum4">16</p>
+						</tr>
+					</table>
+					<p class="added_on">2018-12-21</p>
+					<p class="kana">はるまちじょし</p>
+					<p class="order">2034</p>
+					<p class="musictype">2</p>
+				</li>
+				<li>
+					<img class="jacket" src="/assets/jackets/raisef-32e2a6adf55d088076a9b743263862086a36323c17fc64ae248ad64901589673.jpg" alt="Raisef" />
+					<h3 class="title">Raise the FLAG</h3>
+					<img class="musictypeimage" src="/assets/musictypes/1-c83a4defb0f7fd6d47d3e58aacef446916b4f1a7f16628081d36706d76a6c610.png" alt="1" />
+					<table class="scoretable">
+						<tr>
+								<th>2M</th>
+								<th>2M+</th>
+								<th>4M</th>
+								<th>6M</th>
+								<th>MM</th>
+						</tr>
+						<tr>
+								<td class="diff0 bms_exist_true">
+									<a href="/musics/raisef/0">5</a>
+								</td>
+								<p class="diffnum diffnum0">5</p>
+								<td class="diff1 bms_exist_true">
+									<a href="/musics/raisef/1">11</a>
+								</td>
+								<p class="diffnum diffnum1">11</p>
+								<td class="diff2 bms_exist_true">
+									<a href="/musics/raisef/2">7</a>
+								</td>
+								<p class="diffnum diffnum2">7</p>
+								<td class="diff3 bms_exist_true">
+									<a href="/musics/raisef/3">12</a>
+								</td>
+								<p class="diffnum diffnum3">12</p>
+								<td class="diff4 bms_exist_true">
+									<a href="/musics/raisef/4">18</a>
+								</td>
+								<p class="diffnum diffnum4">18</p>
+						</tr>
+					</table>
+					<p class="added_on">2019-01-04</p>
+					<p class="kana">Raise the FLAG</p>
+					<p class="order">2035</p>
+					<p class="musictype">1</p>
+				</li>
+				<li>
+					<img class="jacket" src="/assets/jackets/datpri-8f873adad738a76eabec2027baf34c47bf309d7f63aad344d816763cd1bf5770.jpg" alt="Datpri" />
+					<h3 class="title">だってあなたはプリンセス</h3>
+					<img class="musictypeimage" src="/assets/musictypes/0-b88f61a6ecab0e60a288b49f1c83cc68a8b8364d1d29d90348a20e1f32003c6a.png" alt="0" />
+					<table class="scoretable">
+						<tr>
+								<th>2M</th>
+								<th>2M+</th>
+								<th>4M</th>
+								<th>6M</th>
+								<th>MM</th>
+						</tr>
+						<tr>
+								<td class="diff0 bms_exist_true">
+									<a href="/musics/datpri/0">3</a>
+								</td>
+								<p class="diffnum diffnum0">3</p>
+								<td class="diff1 bms_exist_true">
+									<a href="/musics/datpri/1">11</a>
+								</td>
+								<p class="diffnum diffnum1">11</p>
+								<td class="diff2 bms_exist_true">
+									<a href="/musics/datpri/2">7</a>
+								</td>
+								<p class="diffnum diffnum2">7</p>
+								<td class="diff3 bms_exist_true">
+									<a href="/musics/datpri/3">12</a>
+								</td>
+								<p class="diffnum diffnum3">12</p>
+								<td class="diff4 bms_exist_true">
+									<a href="/musics/datpri/4">17</a>
+								</td>
+								<p class="diffnum diffnum4">17</p>
+						</tr>
+					</table>
+					<p class="added_on">2019-01-20</p>
+					<p class="kana">だってあなたはぷりんせす</p>
+					<p class="order">2036</p>
+					<p class="musictype">0</p>
+				</li>
+				<li>
+					<img class="jacket" src="/assets/jackets/chulov-f6ed95674d99278c9d41600356a2a73de8ae08b45eb823e19de0679e537bf57d.jpg" alt="Chulov" />
+					<h3 class="title">成長Chu→LOVER!!</h3>
+					<img class="musictypeimage" src="/assets/musictypes/2-44c8eb726796f5d53966ac2e47d287cab7247c05e5c577c10e5afd6bb334cfea.png" alt="2" />
+					<table class="scoretable">
+						<tr>
+								<th>2M</th>
+								<th>2M+</th>
+								<th>4M</th>
+								<th>6M</th>
+								<th>MM</th>
+						</tr>
+						<tr>
+								<td class="diff0 bms_exist_true">
+									<a href="/musics/chulov/0">4</a>
+								</td>
+								<p class="diffnum diffnum0">4</p>
+								<td class="diff1 bms_exist_true">
+									<a href="/musics/chulov/1">11</a>
+								</td>
+								<p class="diffnum diffnum1">11</p>
+								<td class="diff2 bms_exist_true">
+									<a href="/musics/chulov/2">7</a>
+								</td>
+								<p class="diffnum diffnum2">7</p>
+								<td class="diff3 bms_exist_true">
+									<a href="/musics/chulov/3">12</a>
+								</td>
+								<p class="diffnum diffnum3">12</p>
+								<td class="diff4 bms_exist_true">
+									<a href="/musics/chulov/4">17</a>
+								</td>
+								<p class="diffnum diffnum4">17</p>
+						</tr>
+					</table>
+					<p class="added_on">2019-02-02</p>
+					<p class="kana">せいちょうchulover</p>
+					<p class="order">2037</p>
+					<p class="musictype">2</p>
+				</li>
+				<li>
+					<img class="jacket" src="/assets/jackets/getcre-56fac9f791bc8dd9d14c9bf178d58aa7c6bac390d677071ef9a965fd466f1055.jpg" alt="Getcre" />
+					<h3 class="title">月曜日のクリームソーダ</h3>
+					<img class="musictypeimage" src="/assets/musictypes/1-c83a4defb0f7fd6d47d3e58aacef446916b4f1a7f16628081d36706d76a6c610.png" alt="1" />
+					<table class="scoretable">
+						<tr>
+								<th>2M</th>
+								<th>2M+</th>
+								<th>4M</th>
+								<th>6M</th>
+								<th>MM</th>
+						</tr>
+						<tr>
+								<td class="diff0 bms_exist_true">
+									<a href="/musics/getcre/0">5</a>
+								</td>
+								<p class="diffnum diffnum0">5</p>
+								<td class="diff1 bms_exist_true">
+									<a href="/musics/getcre/1">10</a>
+								</td>
+								<p class="diffnum diffnum1">10</p>
+								<td class="diff2 bms_exist_true">
+									<a href="/musics/getcre/2">7</a>
+								</td>
+								<p class="diffnum diffnum2">7</p>
+								<td class="diff3 bms_exist_true">
+									<a href="/musics/getcre/3">11</a>
+								</td>
+								<p class="diffnum diffnum3">11</p>
+								<td class="diff4 bms_exist_true">
+									<a href="/musics/getcre/4">17</a>
+								</td>
+								<p class="diffnum diffnum4">17</p>
+						</tr>
+					</table>
+					<p class="added_on">2019-02-19</p>
+					<p class="kana">げつようびのくりーむそーだ</p>
+					<p class="order">2038</p>
+					<p class="musictype">1</p>
+				</li>
+				<li>
+					<img class="jacket" src="/assets/jackets/bonbonv-c648b9d871a4f9900013a4c9cf5667dea3e6d0d8d0c84940a74dcf7d9b6b83fc.jpg" alt="Bonbonv" />
+					<h3 class="title">Bonnes! Bonnes!! Vacances!!!</h3>
+					<img class="musictypeimage" src="/assets/musictypes/0-b88f61a6ecab0e60a288b49f1c83cc68a8b8364d1d29d90348a20e1f32003c6a.png" alt="0" />
+					<table class="scoretable">
+						<tr>
+								<th>2M</th>
+								<th>2M+</th>
+								<th>4M</th>
+								<th>6M</th>
+								<th>MM</th>
+						</tr>
+						<tr>
+								<td class="diff0 bms_exist_true">
+									<a href="/musics/bonbonv/0">5</a>
+								</td>
+								<p class="diffnum diffnum0">5</p>
+								<td class="diff1 bms_exist_true">
+									<a href="/musics/bonbonv/1">12</a>
+								</td>
+								<p class="diffnum diffnum1">12</p>
+								<td class="diff2 bms_exist_true">
+									<a href="/musics/bonbonv/2">8</a>
+								</td>
+								<p class="diffnum diffnum2">8</p>
+								<td class="diff3 bms_exist_true">
+									<a href="/musics/bonbonv/3">13</a>
+								</td>
+								<p class="diffnum diffnum3">13</p>
+								<td class="diff4 bms_exist_true">
+									<a href="/musics/bonbonv/4">17</a>
+								</td>
+								<p class="diffnum diffnum4">17</p>
+						</tr>
+					</table>
+					<p class="added_on">2019-03-04</p>
+					<p class="kana">Bonnes Bonnes Vacances</p>
+					<p class="order">2039</p>
+					<p class="musictype">0</p>
+				</li>
+				<li>
+					<img class="jacket" src="/assets/jackets/pkpkik-49e69b7f5fb5f544c1853287a400baa4017c8bfcb417e4ee0303e337db3a4fda.jpg" alt="Pkpkik" />
+					<h3 class="title">ピコピコIIKO! インベーダー</h3>
+					<img class="musictypeimage" src="/assets/musictypes/2-44c8eb726796f5d53966ac2e47d287cab7247c05e5c577c10e5afd6bb334cfea.png" alt="2" />
+					<table class="scoretable">
+						<tr>
+								<th>2M</th>
+								<th>2M+</th>
+								<th>4M</th>
+								<th>6M</th>
+								<th>MM</th>
+						</tr>
+						<tr>
+								<td class="diff0 bms_exist_true">
+									<a href="/musics/pkpkik/0">5</a>
+								</td>
+								<p class="diffnum diffnum0">5</p>
+								<td class="diff1 bms_exist_true">
+									<a href="/musics/pkpkik/1">11</a>
+								</td>
+								<p class="diffnum diffnum1">11</p>
+								<td class="diff2 bms_exist_true">
+									<a href="/musics/pkpkik/2">8</a>
+								</td>
+								<p class="diffnum diffnum2">8</p>
+								<td class="diff3 bms_exist_true">
+									<a href="/musics/pkpkik/3">12</a>
+								</td>
+								<p class="diffnum diffnum3">12</p>
+								<td class="diff4 bms_exist_true">
+									<a href="/musics/pkpkik/4">17</a>
+								</td>
+								<p class="diffnum diffnum4">17</p>
+						</tr>
+					</table>
+					<p class="added_on">2019-03-19</p>
+					<p class="kana">ぴこぴこIIKOいんべーだー</p>
+					<p class="order">2040</p>
+					<p class="musictype">2</p>
+				</li>
+				<li>
+					<img class="jacket" src="/assets/jackets/epitia-b72eec4bd428f0a7d9ca78d8267eb2313d45889e4c8b8d83df99170e976e5b68.jpg" alt="Epitia" />
+					<h3 class="title">Episode. Tiara</h3>
+					<img class="musictypeimage" src="/assets/musictypes/0-b88f61a6ecab0e60a288b49f1c83cc68a8b8364d1d29d90348a20e1f32003c6a.png" alt="0" />
+					<table class="scoretable">
+						<tr>
+								<th>2M</th>
+								<th>2M+</th>
+								<th>4M</th>
+								<th>6M</th>
+								<th>MM</th>
+						</tr>
+						<tr>
+								<td class="diff0 bms_exist_true">
+									<a href="/musics/epitia/0">4</a>
+								</td>
+								<p class="diffnum diffnum0">4</p>
+								<td class="diff1 bms_exist_true">
+									<a href="/musics/epitia/1">11</a>
+								</td>
+								<p class="diffnum diffnum1">11</p>
+								<td class="diff2 bms_exist_true">
+									<a href="/musics/epitia/2">7</a>
+								</td>
+								<p class="diffnum diffnum2">7</p>
+								<td class="diff3 bms_exist_true">
+									<a href="/musics/epitia/3">12</a>
+								</td>
+								<p class="diffnum diffnum3">12</p>
+								<td class="diff4 bms_exist_true">
+									<a href="/musics/epitia/4">17</a>
+								</td>
+								<p class="diffnum diffnum4">17</p>
+						</tr>
+					</table>
+					<p class="added_on">2019-04-19</p>
+					<p class="kana">Episode Tiara</p>
+					<p class="order">2041</p>
+					<p class="musictype">0</p>
+				</li>
+				<li>
+					<img class="jacket" src="/assets/jackets/prmula-327073c746a054cd0d7193ece2c391f23b0f36d746ec11d6687c348a31d5607c.jpg" alt="Prmula" />
+					<h3 class="title">プリムラ</h3>
+					<img class="musictypeimage" src="/assets/musictypes/1-c83a4defb0f7fd6d47d3e58aacef446916b4f1a7f16628081d36706d76a6c610.png" alt="1" />
+					<table class="scoretable">
+						<tr>
+								<th>2M</th>
+								<th>2M+</th>
+								<th>4M</th>
+								<th>6M</th>
+								<th>MM</th>
+						</tr>
+						<tr>
+								<td class="diff0 bms_exist_true">
+									<a href="/musics/prmula/0">5</a>
+								</td>
+								<p class="diffnum diffnum0">5</p>
+								<td class="diff1 bms_exist_true">
+									<a href="/musics/prmula/1">12</a>
+								</td>
+								<p class="diffnum diffnum1">12</p>
+								<td class="diff2 bms_exist_true">
+									<a href="/musics/prmula/2">7</a>
+								</td>
+								<p class="diffnum diffnum2">7</p>
+								<td class="diff3 bms_exist_true">
+									<a href="/musics/prmula/3">13</a>
+								</td>
+								<p class="diffnum diffnum3">13</p>
+								<td class="diff4 bms_exist_true">
+									<a href="/musics/prmula/4">16</a>
+								</td>
+								<p class="diffnum diffnum4">16</p>
+						</tr>
+					</table>
+					<p class="added_on">2019-05-02</p>
+					<p class="kana">ぷりむら</p>
+					<p class="order">2042</p>
+					<p class="musictype">1</p>
+				</li>
+				<li>
+					<img class="jacket" src="/assets/jackets/frlove-a1cd7da4bdbd2f9611984288e34bab36438cf1c41dbff835efacacd2e894a3a9.jpg" alt="Frlove" />
+					<h3 class="title">fruity love</h3>
+					<img class="musictypeimage" src="/assets/musictypes/2-44c8eb726796f5d53966ac2e47d287cab7247c05e5c577c10e5afd6bb334cfea.png" alt="2" />
+					<table class="scoretable">
+						<tr>
+								<th>2M</th>
+								<th>2M+</th>
+								<th>4M</th>
+								<th>6M</th>
+								<th>MM</th>
+						</tr>
+						<tr>
+								<td class="diff0 bms_exist_true">
+									<a href="/musics/frlove/0">5</a>
+								</td>
+								<p class="diffnum diffnum0">5</p>
+								<td class="diff1 bms_exist_true">
+									<a href="/musics/frlove/1">11</a>
+								</td>
+								<p class="diffnum diffnum1">11</p>
+								<td class="diff2 bms_exist_true">
+									<a href="/musics/frlove/2">8</a>
+								</td>
+								<p class="diffnum diffnum2">8</p>
+								<td class="diff3 bms_exist_true">
+									<a href="/musics/frlove/3">12</a>
+								</td>
+								<p class="diffnum diffnum3">12</p>
+								<td class="diff4 bms_exist_true">
+									<a href="/musics/frlove/4">17</a>
+								</td>
+								<p class="diffnum diffnum4">17</p>
+						</tr>
+					</table>
+					<p class="added_on">2019-06-03</p>
+					<p class="kana">fruity love</p>
+					<p class="order">2043</p>
+					<p class="musictype">2</p>
+				</li>
+				<li>
+					<img class="jacket" src="/assets/jackets/whitev-b6e9a352a46eaefac84978c645a53147e1996c649d7620458bb5db7dd479ca4b.jpg" alt="Whitev" />
+					<h3 class="title">White Vows</h3>
+					<img class="musictypeimage" src="/assets/musictypes/2-44c8eb726796f5d53966ac2e47d287cab7247c05e5c577c10e5afd6bb334cfea.png" alt="2" />
+					<table class="scoretable">
+						<tr>
+								<th>2M</th>
+								<th>2M+</th>
+								<th>4M</th>
+								<th>6M</th>
+								<th>MM</th>
+						</tr>
+						<tr>
+								<td class="diff0 bms_exist_true">
+									<a href="/musics/whitev/0">3</a>
+								</td>
+								<p class="diffnum diffnum0">3</p>
+								<td class="diff1 bms_exist_true">
+									<a href="/musics/whitev/1">9</a>
+								</td>
+								<p class="diffnum diffnum1">9</p>
+								<td class="diff2 bms_exist_true">
+									<a href="/musics/whitev/2">7</a>
+								</td>
+								<p class="diffnum diffnum2">7</p>
+								<td class="diff3 bms_exist_true">
+									<a href="/musics/whitev/3">10</a>
+								</td>
+								<p class="diffnum diffnum3">10</p>
+								<td class="diff4 bms_exist_true">
+									<a href="/musics/whitev/4">14</a>
+								</td>
+								<p class="diffnum diffnum4">14</p>
+						</tr>
+					</table>
+					<p class="added_on">2019-06-19</p>
+					<p class="kana">White Vows</p>
+					<p class="order">2044</p>
+					<p class="musictype">2</p>
+				</li>
+				<li>
+					<img class="jacket" src="/assets/jackets/donslo-99823228e6deddb94610ac7977e2d617c78a3d474ef99af0e60401188291b46c.jpg" alt="Donslo" />
+					<h3 class="title">dans l&#39;obscurité</h3>
+					<img class="musictypeimage" src="/assets/musictypes/1-c83a4defb0f7fd6d47d3e58aacef446916b4f1a7f16628081d36706d76a6c610.png" alt="1" />
+					<table class="scoretable">
+						<tr>
+								<th>2M</th>
+								<th>2M+</th>
+								<th>4M</th>
+								<th>6M</th>
+								<th>MM</th>
+						</tr>
+						<tr>
+								<td class="diff0 bms_exist_true">
+									<a href="/musics/donslo/0">4</a>
+								</td>
+								<p class="diffnum diffnum0">4</p>
+								<td class="diff1 bms_exist_true">
+									<a href="/musics/donslo/1">11</a>
+								</td>
+								<p class="diffnum diffnum1">11</p>
+								<td class="diff2 bms_exist_true">
+									<a href="/musics/donslo/2">7</a>
+								</td>
+								<p class="diffnum diffnum2">7</p>
+								<td class="diff3 bms_exist_true">
+									<a href="/musics/donslo/3">12</a>
+								</td>
+								<p class="diffnum diffnum3">12</p>
+								<td class="diff4 bms_exist_true">
+									<a href="/musics/donslo/4">19</a>
+								</td>
+								<p class="diffnum diffnum4">19</p>
+						</tr>
+					</table>
+					<p class="added_on">2019-07-23</p>
+					<p class="kana">dans lobscurite</p>
+					<p class="order">2045</p>
+					<p class="musictype">1</p>
+				</li>
+				<li>
+					<img class="jacket" src="/assets/jackets/runnhi-2e62a7cbe2bfd1b9656ea5cabfb34f85ebf79d5ddedd369ce80b6228bf8f31f2.jpg" alt="Runnhi" />
+					<h3 class="title">ランニング・ハイッ</h3>
+					<img class="musictypeimage" src="/assets/musictypes/0-b88f61a6ecab0e60a288b49f1c83cc68a8b8364d1d29d90348a20e1f32003c6a.png" alt="0" />
+					<table class="scoretable">
+						<tr>
+								<th>2M</th>
+								<th>2M+</th>
+								<th>4M</th>
+								<th>6M</th>
+								<th>MM</th>
+						</tr>
+						<tr>
+								<td class="diff0 bms_exist_true">
+									<a href="/musics/runnhi/0">4</a>
+								</td>
+								<p class="diffnum diffnum0">4</p>
+								<td class="diff1 bms_exist_true">
+									<a href="/musics/runnhi/1">11</a>
+								</td>
+								<p class="diffnum diffnum1">11</p>
+								<td class="diff2 bms_exist_true">
+									<a href="/musics/runnhi/2">7</a>
+								</td>
+								<p class="diffnum diffnum2">7</p>
+								<td class="diff3 bms_exist_true">
+									<a href="/musics/runnhi/3">12</a>
+								</td>
+								<p class="diffnum diffnum3">12</p>
+								<td class="diff4 bms_exist_true">
+									<a href="/musics/runnhi/4">17</a>
+								</td>
+								<p class="diffnum diffnum4">17</p>
+						</tr>
+					</table>
+					<p class="added_on">2019-08-04</p>
+					<p class="kana">らんにんぐはいっ</p>
+					<p class="order">2046</p>
+					<p class="musictype">0</p>
+				</li>
+				<li>
+					<img class="jacket" src="/assets/jackets/rabfur-e1def04a58aad691509429e446ab4ebc246c1592544069be31295729ae5f91f4.jpg" alt="Rabfur" />
+					<h3 class="title">ラビットファー</h3>
+					<img class="musictypeimage" src="/assets/musictypes/0-b88f61a6ecab0e60a288b49f1c83cc68a8b8364d1d29d90348a20e1f32003c6a.png" alt="0" />
+					<table class="scoretable">
+						<tr>
+								<th>2M</th>
+								<th>2M+</th>
+								<th>4M</th>
+								<th>6M</th>
+								<th>MM</th>
+						</tr>
+						<tr>
+								<td class="diff0 bms_exist_true">
+									<a href="/musics/rabfur/0">5</a>
+								</td>
+								<p class="diffnum diffnum0">5</p>
+								<td class="diff1 bms_exist_true">
+									<a href="/musics/rabfur/1">11</a>
+								</td>
+								<p class="diffnum diffnum1">11</p>
+								<td class="diff2 bms_exist_true">
+									<a href="/musics/rabfur/2">8</a>
+								</td>
+								<p class="diffnum diffnum2">8</p>
+								<td class="diff3 bms_exist_true">
+									<a href="/musics/rabfur/3">12</a>
+								</td>
+								<p class="diffnum diffnum3">12</p>
+								<td class="diff4 bms_exist_true">
+									<a href="/musics/rabfur/4">18</a>
+								</td>
+								<p class="diffnum diffnum4">18</p>
+						</tr>
+					</table>
+					<p class="added_on">2019-08-21</p>
+					<p class="kana">らびっとふぁー</p>
+					<p class="order">2047</p>
+					<p class="musictype">0</p>
+				</li>
+				<li>
+					<img class="jacket" src="/assets/jackets/redworld-faa5809b3799b4157f3b04536083c37a23a0549eb201a9d247ae1e8055094eef.jpg" alt="Redworld" />
+					<h3 class="title">赤い世界が消える頃</h3>
+					<img class="musictypeimage" src="/assets/musictypes/1-c83a4defb0f7fd6d47d3e58aacef446916b4f1a7f16628081d36706d76a6c610.png" alt="1" />
+					<table class="scoretable">
+						<tr>
+								<th>2M</th>
+								<th>2M+</th>
+								<th>4M</th>
+								<th>6M</th>
+								<th>MM</th>
+						</tr>
+						<tr>
+								<td class="diff0 bms_exist_true">
+									<a href="/musics/redworld/0">4</a>
+								</td>
+								<p class="diffnum diffnum0">4</p>
+								<td class="diff1 bms_exist_true">
+									<a href="/musics/redworld/1">10</a>
+								</td>
+								<p class="diffnum diffnum1">10</p>
+								<td class="diff2 bms_exist_true">
+									<a href="/musics/redworld/2">7</a>
+								</td>
+								<p class="diffnum diffnum2">7</p>
+								<td class="diff3 bms_exist_true">
+									<a href="/musics/redworld/3">11</a>
+								</td>
+								<p class="diffnum diffnum3">11</p>
+								<td class="diff4 bms_exist_true">
+									<a href="/musics/redworld/4">17</a>
+								</td>
+								<p class="diffnum diffnum4">17</p>
+						</tr>
+					</table>
+					<p class="added_on">2019-09-03</p>
+					<p class="kana">あかいせかいがきえるころ</p>
+					<p class="order">2048</p>
+					<p class="musictype">1</p>
+				</li>
+				<li>
+					<img class="jacket" src="/assets/jackets/girlmeets-0b33814087e5a993ce79e2a6e28e45dea205b7ca058dd51743db042d8fec6d11.jpg" alt="Girlmeets" />
+					<h3 class="title">Girl meets Wonder</h3>
+					<img class="musictypeimage" src="/assets/musictypes/2-44c8eb726796f5d53966ac2e47d287cab7247c05e5c577c10e5afd6bb334cfea.png" alt="2" />
+					<table class="scoretable">
+						<tr>
+								<th>2M</th>
+								<th>2M+</th>
+								<th>4M</th>
+								<th>6M</th>
+								<th>MM</th>
+						</tr>
+						<tr>
+								<td class="diff0 bms_exist_true">
+									<a href="/musics/girlmeets/0">4</a>
+								</td>
+								<p class="diffnum diffnum0">4</p>
+								<td class="diff1 bms_exist_true">
+									<a href="/musics/girlmeets/1">10</a>
+								</td>
+								<p class="diffnum diffnum1">10</p>
+								<td class="diff2 bms_exist_true">
+									<a href="/musics/girlmeets/2">7</a>
+								</td>
+								<p class="diffnum diffnum2">7</p>
+								<td class="diff3 bms_exist_true">
+									<a href="/musics/girlmeets/3">11</a>
+								</td>
+								<p class="diffnum diffnum3">11</p>
+								<td class="diff4 bms_exist_true">
+									<a href="/musics/girlmeets/4">16</a>
+								</td>
+								<p class="diffnum diffnum4">16</p>
+						</tr>
+					</table>
+					<p class="added_on">2019-09-19</p>
+					<p class="kana">Girl meets Wonder</p>
+					<p class="order">2049</p>
+					<p class="musictype">2</p>
+				</li>
+				<li>
+					<img class="jacket" src="/assets/jackets/gf-e3544032eec350a0ffd83908628c92bc59991865efdd1a6498f53ace3ca44b23.jpg" alt="Gf" />
+					<h3 class="title">G♡F</h3>
+					<img class="musictypeimage" src="/assets/musictypes/2-44c8eb726796f5d53966ac2e47d287cab7247c05e5c577c10e5afd6bb334cfea.png" alt="2" />
+					<table class="scoretable">
+						<tr>
+								<th>2M</th>
+								<th>2M+</th>
+								<th>4M</th>
+								<th>6M</th>
+								<th>MM</th>
+						</tr>
+						<tr>
+								<td class="diff0 bms_exist_true">
+									<a href="/musics/gf/0">5</a>
+								</td>
+								<p class="diffnum diffnum0">5</p>
+								<td class="diff1 bms_exist_true">
+									<a href="/musics/gf/1">11</a>
+								</td>
+								<p class="diffnum diffnum1">11</p>
+								<td class="diff2 bms_exist_true">
+									<a href="/musics/gf/2">8</a>
+								</td>
+								<p class="diffnum diffnum2">8</p>
+								<td class="diff3 bms_exist_true">
+									<a href="/musics/gf/3">12</a>
+								</td>
+								<p class="diffnum diffnum3">12</p>
+								<td class="diff4 bms_exist_true">
+									<a href="/musics/gf/4">17</a>
+								</td>
+								<p class="diffnum diffnum4">17</p>
+						</tr>
+					</table>
+					<p class="added_on">2019-10-03</p>
+					<p class="kana">GF</p>
+					<p class="order">2050</p>
+					<p class="musictype">2</p>
+				</li>
+				<li>
+					<img class="jacket" src="/assets/jackets/sutekise-02ec5341f57b834d6b3d43c4001298704ee075c5c8ff1475f0ae1c0725304d4e.jpg" alt="Sutekise" />
+					<h3 class="title">素敵なキセキ</h3>
+					<img class="musictypeimage" src="/assets/musictypes/0-b88f61a6ecab0e60a288b49f1c83cc68a8b8364d1d29d90348a20e1f32003c6a.png" alt="0" />
+					<table class="scoretable">
+						<tr>
+								<th>2M</th>
+								<th>2M+</th>
+								<th>4M</th>
+								<th>6M</th>
+								<th>MM</th>
+						</tr>
+						<tr>
+								<td class="diff0 bms_exist_true">
+									<a href="/musics/sutekise/0">3</a>
+								</td>
+								<p class="diffnum diffnum0">3</p>
+								<td class="diff1 bms_exist_true">
+									<a href="/musics/sutekise/1">9</a>
+								</td>
+								<p class="diffnum diffnum1">9</p>
+								<td class="diff2 bms_exist_true">
+									<a href="/musics/sutekise/2">6</a>
+								</td>
+								<p class="diffnum diffnum2">6</p>
+								<td class="diff3 bms_exist_true">
+									<a href="/musics/sutekise/3">10</a>
+								</td>
+								<p class="diffnum diffnum3">10</p>
+								<td class="diff4 bms_exist_true">
+									<a href="/musics/sutekise/4">15</a>
+								</td>
+								<p class="diffnum diffnum4">15</p>
+						</tr>
+					</table>
+					<p class="added_on">2017-06-29</p>
+					<p class="kana">すてきなきせき</p>
+					<p class="order">3001</p>
+					<p class="musictype">0</p>
+						<!-- <div class="ad-infeed">
+							<script type="text/javascript">
+								var nend_params = {"media":41408, "site":287098, "spot":838045, "type":10, "oriented":1};
+							</script>
+							<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+							<ins class="adsbygoogle"
+								style="display:block"
+								data-ad-format="fluid"
+								data-ad-layout-key="-hl-4+2z-7s+4c"
+								data-ad-client="ca-pub-1154104535471881"
+								data-ad-slot="7155950731"></ins>
+							<script>
+								(adsbygoogle = window.adsbygoogle || []).push({});
+							</script>
+						</div> -->
+				</li>
+				<li>
+					<img class="jacket" src="/assets/jackets/pregra-89b9996e072918e7f5cfa8e67fa95e6e767622e3d3e8b162d60bb88996ce7240.jpg" alt="Pregra" />
+					<h3 class="title">Precious Grain</h3>
+					<img class="musictypeimage" src="/assets/musictypes/1-c83a4defb0f7fd6d47d3e58aacef446916b4f1a7f16628081d36706d76a6c610.png" alt="1" />
+					<table class="scoretable">
+						<tr>
+								<th>2M</th>
+								<th>2M+</th>
+								<th>4M</th>
+								<th>6M</th>
+								<th>MM</th>
+						</tr>
+						<tr>
+								<td class="diff0 bms_exist_true">
+									<a href="/musics/pregra/0">3</a>
+								</td>
+								<p class="diffnum diffnum0">3</p>
+								<td class="diff1 bms_exist_true">
+									<a href="/musics/pregra/1">9</a>
+								</td>
+								<p class="diffnum diffnum1">9</p>
+								<td class="diff2 bms_exist_true">
+									<a href="/musics/pregra/2">5</a>
+								</td>
+								<p class="diffnum diffnum2">5</p>
+								<td class="diff3 bms_exist_true">
+									<a href="/musics/pregra/3">10</a>
+								</td>
+								<p class="diffnum diffnum3">10</p>
+								<td class="diff4 bms_exist_true">
+									<a href="/musics/pregra/4">17</a>
+								</td>
+								<p class="diffnum diffnum4">17</p>
+						</tr>
+					</table>
+					<p class="added_on">2017-06-29</p>
+					<p class="kana">Precious Grain</p>
+					<p class="order">3002</p>
+					<p class="musictype">1</p>
+				</li>
+				<li>
+					<img class="jacket" src="/assets/jackets/lesson-95bd575aaa8ebdf21d311089b5d910dea3c69f108dc75470190dd46515f8cf5a.jpg" alt="Lesson" />
+					<h3 class="title">恋のLesson初級編</h3>
+					<img class="musictypeimage" src="/assets/musictypes/2-44c8eb726796f5d53966ac2e47d287cab7247c05e5c577c10e5afd6bb334cfea.png" alt="2" />
+					<table class="scoretable">
+						<tr>
+								<th>2M</th>
+								<th>2M+</th>
+								<th>4M</th>
+								<th>6M</th>
+								<th>MM</th>
+						</tr>
+						<tr>
+								<td class="diff0 bms_exist_true">
+									<a href="/musics/lesson/0">4</a>
+								</td>
+								<p class="diffnum diffnum0">4</p>
+								<td class="diff1 bms_exist_true">
+									<a href="/musics/lesson/1">10</a>
+								</td>
+								<p class="diffnum diffnum1">10</p>
+								<td class="diff2 bms_exist_true">
+									<a href="/musics/lesson/2">7</a>
+								</td>
+								<p class="diffnum diffnum2">7</p>
+								<td class="diff3 bms_exist_true">
+									<a href="/musics/lesson/3">11</a>
+								</td>
+								<p class="diffnum diffnum3">11</p>
+								<td class="diff4 bms_exist_true">
+									<a href="/musics/lesson/4">15</a>
+								</td>
+								<p class="diffnum diffnum4">15</p>
+						</tr>
+					</table>
+					<p class="added_on">2017-06-29</p>
+					<p class="kana">こいのLessonしょきゅうへん</p>
+					<p class="order">3003</p>
+					<p class="musictype">2</p>
+				</li>
+				<li>
+					<img class="jacket" src="/assets/jackets/ruriiro-2cbef1c74ed4582ef41cdf59f55423074d8c529e7de792195662981a400e5c0e.jpg" alt="Ruriiro" />
+					<h3 class="title">瑠璃色金魚と花菖蒲</h3>
+					<img class="musictypeimage" src="/assets/musictypes/1-c83a4defb0f7fd6d47d3e58aacef446916b4f1a7f16628081d36706d76a6c610.png" alt="1" />
+					<table class="scoretable">
+						<tr>
+								<th>2M</th>
+								<th>2M+</th>
+								<th>4M</th>
+								<th>6M</th>
+								<th>MM</th>
+						</tr>
+						<tr>
+								<td class="diff0 bms_exist_true">
+									<a href="/musics/ruriiro/0">4</a>
+								</td>
+								<p class="diffnum diffnum0">4</p>
+								<td class="diff1 bms_exist_true">
+									<a href="/musics/ruriiro/1">11</a>
+								</td>
+								<p class="diffnum diffnum1">11</p>
+								<td class="diff2 bms_exist_true">
+									<a href="/musics/ruriiro/2">7</a>
+								</td>
+								<p class="diffnum diffnum2">7</p>
+								<td class="diff3 bms_exist_true">
+									<a href="/musics/ruriiro/3">12</a>
+								</td>
+								<p class="diffnum diffnum3">12</p>
+								<td class="diff4 bms_exist_true">
+									<a href="/musics/ruriiro/4">17</a>
+								</td>
+								<p class="diffnum diffnum4">17</p>
+						</tr>
+					</table>
+					<p class="added_on">2017-06-29</p>
+					<p class="kana">るりいろきんぎょとはなしょうぶ</p>
+					<p class="order">3004</p>
+					<p class="musictype">1</p>
+				</li>
+				<li>
+					<img class="jacket" src="/assets/jackets/humming-11a90f43f88a0e594f6334dcaf5931d16355a0b57bac1375124066d5b4af6243.jpg" alt="Humming" />
+					<h3 class="title">ハミングバード</h3>
+					<img class="musictypeimage" src="/assets/musictypes/2-44c8eb726796f5d53966ac2e47d287cab7247c05e5c577c10e5afd6bb334cfea.png" alt="2" />
+					<table class="scoretable">
+						<tr>
+								<th>2M</th>
+								<th>2M+</th>
+								<th>4M</th>
+								<th>6M</th>
+								<th>MM</th>
+						</tr>
+						<tr>
+								<td class="diff0 bms_exist_true">
+									<a href="/musics/humming/0">2</a>
+								</td>
+								<p class="diffnum diffnum0">2</p>
+								<td class="diff1 bms_exist_true">
+									<a href="/musics/humming/1">9</a>
+								</td>
+								<p class="diffnum diffnum1">9</p>
+								<td class="diff2 bms_exist_true">
+									<a href="/musics/humming/2">6</a>
+								</td>
+								<p class="diffnum diffnum2">6</p>
+								<td class="diff3 bms_exist_true">
+									<a href="/musics/humming/3">10</a>
+								</td>
+								<p class="diffnum diffnum3">10</p>
+								<td class="diff4 bms_exist_true">
+									<a href="/musics/humming/4">14</a>
+								</td>
+								<p class="diffnum diffnum4">14</p>
+						</tr>
+					</table>
+					<p class="added_on">2017-06-29</p>
+					<p class="kana">はみんぐばーど</p>
+					<p class="order">3005</p>
+					<p class="musictype">2</p>
+				</li>
+				<li>
+					<img class="jacket" src="/assets/jackets/prologue-fe8898358a9b11e083b55ed7d33b2acf26261f80d6819f17a2df38424926f73d.jpg" alt="Prologue" />
+					<h3 class="title">透明なプロローグ</h3>
+					<img class="musictypeimage" src="/assets/musictypes/0-b88f61a6ecab0e60a288b49f1c83cc68a8b8364d1d29d90348a20e1f32003c6a.png" alt="0" />
+					<table class="scoretable">
+						<tr>
+								<th>2M</th>
+								<th>2M+</th>
+								<th>4M</th>
+								<th>6M</th>
+								<th>MM</th>
+						</tr>
+						<tr>
+								<td class="diff0 bms_exist_true">
+									<a href="/musics/prologue/0">3</a>
+								</td>
+								<p class="diffnum diffnum0">3</p>
+								<td class="diff1 bms_exist_true">
+									<a href="/musics/prologue/1">9</a>
+								</td>
+								<p class="diffnum diffnum1">9</p>
+								<td class="diff2 bms_exist_true">
+									<a href="/musics/prologue/2">6</a>
+								</td>
+								<p class="diffnum diffnum2">6</p>
+								<td class="diff3 bms_exist_true">
+									<a href="/musics/prologue/3">10</a>
+								</td>
+								<p class="diffnum diffnum3">10</p>
+								<td class="diff4 bms_exist_true">
+									<a href="/musics/prologue/4">16</a>
+								</td>
+								<p class="diffnum diffnum4">16</p>
+						</tr>
+					</table>
+					<p class="added_on">2017-06-29</p>
+					<p class="kana">とうめいなぷろろーぐ</p>
+					<p class="order">3006</p>
+					<p class="musictype">0</p>
+				</li>
+				<li>
+					<img class="jacket" src="/assets/jackets/tokimekionpu-6747eafc53af491c7656aab001c2bb1a605bbe9626ca0c1ab94ed3401255035d.jpg" alt="Tokimekionpu" />
+					<h3 class="title">トキメキの音符になって</h3>
+					<img class="musictypeimage" src="/assets/musictypes/2-44c8eb726796f5d53966ac2e47d287cab7247c05e5c577c10e5afd6bb334cfea.png" alt="2" />
+					<table class="scoretable">
+						<tr>
+								<th>2M</th>
+								<th>2M+</th>
+								<th>4M</th>
+								<th>6M</th>
+								<th>MM</th>
+						</tr>
+						<tr>
+								<td class="diff0 bms_exist_true">
+									<a href="/musics/tokimekionpu/0">3</a>
+								</td>
+								<p class="diffnum diffnum0">3</p>
+								<td class="diff1 bms_exist_true">
+									<a href="/musics/tokimekionpu/1">9</a>
+								</td>
+								<p class="diffnum diffnum1">9</p>
+								<td class="diff2 bms_exist_true">
+									<a href="/musics/tokimekionpu/2">6</a>
+								</td>
+								<p class="diffnum diffnum2">6</p>
+								<td class="diff3 bms_exist_true">
+									<a href="/musics/tokimekionpu/3">10</a>
+								</td>
+								<p class="diffnum diffnum3">10</p>
+								<td class="diff4 bms_exist_true">
+									<a href="/musics/tokimekionpu/4">16</a>
+								</td>
+								<p class="diffnum diffnum4">16</p>
+						</tr>
+					</table>
+					<p class="added_on">2017-06-29</p>
+					<p class="kana">ときめきのおんぷになって</p>
+					<p class="order">3007</p>
+					<p class="musictype">2</p>
+				</li>
+				<li>
+					<img class="jacket" src="/assets/jackets/smileichi-3f17f12d797388431e3120d58ea46201fd01800e2a74439a27bd9421160145f2.jpg" alt="Smileichi" />
+					<h3 class="title">スマイルいちばん</h3>
+					<img class="musictypeimage" src="/assets/musictypes/0-b88f61a6ecab0e60a288b49f1c83cc68a8b8364d1d29d90348a20e1f32003c6a.png" alt="0" />
+					<table class="scoretable">
+						<tr>
+								<th>2M</th>
+								<th>2M+</th>
+								<th>4M</th>
+								<th>6M</th>
+								<th>MM</th>
+						</tr>
+						<tr>
+								<td class="diff0 bms_exist_true">
+									<a href="/musics/smileichi/0">4</a>
+								</td>
+								<p class="diffnum diffnum0">4</p>
+								<td class="diff1 bms_exist_true">
+									<a href="/musics/smileichi/1">10</a>
+								</td>
+								<p class="diffnum diffnum1">10</p>
+								<td class="diff2 bms_exist_true">
+									<a href="/musics/smileichi/2">7</a>
+								</td>
+								<p class="diffnum diffnum2">7</p>
+								<td class="diff3 bms_exist_true">
+									<a href="/musics/smileichi/3">11</a>
+								</td>
+								<p class="diffnum diffnum3">11</p>
+								<td class="diff4 bms_exist_true">
+									<a href="/musics/smileichi/4">16</a>
+								</td>
+								<p class="diffnum diffnum4">16</p>
+						</tr>
+					</table>
+					<p class="added_on">2017-06-29</p>
+					<p class="kana">すまいるいちばん</p>
+					<p class="order">3008</p>
+					<p class="musictype">0</p>
+				</li>
+				<li>
+					<img class="jacket" src="/assets/jackets/locomo-474d0094e66bd72fe2f11d1577795a82d1340c12f6325221444197ad874c580d.jpg" alt="Locomo" />
+					<h3 class="title">IMPRESSION→LOCOMOTION!</h3>
+					<img class="musictypeimage" src="/assets/musictypes/1-c83a4defb0f7fd6d47d3e58aacef446916b4f1a7f16628081d36706d76a6c610.png" alt="1" />
+					<table class="scoretable">
+						<tr>
+								<th>2M</th>
+								<th>2M+</th>
+								<th>4M</th>
+								<th>6M</th>
+								<th>MM</th>
+						</tr>
+						<tr>
+								<td class="diff0 bms_exist_true">
+									<a href="/musics/locomo/0">4</a>
+								</td>
+								<p class="diffnum diffnum0">4</p>
+								<td class="diff1 bms_exist_true">
+									<a href="/musics/locomo/1">13</a>
+								</td>
+								<p class="diffnum diffnum1">13</p>
+								<td class="diff2 bms_exist_true">
+									<a href="/musics/locomo/2">8</a>
+								</td>
+								<p class="diffnum diffnum2">8</p>
+								<td class="diff3 bms_exist_true">
+									<a href="/musics/locomo/3">13</a>
+								</td>
+								<p class="diffnum diffnum3">13</p>
+								<td class="diff4 bms_exist_true">
+									<a href="/musics/locomo/4">18</a>
+								</td>
+								<p class="diffnum diffnum4">18</p>
+						</tr>
+					</table>
+					<p class="added_on">2017-06-29</p>
+					<p class="kana">IMPRESSION→LOCOMOTION!</p>
+					<p class="order">3009</p>
+					<p class="musictype">1</p>
+				</li>
+				<li>
+					<img class="jacket" src="/assets/jackets/happylucky-0e65357f72e8d2c4b4f110608689e39883cddc73fea079a5ee77ce1b7e12d7ab.jpg" alt="Happylucky" />
+					<h3 class="title">ハッピー☆ラッキー☆ジェットマシーン</h3>
+					<img class="musictypeimage" src="/assets/musictypes/0-b88f61a6ecab0e60a288b49f1c83cc68a8b8364d1d29d90348a20e1f32003c6a.png" alt="0" />
+					<table class="scoretable">
+						<tr>
+								<th>2M</th>
+								<th>2M+</th>
+								<th>4M</th>
+								<th>6M</th>
+								<th>MM</th>
+						</tr>
+						<tr>
+								<td class="diff0 bms_exist_true">
+									<a href="/musics/happylucky/0">3</a>
+								</td>
+								<p class="diffnum diffnum0">3</p>
+								<td class="diff1 bms_exist_true">
+									<a href="/musics/happylucky/1">9</a>
+								</td>
+								<p class="diffnum diffnum1">9</p>
+								<td class="diff2 bms_exist_true">
+									<a href="/musics/happylucky/2">6</a>
+								</td>
+								<p class="diffnum diffnum2">6</p>
+								<td class="diff3 bms_exist_true">
+									<a href="/musics/happylucky/3">10</a>
+								</td>
+								<p class="diffnum diffnum3">10</p>
+								<td class="diff4 bms_exist_true">
+									<a href="/musics/happylucky/4">16</a>
+								</td>
+								<p class="diffnum diffnum4">16</p>
+						</tr>
+					</table>
+					<p class="added_on">2017-09-20</p>
+					<p class="kana">はっぴーらっきーじぇっとましーん</p>
+					<p class="order">3010</p>
+					<p class="musictype">0</p>
+				</li>
+				<li>
+					<img class="jacket" src="/assets/jackets/afterschool-041d18bfd5f759be121686128d7ab1b50a8ad3297bcea86966eab2e8c35ecef0.jpg" alt="Afterschool" />
+					<h3 class="title">アフタースクールパーリータイム</h3>
+					<img class="musictypeimage" src="/assets/musictypes/1-c83a4defb0f7fd6d47d3e58aacef446916b4f1a7f16628081d36706d76a6c610.png" alt="1" />
+					<table class="scoretable">
+						<tr>
+								<th>2M</th>
+								<th>2M+</th>
+								<th>4M</th>
+								<th>6M</th>
+								<th>MM</th>
+						</tr>
+						<tr>
+								<td class="diff0 bms_exist_true">
+									<a href="/musics/afterschool/0">4</a>
+								</td>
+								<p class="diffnum diffnum0">4</p>
+								<td class="diff1 bms_exist_true">
+									<a href="/musics/afterschool/1">10</a>
+								</td>
+								<p class="diffnum diffnum1">10</p>
+								<td class="diff2 bms_exist_true">
+									<a href="/musics/afterschool/2">7</a>
+								</td>
+								<p class="diffnum diffnum2">7</p>
+								<td class="diff3 bms_exist_true">
+									<a href="/musics/afterschool/3">11</a>
+								</td>
+								<p class="diffnum diffnum3">11</p>
+								<td class="diff4 bms_exist_true">
+									<a href="/musics/afterschool/4">16</a>
+								</td>
+								<p class="diffnum diffnum4">16</p>
+						</tr>
+					</table>
+					<p class="added_on">2017-10-11</p>
+					<p class="kana">あふたーすくーるぱーりーたいむ</p>
+					<p class="order">3011</p>
+					<p class="musictype">1</p>
+				</li>
+				<li>
+					<img class="jacket" src="/assets/jackets/happydarling-c4eac5fa7c1a55a92cba0c92e768b06476a94f119620d849dc18974a8669fc73.jpg" alt="Happydarling" />
+					<h3 class="title">Happy Darling</h3>
+					<img class="musictypeimage" src="/assets/musictypes/2-44c8eb726796f5d53966ac2e47d287cab7247c05e5c577c10e5afd6bb334cfea.png" alt="2" />
+					<table class="scoretable">
+						<tr>
+								<th>2M</th>
+								<th>2M+</th>
+								<th>4M</th>
+								<th>6M</th>
+								<th>MM</th>
+						</tr>
+						<tr>
+								<td class="diff0 bms_exist_true">
+									<a href="/musics/happydarling/0">4</a>
+								</td>
+								<p class="diffnum diffnum0">4</p>
+								<td class="diff1 bms_exist_true">
+									<a href="/musics/happydarling/1">10</a>
+								</td>
+								<p class="diffnum diffnum1">10</p>
+								<td class="diff2 bms_exist_true">
+									<a href="/musics/happydarling/2">7</a>
+								</td>
+								<p class="diffnum diffnum2">7</p>
+								<td class="diff3 bms_exist_true">
+									<a href="/musics/happydarling/3">11</a>
+								</td>
+								<p class="diffnum diffnum3">11</p>
+								<td class="diff4 bms_exist_true">
+									<a href="/musics/happydarling/4">17</a>
+								</td>
+								<p class="diffnum diffnum4">17</p>
+						</tr>
+					</table>
+					<p class="added_on">2017-11-10</p>
+					<p class="kana">Happy Darling</p>
+					<p class="order">3012</p>
+					<p class="musictype">2</p>
+				</li>
+				<li>
+					<img class="jacket" src="/assets/jackets/orikoe-b559d6eb1ce4317971751eac904a9e4ff079d62cdc4823aaace6b6497cd4c7f1.jpg" alt="Orikoe" />
+					<h3 class="title">オリジナル声になって</h3>
+					<img class="musictypeimage" src="/assets/musictypes/0-b88f61a6ecab0e60a288b49f1c83cc68a8b8364d1d29d90348a20e1f32003c6a.png" alt="0" />
+					<table class="scoretable">
+						<tr>
+								<th>2M</th>
+								<th>2M+</th>
+								<th>4M</th>
+								<th>6M</th>
+								<th>MM</th>
+						</tr>
+						<tr>
+								<td class="diff0 bms_exist_true">
+									<a href="/musics/orikoe/0">3</a>
+								</td>
+								<p class="diffnum diffnum0">3</p>
+								<td class="diff1 bms_exist_true">
+									<a href="/musics/orikoe/1">9</a>
+								</td>
+								<p class="diffnum diffnum1">9</p>
+								<td class="diff2 bms_exist_true">
+									<a href="/musics/orikoe/2">6</a>
+								</td>
+								<p class="diffnum diffnum2">6</p>
+								<td class="diff3 bms_exist_true">
+									<a href="/musics/orikoe/3">10</a>
+								</td>
+								<p class="diffnum diffnum3">10</p>
+								<td class="diff4 bms_exist_true">
+									<a href="/musics/orikoe/4">14</a>
+								</td>
+								<p class="diffnum diffnum4">14</p>
+						</tr>
+					</table>
+					<p class="added_on">2017-12-12</p>
+					<p class="kana">おりじなるこえになって</p>
+					<p class="order">3013</p>
+					<p class="musictype">0</p>
+				</li>
+				<li>
+					<img class="jacket" src="/assets/jackets/liar-6a5b674baa37e8d9c0c1f9043d484deeca42ad22d798ab6127ddbc9e9606be64.jpg" alt="Liar" />
+					<h3 class="title">ライアー・ルージュ</h3>
+					<img class="musictypeimage" src="/assets/musictypes/1-c83a4defb0f7fd6d47d3e58aacef446916b4f1a7f16628081d36706d76a6c610.png" alt="1" />
+					<table class="scoretable">
+						<tr>
+								<th>2M</th>
+								<th>2M+</th>
+								<th>4M</th>
+								<th>6M</th>
+								<th>MM</th>
+						</tr>
+						<tr>
+								<td class="diff0 bms_exist_true">
+									<a href="/musics/liar/0">4</a>
+								</td>
+								<p class="diffnum diffnum0">4</p>
+								<td class="diff1 bms_exist_true">
+									<a href="/musics/liar/1">11</a>
+								</td>
+								<p class="diffnum diffnum1">11</p>
+								<td class="diff2 bms_exist_true">
+									<a href="/musics/liar/2">7</a>
+								</td>
+								<p class="diffnum diffnum2">7</p>
+								<td class="diff3 bms_exist_true">
+									<a href="/musics/liar/3">12</a>
+								</td>
+								<p class="diffnum diffnum3">12</p>
+								<td class="diff4 bms_exist_true">
+									<a href="/musics/liar/4">17</a>
+								</td>
+								<p class="diffnum diffnum4">17</p>
+						</tr>
+					</table>
+					<p class="added_on">2018-01-11</p>
+					<p class="kana">らいあーるーじゅ</p>
+					<p class="order">3014</p>
+					<p class="musictype">1</p>
+				</li>
+				<li>
+					<img class="jacket" src="/assets/jackets/dear-3cdc951661597e2205a5b11a37639ec0bd99168ce5d0ec03387173a25ca0af33.jpg" alt="Dear" />
+					<h3 class="title">dear...</h3>
+					<img class="musictypeimage" src="/assets/musictypes/2-44c8eb726796f5d53966ac2e47d287cab7247c05e5c577c10e5afd6bb334cfea.png" alt="2" />
+					<table class="scoretable">
+						<tr>
+								<th>2M</th>
+								<th>2M+</th>
+								<th>4M</th>
+								<th>6M</th>
+								<th>MM</th>
+						</tr>
+						<tr>
+								<td class="diff0 bms_exist_true">
+									<a href="/musics/dear/0">4</a>
+								</td>
+								<p class="diffnum diffnum0">4</p>
+								<td class="diff1 bms_exist_true">
+									<a href="/musics/dear/1">11</a>
+								</td>
+								<p class="diffnum diffnum1">11</p>
+								<td class="diff2 bms_exist_true">
+									<a href="/musics/dear/2">7</a>
+								</td>
+								<p class="diffnum diffnum2">7</p>
+								<td class="diff3 bms_exist_true">
+									<a href="/musics/dear/3">12</a>
+								</td>
+								<p class="diffnum diffnum3">12</p>
+								<td class="diff4 bms_exist_true">
+									<a href="/musics/dear/4">16</a>
+								</td>
+								<p class="diffnum diffnum4">16</p>
+						</tr>
+					</table>
+					<p class="added_on">2018-02-26</p>
+					<p class="kana">dear</p>
+					<p class="order">3015</p>
+					<p class="musictype">2</p>
+				</li>
+				<li>
+					<img class="jacket" src="/assets/jackets/kokoroex-cb7b5e0ced57a6bd4ac43aafacc0b497e89d1d8f9e7f6f0590a9cdf2101dad67.jpg" alt="Kokoroex" />
+					<h3 class="title">ココロ☆エクササイズ</h3>
+					<img class="musictypeimage" src="/assets/musictypes/0-b88f61a6ecab0e60a288b49f1c83cc68a8b8364d1d29d90348a20e1f32003c6a.png" alt="0" />
+					<table class="scoretable">
+						<tr>
+								<th>2M</th>
+								<th>2M+</th>
+								<th>4M</th>
+								<th>6M</th>
+								<th>MM</th>
+						</tr>
+						<tr>
+								<td class="diff0 bms_exist_true">
+									<a href="/musics/kokoroex/0">3</a>
+								</td>
+								<p class="diffnum diffnum0">3</p>
+								<td class="diff1 bms_exist_true">
+									<a href="/musics/kokoroex/1">11</a>
+								</td>
+								<p class="diffnum diffnum1">11</p>
+								<td class="diff2 bms_exist_true">
+									<a href="/musics/kokoroex/2">7</a>
+								</td>
+								<p class="diffnum diffnum2">7</p>
+								<td class="diff3 bms_exist_true">
+									<a href="/musics/kokoroex/3">12</a>
+								</td>
+								<p class="diffnum diffnum3">12</p>
+								<td class="diff4 bms_exist_true">
+									<a href="/musics/kokoroex/4">17</a>
+								</td>
+								<p class="diffnum diffnum4">17</p>
+						</tr>
+					</table>
+					<p class="added_on">2018-03-13</p>
+					<p class="kana">こころえくささいず</p>
+					<p class="order">3016</p>
+					<p class="musictype">0</p>
+				</li>
+				<li>
+					<img class="jacket" src="/assets/jackets/unibeat-1bd1baaefbb871967e17c6643ef9d589878b411db9d147271599aa843e507a86.jpg" alt="Unibeat" />
+					<h3 class="title">ユニゾン☆ビート</h3>
+					<img class="musictypeimage" src="/assets/musictypes/1-c83a4defb0f7fd6d47d3e58aacef446916b4f1a7f16628081d36706d76a6c610.png" alt="1" />
+					<table class="scoretable">
+						<tr>
+								<th>2M</th>
+								<th>2M+</th>
+								<th>4M</th>
+								<th>6M</th>
+								<th>MM</th>
+						</tr>
+						<tr>
+								<td class="diff0 bms_exist_true">
+									<a href="/musics/unibeat/0">3</a>
+								</td>
+								<p class="diffnum diffnum0">3</p>
+								<td class="diff1 bms_exist_true">
+									<a href="/musics/unibeat/1">10</a>
+								</td>
+								<p class="diffnum diffnum1">10</p>
+								<td class="diff2 bms_exist_true">
+									<a href="/musics/unibeat/2">6</a>
+								</td>
+								<p class="diffnum diffnum2">6</p>
+								<td class="diff3 bms_exist_true">
+									<a href="/musics/unibeat/3">11</a>
+								</td>
+								<p class="diffnum diffnum3">11</p>
+								<td class="diff4 bms_exist_true">
+									<a href="/musics/unibeat/4">16</a>
+								</td>
+								<p class="diffnum diffnum4">16</p>
+						</tr>
+					</table>
+					<p class="added_on">2018-04-12</p>
+					<p class="kana">ゆにぞんびーと</p>
+					<p class="order">3017</p>
+					<p class="musictype">1</p>
+				</li>
+				<li>
+					<img class="jacket" src="/assets/jackets/happyeffect-d085ef63d60bbcdeb2136aa3be464a10ca013c57f97f6b71ca7ac18e206f91b6.jpg" alt="Happyeffect" />
+					<h3 class="title">ハッピ～ エフェクト！</h3>
+					<img class="musictypeimage" src="/assets/musictypes/2-44c8eb726796f5d53966ac2e47d287cab7247c05e5c577c10e5afd6bb334cfea.png" alt="2" />
+					<table class="scoretable">
+						<tr>
+								<th>2M</th>
+								<th>2M+</th>
+								<th>4M</th>
+								<th>6M</th>
+								<th>MM</th>
+						</tr>
+						<tr>
+								<td class="diff0 bms_exist_true">
+									<a href="/musics/happyeffect/0">4</a>
+								</td>
+								<p class="diffnum diffnum0">4</p>
+								<td class="diff1 bms_exist_true">
+									<a href="/musics/happyeffect/1">10</a>
+								</td>
+								<p class="diffnum diffnum1">10</p>
+								<td class="diff2 bms_exist_true">
+									<a href="/musics/happyeffect/2">7</a>
+								</td>
+								<p class="diffnum diffnum2">7</p>
+								<td class="diff3 bms_exist_true">
+									<a href="/musics/happyeffect/3">11</a>
+								</td>
+								<p class="diffnum diffnum3">11</p>
+								<td class="diff4 bms_exist_true">
+									<a href="/musics/happyeffect/4">16</a>
+								</td>
+								<p class="diffnum diffnum4">16</p>
+						</tr>
+					</table>
+					<p class="added_on">2018-05-13</p>
+					<p class="kana">はっぴーえふぇくと</p>
+					<p class="order">3018</p>
+					<p class="musictype">2</p>
+				</li>
+				<li>
+					<img class="jacket" src="/assets/jackets/vividcolor-a25a9bdef66223446eb1199eab94f472eb779b91c609be822a827f008423d7d2.jpg" alt="Vividcolor" />
+					<h3 class="title">vivid color</h3>
+					<img class="musictypeimage" src="/assets/musictypes/0-b88f61a6ecab0e60a288b49f1c83cc68a8b8364d1d29d90348a20e1f32003c6a.png" alt="0" />
+					<table class="scoretable">
+						<tr>
+								<th>2M</th>
+								<th>2M+</th>
+								<th>4M</th>
+								<th>6M</th>
+								<th>MM</th>
+						</tr>
+						<tr>
+								<td class="diff0 bms_exist_true">
+									<a href="/musics/vividcolor/0">3</a>
+								</td>
+								<p class="diffnum diffnum0">3</p>
+								<td class="diff1 bms_exist_true">
+									<a href="/musics/vividcolor/1">11</a>
+								</td>
+								<p class="diffnum diffnum1">11</p>
+								<td class="diff2 bms_exist_true">
+									<a href="/musics/vividcolor/2">6</a>
+								</td>
+								<p class="diffnum diffnum2">6</p>
+								<td class="diff3 bms_exist_true">
+									<a href="/musics/vividcolor/3">12</a>
+								</td>
+								<p class="diffnum diffnum3">12</p>
+								<td class="diff4 bms_exist_true">
+									<a href="/musics/vividcolor/4">17</a>
+								</td>
+								<p class="diffnum diffnum4">17</p>
+						</tr>
+					</table>
+					<p class="added_on">2018-06-13</p>
+					<p class="kana">vivid color</p>
+					<p class="order">3019</p>
+					<p class="musictype">0</p>
+				</li>
+				<li>
+					<img class="jacket" src="/assets/jackets/fancani-c80d94094567dea41423124261d36d2fce719cdf9a249aa3f8b907365dbf8849.jpg" alt="Fancani" />
+					<h3 class="title">ファンタジスタ・カーニバル</h3>
+					<img class="musictypeimage" src="/assets/musictypes/2-44c8eb726796f5d53966ac2e47d287cab7247c05e5c577c10e5afd6bb334cfea.png" alt="2" />
+					<table class="scoretable">
+						<tr>
+								<th>2M</th>
+								<th>2M+</th>
+								<th>4M</th>
+								<th>6M</th>
+								<th>MM</th>
+						</tr>
+						<tr>
+								<td class="diff0 bms_exist_true">
+									<a href="/musics/fancani/0">4</a>
+								</td>
+								<p class="diffnum diffnum0">4</p>
+								<td class="diff1 bms_exist_true">
+									<a href="/musics/fancani/1">12</a>
+								</td>
+								<p class="diffnum diffnum1">12</p>
+								<td class="diff2 bms_exist_true">
+									<a href="/musics/fancani/2">8</a>
+								</td>
+								<p class="diffnum diffnum2">8</p>
+								<td class="diff3 bms_exist_true">
+									<a href="/musics/fancani/3">13</a>
+								</td>
+								<p class="diffnum diffnum3">13</p>
+								<td class="diff4 bms_exist_true">
+									<a href="/musics/fancani/4">18</a>
+								</td>
+								<p class="diffnum diffnum4">18</p>
+						</tr>
+					</table>
+					<p class="added_on">2018-07-10</p>
+					<p class="kana">ふぁんたじすたかーにばる</p>
+					<p class="order">3020</p>
+					<p class="musictype">2</p>
+				</li>
+				<li>
+					<img class="jacket" src="/assets/jackets/why-b3737f9a4a15806b6420d71d8af35456f923ffa3924929407ddc879d4d9688c1.jpg" alt="Why" />
+					<h3 class="title">WHY?</h3>
+					<img class="musictypeimage" src="/assets/musictypes/1-c83a4defb0f7fd6d47d3e58aacef446916b4f1a7f16628081d36706d76a6c610.png" alt="1" />
+					<table class="scoretable">
+						<tr>
+								<th>2M</th>
+								<th>2M+</th>
+								<th>4M</th>
+								<th>6M</th>
+								<th>MM</th>
+						</tr>
+						<tr>
+								<td class="diff0 bms_exist_true">
+									<a href="/musics/why/0">3</a>
+								</td>
+								<p class="diffnum diffnum0">3</p>
+								<td class="diff1 bms_exist_true">
+									<a href="/musics/why/1">10</a>
+								</td>
+								<p class="diffnum diffnum1">10</p>
+								<td class="diff2 bms_exist_true">
+									<a href="/musics/why/2">6</a>
+								</td>
+								<p class="diffnum diffnum2">6</p>
+								<td class="diff3 bms_exist_true">
+									<a href="/musics/why/3">11</a>
+								</td>
+								<p class="diffnum diffnum3">11</p>
+								<td class="diff4 bms_exist_true">
+									<a href="/musics/why/4">15</a>
+								</td>
+								<p class="diffnum diffnum4">15</p>
+						</tr>
+					</table>
+					<p class="added_on">2018-08-13</p>
+					<p class="kana">WHY</p>
+					<p class="order">3021</p>
+					<p class="musictype">1</p>
+						<!-- <div class="ad-infeed">
+							<script type="text/javascript">
+								var nend_params = {"media":41408, "site":287098, "spot":838045, "type":10, "oriented":1};
+							</script>
+							<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+							<ins class="adsbygoogle"
+								style="display:block"
+								data-ad-format="fluid"
+								data-ad-layout-key="-hl-4+2z-7s+4c"
+								data-ad-client="ca-pub-1154104535471881"
+								data-ad-slot="7155950731"></ins>
+							<script>
+								(adsbygoogle = window.adsbygoogle || []).push({});
+							</script>
+						</div> -->
+				</li>
+				<li>
+					<img class="jacket" src="/assets/jackets/idolchang-2dfa7ace5544c22b183c4bd2e34ffece2c727d415085428e6473043baf9e97ff.jpg" alt="Idolchang" />
+					<h3 class="title">チョー↑元気Show☆アイドルch@ng!</h3>
+					<img class="musictypeimage" src="/assets/musictypes/0-b88f61a6ecab0e60a288b49f1c83cc68a8b8364d1d29d90348a20e1f32003c6a.png" alt="0" />
+					<table class="scoretable">
+						<tr>
+								<th>2M</th>
+								<th>2M+</th>
+								<th>4M</th>
+								<th>6M</th>
+								<th>MM</th>
+						</tr>
+						<tr>
+								<td class="diff0 bms_exist_true">
+									<a href="/musics/idolchang/0">5</a>
+								</td>
+								<p class="diffnum diffnum0">5</p>
+								<td class="diff1 bms_exist_true">
+									<a href="/musics/idolchang/1">11</a>
+								</td>
+								<p class="diffnum diffnum1">11</p>
+								<td class="diff2 bms_exist_true">
+									<a href="/musics/idolchang/2">8</a>
+								</td>
+								<p class="diffnum diffnum2">8</p>
+								<td class="diff3 bms_exist_true">
+									<a href="/musics/idolchang/3">12</a>
+								</td>
+								<p class="diffnum diffnum3">12</p>
+								<td class="diff4 bms_exist_true">
+									<a href="/musics/idolchang/4">17</a>
+								</td>
+								<p class="diffnum diffnum4">17</p>
+						</tr>
+					</table>
+					<p class="added_on">2018-09-12</p>
+					<p class="kana">ちょうじょうげんしょうあいどるちゃん</p>
+					<p class="order">3022</p>
+					<p class="musictype">0</p>
+				</li>
+				<li>
+					<img class="jacket" src="/assets/jackets/inthena-3d32359d48c72a935247d4b778bf02127dc7a75c6d3099c94ce5fbd18554a4d6.jpg" alt="Inthena" />
+					<h3 class="title">...In The Name Of。 ...LOVE?</h3>
+					<img class="musictypeimage" src="/assets/musictypes/1-c83a4defb0f7fd6d47d3e58aacef446916b4f1a7f16628081d36706d76a6c610.png" alt="1" />
+					<table class="scoretable">
+						<tr>
+								<th>2M</th>
+								<th>2M+</th>
+								<th>4M</th>
+								<th>6M</th>
+								<th>MM</th>
+						</tr>
+						<tr>
+								<td class="diff0 bms_exist_true">
+									<a href="/musics/inthena/0">5</a>
+								</td>
+								<p class="diffnum diffnum0">5</p>
+								<td class="diff1 bms_exist_true">
+									<a href="/musics/inthena/1">11</a>
+								</td>
+								<p class="diffnum diffnum1">11</p>
+								<td class="diff2 bms_exist_true">
+									<a href="/musics/inthena/2">7</a>
+								</td>
+								<p class="diffnum diffnum2">7</p>
+								<td class="diff3 bms_exist_true">
+									<a href="/musics/inthena/3">12</a>
+								</td>
+								<p class="diffnum diffnum3">12</p>
+								<td class="diff4 bms_exist_true">
+									<a href="/musics/inthena/4">17</a>
+								</td>
+								<p class="diffnum diffnum4">17</p>
+						</tr>
+					</table>
+					<p class="added_on">2018-09-29</p>
+					<p class="kana">In The Name Of Love</p>
+					<p class="order">3023</p>
+					<p class="musictype">1</p>
+				</li>
+				<li>
+					<img class="jacket" src="/assets/jackets/heartdays-0915c2d137807871b722de5570414ac3c0a159c7a31f1238233e102731f3e3fe.jpg" alt="Heartdays" />
+					<h3 class="title">Heart♡・デイズ・Night☆</h3>
+					<img class="musictypeimage" src="/assets/musictypes/2-44c8eb726796f5d53966ac2e47d287cab7247c05e5c577c10e5afd6bb334cfea.png" alt="2" />
+					<table class="scoretable">
+						<tr>
+								<th>2M</th>
+								<th>2M+</th>
+								<th>4M</th>
+								<th>6M</th>
+								<th>MM</th>
+						</tr>
+						<tr>
+								<td class="diff0 bms_exist_true">
+									<a href="/musics/heartdays/0">5</a>
+								</td>
+								<p class="diffnum diffnum0">5</p>
+								<td class="diff1 bms_exist_true">
+									<a href="/musics/heartdays/1">12</a>
+								</td>
+								<p class="diffnum diffnum1">12</p>
+								<td class="diff2 bms_exist_true">
+									<a href="/musics/heartdays/2">8</a>
+								</td>
+								<p class="diffnum diffnum2">8</p>
+								<td class="diff3 bms_exist_true">
+									<a href="/musics/heartdays/3">13</a>
+								</td>
+								<p class="diffnum diffnum3">13</p>
+								<td class="diff4 bms_exist_true">
+									<a href="/musics/heartdays/4">18</a>
+								</td>
+								<p class="diffnum diffnum4">18</p>
+						</tr>
+					</table>
+					<p class="added_on">2018-10-13</p>
+					<p class="kana">HeartでいずNight</p>
+					<p class="order">3024</p>
+					<p class="musictype">2</p>
+				</li>
+				<li>
+					<img class="jacket" src="/assets/jackets/fesillumi-c7d9992560891f659878c93b59b2659e3de862c94679b5596c9358b10e14036d.jpg" alt="Fesillumi" />
+					<h3 class="title">フェスタ・イルミネーション</h3>
+					<img class="musictypeimage" src="/assets/musictypes/0-b88f61a6ecab0e60a288b49f1c83cc68a8b8364d1d29d90348a20e1f32003c6a.png" alt="0" />
+					<table class="scoretable">
+						<tr>
+								<th>2M</th>
+								<th>2M+</th>
+								<th>4M</th>
+								<th>6M</th>
+								<th>MM</th>
+						</tr>
+						<tr>
+								<td class="diff0 bms_exist_true">
+									<a href="/musics/fesillumi/0">3</a>
+								</td>
+								<p class="diffnum diffnum0">3</p>
+								<td class="diff1 bms_exist_true">
+									<a href="/musics/fesillumi/1">11</a>
+								</td>
+								<p class="diffnum diffnum1">11</p>
+								<td class="diff2 bms_exist_true">
+									<a href="/musics/fesillumi/2">7</a>
+								</td>
+								<p class="diffnum diffnum2">7</p>
+								<td class="diff3 bms_exist_true">
+									<a href="/musics/fesillumi/3">12</a>
+								</td>
+								<p class="diffnum diffnum3">12</p>
+								<td class="diff4 bms_exist_true">
+									<a href="/musics/fesillumi/4">17</a>
+								</td>
+								<p class="diffnum diffnum4">17</p>
+						</tr>
+					</table>
+					<p class="added_on">2018-10-31</p>
+					<p class="kana">ふぇすたいるみねーしょん</p>
+					<p class="order">3025</p>
+					<p class="musictype">0</p>
+				</li>
+				<li>
+					<img class="jacket" src="/assets/jackets/koimask-c328a92f14e3028d373c3cadb25205d2a2aab95ae463fe7187afca069ce604b7.jpg" alt="Koimask" />
+					<h3 class="title">恋心マスカレード</h3>
+					<img class="musictypeimage" src="/assets/musictypes/1-c83a4defb0f7fd6d47d3e58aacef446916b4f1a7f16628081d36706d76a6c610.png" alt="1" />
+					<table class="scoretable">
+						<tr>
+								<th>2M</th>
+								<th>2M+</th>
+								<th>4M</th>
+								<th>6M</th>
+								<th>MM</th>
+						</tr>
+						<tr>
+								<td class="diff0 bms_exist_true">
+									<a href="/musics/koimask/0">4</a>
+								</td>
+								<p class="diffnum diffnum0">4</p>
+								<td class="diff1 bms_exist_true">
+									<a href="/musics/koimask/1">11</a>
+								</td>
+								<p class="diffnum diffnum1">11</p>
+								<td class="diff2 bms_exist_true">
+									<a href="/musics/koimask/2">8</a>
+								</td>
+								<p class="diffnum diffnum2">8</p>
+								<td class="diff3 bms_exist_true">
+									<a href="/musics/koimask/3">12</a>
+								</td>
+								<p class="diffnum diffnum3">12</p>
+								<td class="diff4 bms_exist_true">
+									<a href="/musics/koimask/4">17</a>
+								</td>
+								<p class="diffnum diffnum4">17</p>
+						</tr>
+					</table>
+					<p class="added_on">2018-11-14</p>
+					<p class="kana">こいごころますかれーど</p>
+					<p class="order">3026</p>
+					<p class="musictype">1</p>
+				</li>
+				<li>
+					<img class="jacket" src="/assets/jackets/fwind-6ffe866c5a586d6182766c2646f158f453054e05f142cf2fad579c00e219dbfe.jpg" alt="Fwind" />
+					<h3 class="title">FIND YOUR WIND!</h3>
+					<img class="musictypeimage" src="/assets/musictypes/2-44c8eb726796f5d53966ac2e47d287cab7247c05e5c577c10e5afd6bb334cfea.png" alt="2" />
+					<table class="scoretable">
+						<tr>
+								<th>2M</th>
+								<th>2M+</th>
+								<th>4M</th>
+								<th>6M</th>
+								<th>MM</th>
+						</tr>
+						<tr>
+								<td class="diff0 bms_exist_true">
+									<a href="/musics/fwind/0">4</a>
+								</td>
+								<p class="diffnum diffnum0">4</p>
+								<td class="diff1 bms_exist_true">
+									<a href="/musics/fwind/1">11</a>
+								</td>
+								<p class="diffnum diffnum1">11</p>
+								<td class="diff2 bms_exist_true">
+									<a href="/musics/fwind/2">7</a>
+								</td>
+								<p class="diffnum diffnum2">7</p>
+								<td class="diff3 bms_exist_true">
+									<a href="/musics/fwind/3">12</a>
+								</td>
+								<p class="diffnum diffnum3">12</p>
+								<td class="diff4 bms_exist_true">
+									<a href="/musics/fwind/4">17</a>
+								</td>
+								<p class="diffnum diffnum4">17</p>
+						</tr>
+					</table>
+					<p class="added_on">2018-11-30</p>
+					<p class="kana">FIND YOUR WIND</p>
+					<p class="order">3027</p>
+					<p class="musictype">2</p>
+				</li>
+				<li>
+					<img class="jacket" src="/assets/jackets/astation-ae29a1b14e2c763eab442428b871504c0318407144c719970ebe7a3a442510f9.jpg" alt="Astation" />
+					<h3 class="title">アニマル☆ステイション！</h3>
+					<img class="musictypeimage" src="/assets/musictypes/0-b88f61a6ecab0e60a288b49f1c83cc68a8b8364d1d29d90348a20e1f32003c6a.png" alt="0" />
+					<table class="scoretable">
+						<tr>
+								<th>2M</th>
+								<th>2M+</th>
+								<th>4M</th>
+								<th>6M</th>
+								<th>MM</th>
+						</tr>
+						<tr>
+								<td class="diff0 bms_exist_true">
+									<a href="/musics/astation/0">5</a>
+								</td>
+								<p class="diffnum diffnum0">5</p>
+								<td class="diff1 bms_exist_true">
+									<a href="/musics/astation/1">12</a>
+								</td>
+								<p class="diffnum diffnum1">12</p>
+								<td class="diff2 bms_exist_true">
+									<a href="/musics/astation/2">8</a>
+								</td>
+								<p class="diffnum diffnum2">8</p>
+								<td class="diff3 bms_exist_true">
+									<a href="/musics/astation/3">13</a>
+								</td>
+								<p class="diffnum diffnum3">13</p>
+								<td class="diff4 bms_exist_true">
+									<a href="/musics/astation/4">19</a>
+								</td>
+								<p class="diffnum diffnum4">19</p>
+						</tr>
+					</table>
+					<p class="added_on">2018-12-30</p>
+					<p class="kana">あにまるすていしょん</p>
+					<p class="order">3028</p>
+					<p class="musictype">0</p>
+				</li>
+				<li>
+					<img class="jacket" src="/assets/jackets/rolltri-7828755f0ed9066fa8dba3dc9df27debce431eeb7a2af9db57acc8101cc8ef8e.jpg" alt="Rolltri" />
+					<h3 class="title">ローリング△さんかく</h3>
+					<img class="musictypeimage" src="/assets/musictypes/1-c83a4defb0f7fd6d47d3e58aacef446916b4f1a7f16628081d36706d76a6c610.png" alt="1" />
+					<table class="scoretable">
+						<tr>
+								<th>2M</th>
+								<th>2M+</th>
+								<th>4M</th>
+								<th>6M</th>
+								<th>MM</th>
+						</tr>
+						<tr>
+								<td class="diff0 bms_exist_true">
+									<a href="/musics/rolltri/0">5</a>
+								</td>
+								<p class="diffnum diffnum0">5</p>
+								<td class="diff1 bms_exist_true">
+									<a href="/musics/rolltri/1">12</a>
+								</td>
+								<p class="diffnum diffnum1">12</p>
+								<td class="diff2 bms_exist_true">
+									<a href="/musics/rolltri/2">8</a>
+								</td>
+								<p class="diffnum diffnum2">8</p>
+								<td class="diff3 bms_exist_true">
+									<a href="/musics/rolltri/3">13</a>
+								</td>
+								<p class="diffnum diffnum3">13</p>
+								<td class="diff4 bms_exist_true">
+									<a href="/musics/rolltri/4">17</a>
+								</td>
+								<p class="diffnum diffnum4">17</p>
+						</tr>
+					</table>
+					<p class="added_on">2019-01-13</p>
+					<p class="kana">ろーりんぐさんかく</p>
+					<p class="order">3029</p>
+					<p class="musictype">1</p>
+				</li>
+				<li>
+					<img class="jacket" src="/assets/jackets/bncsmile-17d3473abd0638f10b9b1b0fc64bfc9b21fee53b2c1bf242994a721b21437a9f.jpg" alt="Bncsmile" />
+					<h3 class="title">BOUNCING♪ SMILE!</h3>
+					<img class="musictypeimage" src="/assets/musictypes/2-44c8eb726796f5d53966ac2e47d287cab7247c05e5c577c10e5afd6bb334cfea.png" alt="2" />
+					<table class="scoretable">
+						<tr>
+								<th>2M</th>
+								<th>2M+</th>
+								<th>4M</th>
+								<th>6M</th>
+								<th>MM</th>
+						</tr>
+						<tr>
+								<td class="diff0 bms_exist_true">
+									<a href="/musics/bncsmile/0">4</a>
+								</td>
+								<p class="diffnum diffnum0">4</p>
+								<td class="diff1 bms_exist_true">
+									<a href="/musics/bncsmile/1">11</a>
+								</td>
+								<p class="diffnum diffnum1">11</p>
+								<td class="diff2 bms_exist_true">
+									<a href="/musics/bncsmile/2">7</a>
+								</td>
+								<p class="diffnum diffnum2">7</p>
+								<td class="diff3 bms_exist_true">
+									<a href="/musics/bncsmile/3">12</a>
+								</td>
+								<p class="diffnum diffnum3">12</p>
+								<td class="diff4 bms_exist_true">
+									<a href="/musics/bncsmile/4">16</a>
+								</td>
+								<p class="diffnum diffnum4">16</p>
+						</tr>
+					</table>
+					<p class="added_on">2019-01-29</p>
+					<p class="kana">BOUNCING SMILE</p>
+					<p class="order">3030</p>
+					<p class="musictype">2</p>
+				</li>
+				<li>
+					<img class="jacket" src="/assets/jackets/asacre-3868cc680767a026d1a3f94ee7dff11cb718308b49d6fed8caf1cf8bea2d20aa.jpg" alt="Asacre" />
+					<h3 class="title">朝焼けのクレッシェンド</h3>
+					<img class="musictypeimage" src="/assets/musictypes/0-b88f61a6ecab0e60a288b49f1c83cc68a8b8364d1d29d90348a20e1f32003c6a.png" alt="0" />
+					<table class="scoretable">
+						<tr>
+								<th>2M</th>
+								<th>2M+</th>
+								<th>4M</th>
+								<th>6M</th>
+								<th>MM</th>
+						</tr>
+						<tr>
+								<td class="diff0 bms_exist_true">
+									<a href="/musics/asacre/0">4</a>
+								</td>
+								<p class="diffnum diffnum0">4</p>
+								<td class="diff1 bms_exist_true">
+									<a href="/musics/asacre/1">11</a>
+								</td>
+								<p class="diffnum diffnum1">11</p>
+								<td class="diff2 bms_exist_true">
+									<a href="/musics/asacre/2">7</a>
+								</td>
+								<p class="diffnum diffnum2">7</p>
+								<td class="diff3 bms_exist_true">
+									<a href="/musics/asacre/3">12</a>
+								</td>
+								<p class="diffnum diffnum3">12</p>
+								<td class="diff4 bms_exist_true">
+									<a href="/musics/asacre/4">16</a>
+								</td>
+								<p class="diffnum diffnum4">16</p>
+						</tr>
+					</table>
+					<p class="added_on">2019-02-12</p>
+					<p class="kana">あさやけのくれっしぇんど</p>
+					<p class="order">3031</p>
+					<p class="musictype">0</p>
+				</li>
+				<li>
+					<img class="jacket" src="/assets/jackets/mariat-31868d66f21a565cb8a86bd56cbb68c026392d23c4aa20a7fb24b9a2bf3c30ed.jpg" alt="Mariat" />
+					<h3 class="title">Maria Trap</h3>
+					<img class="musictypeimage" src="/assets/musictypes/1-c83a4defb0f7fd6d47d3e58aacef446916b4f1a7f16628081d36706d76a6c610.png" alt="1" />
+					<table class="scoretable">
+						<tr>
+								<th>2M</th>
+								<th>2M+</th>
+								<th>4M</th>
+								<th>6M</th>
+								<th>MM</th>
+						</tr>
+						<tr>
+								<td class="diff0 bms_exist_true">
+									<a href="/musics/mariat/0">4</a>
+								</td>
+								<p class="diffnum diffnum0">4</p>
+								<td class="diff1 bms_exist_true">
+									<a href="/musics/mariat/1">11</a>
+								</td>
+								<p class="diffnum diffnum1">11</p>
+								<td class="diff2 bms_exist_true">
+									<a href="/musics/mariat/2">7</a>
+								</td>
+								<p class="diffnum diffnum2">7</p>
+								<td class="diff3 bms_exist_true">
+									<a href="/musics/mariat/3">12</a>
+								</td>
+								<p class="diffnum diffnum3">12</p>
+								<td class="diff4 bms_exist_true">
+									<a href="/musics/mariat/4">17</a>
+								</td>
+								<p class="diffnum diffnum4">17</p>
+						</tr>
+					</table>
+					<p class="added_on">2019-02-28</p>
+					<p class="kana">Maria Trap</p>
+					<p class="order">3032</p>
+					<p class="musictype">1</p>
+				</li>
+				<li>
+					<img class="jacket" src="/assets/jackets/anonek-0e9fe0d1440917aab2b0a08a540ac627e28dc69fd9ea49e9c295535ce9d24e24.jpg" alt="Anonek" />
+					<h3 class="title">あのね、聞いてほしいことがあるんだ</h3>
+					<img class="musictypeimage" src="/assets/musictypes/2-44c8eb726796f5d53966ac2e47d287cab7247c05e5c577c10e5afd6bb334cfea.png" alt="2" />
+					<table class="scoretable">
+						<tr>
+								<th>2M</th>
+								<th>2M+</th>
+								<th>4M</th>
+								<th>6M</th>
+								<th>MM</th>
+						</tr>
+						<tr>
+								<td class="diff0 bms_exist_true">
+									<a href="/musics/anonek/0">3</a>
+								</td>
+								<p class="diffnum diffnum0">3</p>
+								<td class="diff1 bms_exist_true">
+									<a href="/musics/anonek/1">10</a>
+								</td>
+								<p class="diffnum diffnum1">10</p>
+								<td class="diff2 bms_exist_true">
+									<a href="/musics/anonek/2">6</a>
+								</td>
+								<p class="diffnum diffnum2">6</p>
+								<td class="diff3 bms_exist_true">
+									<a href="/musics/anonek/3">11</a>
+								</td>
+								<p class="diffnum diffnum3">11</p>
+								<td class="diff4 bms_exist_true">
+									<a href="/musics/anonek/4">14</a>
+								</td>
+								<p class="diffnum diffnum4">14</p>
+						</tr>
+					</table>
+					<p class="added_on">2019-03-12</p>
+					<p class="kana">あのねきいてほしいことがあるんだ</p>
+					<p class="order">3033</p>
+					<p class="musictype">2</p>
+				</li>
+				<li>
+					<img class="jacket" src="/assets/jackets/weareone-59dcc4a5ee897774a769211d2e3b7ac008bde89528b4732ee228103825aa40bc.jpg" alt="Weareone" />
+					<h3 class="title">WE ARE ONE!!</h3>
+					<img class="musictypeimage" src="/assets/musictypes/0-b88f61a6ecab0e60a288b49f1c83cc68a8b8364d1d29d90348a20e1f32003c6a.png" alt="0" />
+					<table class="scoretable">
+						<tr>
+								<th>2M</th>
+								<th>2M+</th>
+								<th>4M</th>
+								<th>6M</th>
+								<th>MM</th>
+						</tr>
+						<tr>
+								<td class="diff0 bms_exist_true">
+									<a href="/musics/weareone/0">5</a>
+								</td>
+								<p class="diffnum diffnum0">5</p>
+								<td class="diff1 bms_exist_true">
+									<a href="/musics/weareone/1">12</a>
+								</td>
+								<p class="diffnum diffnum1">12</p>
+								<td class="diff2 bms_exist_true">
+									<a href="/musics/weareone/2">7</a>
+								</td>
+								<p class="diffnum diffnum2">7</p>
+								<td class="diff3 bms_exist_true">
+									<a href="/musics/weareone/3">13</a>
+								</td>
+								<p class="diffnum diffnum3">13</p>
+								<td class="diff4 bms_exist_true">
+									<a href="/musics/weareone/4">17</a>
+								</td>
+								<p class="diffnum diffnum4">17</p>
+						</tr>
+					</table>
+					<p class="added_on">2019-03-27</p>
+					<p class="kana">WE ARE ONE</p>
+					<p class="order">3034</p>
+					<p class="musictype">0</p>
+				</li>
+				<li>
+					<img class="jacket" src="/assets/jackets/bstrik-337681ff781263d566169fbdac80668b6851fa0b541abbd117806229c552363b.jpg" alt="Bstrik" />
+					<h3 class="title">ビギナーズ☆ストライク</h3>
+					<img class="musictypeimage" src="/assets/musictypes/1-c83a4defb0f7fd6d47d3e58aacef446916b4f1a7f16628081d36706d76a6c610.png" alt="1" />
+					<table class="scoretable">
+						<tr>
+								<th>2M</th>
+								<th>2M+</th>
+								<th>4M</th>
+								<th>6M</th>
+								<th>MM</th>
+						</tr>
+						<tr>
+								<td class="diff0 bms_exist_true">
+									<a href="/musics/bstrik/0">4</a>
+								</td>
+								<p class="diffnum diffnum0">4</p>
+								<td class="diff1 bms_exist_true">
+									<a href="/musics/bstrik/1">10</a>
+								</td>
+								<p class="diffnum diffnum1">10</p>
+								<td class="diff2 bms_exist_true">
+									<a href="/musics/bstrik/2">7</a>
+								</td>
+								<p class="diffnum diffnum2">7</p>
+								<td class="diff3 bms_exist_true">
+									<a href="/musics/bstrik/3">11</a>
+								</td>
+								<p class="diffnum diffnum3">11</p>
+								<td class="diff4 bms_exist_true">
+									<a href="/musics/bstrik/4">16</a>
+								</td>
+								<p class="diffnum diffnum4">16</p>
+						</tr>
+					</table>
+					<p class="added_on">2019-04-12</p>
+					<p class="kana">びぎなーずすとらいく</p>
+					<p class="order">3035</p>
+					<p class="musictype">1</p>
+				</li>
+				<li>
+					<img class="jacket" src="/assets/jackets/olnote-2c50189cd71c0e98e633cba65c34fd4ffa68d8255a44a1eba82e96c8480e3b43.jpg" alt="Olnote" />
+					<h3 class="title">教えてlast note…</h3>
+					<img class="musictypeimage" src="/assets/musictypes/2-44c8eb726796f5d53966ac2e47d287cab7247c05e5c577c10e5afd6bb334cfea.png" alt="2" />
+					<table class="scoretable">
+						<tr>
+								<th>2M</th>
+								<th>2M+</th>
+								<th>4M</th>
+								<th>6M</th>
+								<th>MM</th>
+						</tr>
+						<tr>
+								<td class="diff0 bms_exist_true">
+									<a href="/musics/olnote/0">4</a>
+								</td>
+								<p class="diffnum diffnum0">4</p>
+								<td class="diff1 bms_exist_true">
+									<a href="/musics/olnote/1">12</a>
+								</td>
+								<p class="diffnum diffnum1">12</p>
+								<td class="diff2 bms_exist_true">
+									<a href="/musics/olnote/2">8</a>
+								</td>
+								<p class="diffnum diffnum2">8</p>
+								<td class="diff3 bms_exist_true">
+									<a href="/musics/olnote/3">13</a>
+								</td>
+								<p class="diffnum diffnum3">13</p>
+								<td class="diff4 bms_exist_true">
+									<a href="/musics/olnote/4">17</a>
+								</td>
+								<p class="diffnum diffnum4">17</p>
+						</tr>
+					</table>
+					<p class="added_on">2019-04-29</p>
+					<p class="kana">おしえてlast note</p>
+					<p class="order">3036</p>
+					<p class="musictype">2</p>
+				</li>
+				<li>
+					<img class="jacket" src="/assets/jackets/hanasb-140d33ff1f0f94b732047366f3e8b057c06439927d6d85f0cc15e6560893f0d0.jpg" alt="Hanasb" />
+					<h3 class="title">はなしらべ</h3>
+					<img class="musictypeimage" src="/assets/musictypes/0-b88f61a6ecab0e60a288b49f1c83cc68a8b8364d1d29d90348a20e1f32003c6a.png" alt="0" />
+					<table class="scoretable">
+						<tr>
+								<th>2M</th>
+								<th>2M+</th>
+								<th>4M</th>
+								<th>6M</th>
+								<th>MM</th>
+						</tr>
+						<tr>
+								<td class="diff0 bms_exist_true">
+									<a href="/musics/hanasb/0">5</a>
+								</td>
+								<p class="diffnum diffnum0">5</p>
+								<td class="diff1 bms_exist_true">
+									<a href="/musics/hanasb/1">11</a>
+								</td>
+								<p class="diffnum diffnum1">11</p>
+								<td class="diff2 bms_exist_true">
+									<a href="/musics/hanasb/2">7</a>
+								</td>
+								<p class="diffnum diffnum2">7</p>
+								<td class="diff3 bms_exist_true">
+									<a href="/musics/hanasb/3">12</a>
+								</td>
+								<p class="diffnum diffnum3">12</p>
+								<td class="diff4 bms_exist_true">
+									<a href="/musics/hanasb/4">15</a>
+								</td>
+								<p class="diffnum diffnum4">15</p>
+						</tr>
+					</table>
+					<p class="added_on">2019-05-12</p>
+					<p class="kana">はなしらべ</p>
+					<p class="order">3037</p>
+					<p class="musictype">0</p>
+				</li>
+				<li>
+					<img class="jacket" src="/assets/jackets/ryuseg-6262ff4143927ce351c7b125516129e08f60eee7b673fea3c92fc82836d8b126.jpg" alt="Ryuseg" />
+					<h3 class="title">流星群</h3>
+					<img class="musictypeimage" src="/assets/musictypes/1-c83a4defb0f7fd6d47d3e58aacef446916b4f1a7f16628081d36706d76a6c610.png" alt="1" />
+					<table class="scoretable">
+						<tr>
+								<th>2M</th>
+								<th>2M+</th>
+								<th>4M</th>
+								<th>6M</th>
+								<th>MM</th>
+						</tr>
+						<tr>
+								<td class="diff0 bms_exist_true">
+									<a href="/musics/ryuseg/0">4</a>
+								</td>
+								<p class="diffnum diffnum0">4</p>
+								<td class="diff1 bms_exist_true">
+									<a href="/musics/ryuseg/1">11</a>
+								</td>
+								<p class="diffnum diffnum1">11</p>
+								<td class="diff2 bms_exist_true">
+									<a href="/musics/ryuseg/2">7</a>
+								</td>
+								<p class="diffnum diffnum2">7</p>
+								<td class="diff3 bms_exist_true">
+									<a href="/musics/ryuseg/3">12</a>
+								</td>
+								<p class="diffnum diffnum3">12</p>
+								<td class="diff4 bms_exist_true">
+									<a href="/musics/ryuseg/4">17</a>
+								</td>
+								<p class="diffnum diffnum4">17</p>
+						</tr>
+					</table>
+					<p class="added_on">2019-05-30</p>
+					<p class="kana">りゅうせいぐん</p>
+					<p class="order">3038</p>
+					<p class="musictype">1</p>
+				</li>
+				<li>
+					<img class="jacket" src="/assets/jackets/orsora-6057697b574f9bad01377d9e183207bbceb564028ecd1da03f0a895e7273f04e.jpg" alt="Orsora" />
+					<h3 class="title">オレンジの空の下</h3>
+					<img class="musictypeimage" src="/assets/musictypes/2-44c8eb726796f5d53966ac2e47d287cab7247c05e5c577c10e5afd6bb334cfea.png" alt="2" />
+					<table class="scoretable">
+						<tr>
+								<th>2M</th>
+								<th>2M+</th>
+								<th>4M</th>
+								<th>6M</th>
+								<th>MM</th>
+						</tr>
+						<tr>
+								<td class="diff0 bms_exist_true">
+									<a href="/musics/orsora/0">4</a>
+								</td>
+								<p class="diffnum diffnum0">4</p>
+								<td class="diff1 bms_exist_true">
+									<a href="/musics/orsora/1">10</a>
+								</td>
+								<p class="diffnum diffnum1">10</p>
+								<td class="diff2 bms_exist_true">
+									<a href="/musics/orsora/2">7</a>
+								</td>
+								<p class="diffnum diffnum2">7</p>
+								<td class="diff3 bms_exist_true">
+									<a href="/musics/orsora/3">11</a>
+								</td>
+								<p class="diffnum diffnum3">11</p>
+								<td class="diff4 bms_exist_true">
+									<a href="/musics/orsora/4">15</a>
+								</td>
+								<p class="diffnum diffnum4">15</p>
+						</tr>
+					</table>
+					<p class="added_on">2019-06-11</p>
+					<p class="kana">おれんじのそらのした</p>
+					<p class="order">3039</p>
+					<p class="musictype">2</p>
+				</li>
+				<li>
+					<img class="jacket" src="/assets/jackets/rebell-ba53a28d0c7b91218cf29032f58610eb5bd6ec5b760ad3a966ee65f626077a59.jpg" alt="Rebell" />
+					<h3 class="title">Rebellion</h3>
+					<img class="musictypeimage" src="/assets/musictypes/0-b88f61a6ecab0e60a288b49f1c83cc68a8b8364d1d29d90348a20e1f32003c6a.png" alt="0" />
+					<table class="scoretable">
+						<tr>
+								<th>2M</th>
+								<th>2M+</th>
+								<th>4M</th>
+								<th>6M</th>
+								<th>MM</th>
+						</tr>
+						<tr>
+								<td class="diff0 bms_exist_true">
+									<a href="/musics/rebell/0">4</a>
+								</td>
+								<p class="diffnum diffnum0">4</p>
+								<td class="diff1 bms_exist_true">
+									<a href="/musics/rebell/1">11</a>
+								</td>
+								<p class="diffnum diffnum1">11</p>
+								<td class="diff2 bms_exist_true">
+									<a href="/musics/rebell/2">7</a>
+								</td>
+								<p class="diffnum diffnum2">7</p>
+								<td class="diff3 bms_exist_true">
+									<a href="/musics/rebell/3">12</a>
+								</td>
+								<p class="diffnum diffnum3">12</p>
+								<td class="diff4 bms_exist_true">
+									<a href="/musics/rebell/4">17</a>
+								</td>
+								<p class="diffnum diffnum4">17</p>
+						</tr>
+					</table>
+					<p class="added_on">2019-06-28</p>
+					<p class="kana">Rebellion</p>
+					<p class="order">3040</p>
+					<p class="musictype">0</p>
+				</li>
+				<li>
+					<img class="jacket" src="/assets/jackets/mjourney-a8baa4821f69a91cdbca4813dedf82aa61930ab7b7284fe710067752d412a527.jpg" alt="Mjourney" />
+					<h3 class="title">MUSIC JOURNEY</h3>
+					<img class="musictypeimage" src="/assets/musictypes/2-44c8eb726796f5d53966ac2e47d287cab7247c05e5c577c10e5afd6bb334cfea.png" alt="2" />
+					<table class="scoretable">
+						<tr>
+								<th>2M</th>
+								<th>2M+</th>
+								<th>4M</th>
+								<th>6M</th>
+								<th>MM</th>
+						</tr>
+						<tr>
+								<td class="diff0 bms_exist_true">
+									<a href="/musics/mjourney/0">4</a>
+								</td>
+								<p class="diffnum diffnum0">4</p>
+								<td class="diff1 bms_exist_true">
+									<a href="/musics/mjourney/1">10</a>
+								</td>
+								<p class="diffnum diffnum1">10</p>
+								<td class="diff2 bms_exist_true">
+									<a href="/musics/mjourney/2">7</a>
+								</td>
+								<p class="diffnum diffnum2">7</p>
+								<td class="diff3 bms_exist_true">
+									<a href="/musics/mjourney/3">11</a>
+								</td>
+								<p class="diffnum diffnum3">11</p>
+								<td class="diff4 bms_exist_true">
+									<a href="/musics/mjourney/4">17</a>
+								</td>
+								<p class="diffnum diffnum4">17</p>
+						</tr>
+					</table>
+					<p class="added_on">2019-07-15</p>
+					<p class="kana">MUSIC JOURNEY</p>
+					<p class="order">3041</p>
+					<p class="musictype">2</p>
+						<!-- <div class="ad-infeed">
+							<script type="text/javascript">
+								var nend_params = {"media":41408, "site":287098, "spot":838045, "type":10, "oriented":1};
+							</script>
+							<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+							<ins class="adsbygoogle"
+								style="display:block"
+								data-ad-format="fluid"
+								data-ad-layout-key="-hl-4+2z-7s+4c"
+								data-ad-client="ca-pub-1154104535471881"
+								data-ad-slot="7155950731"></ins>
+							<script>
+								(adsbygoogle = window.adsbygoogle || []).push({});
+							</script>
+						</div> -->
+				</li>
+				<li>
+					<img class="jacket" src="/assets/jackets/mariheart-755085fc3be1eee190db26e44ce3d03f897fd52903f041244b139627ec90da29.jpg" alt="Mariheart" />
+					<h3 class="title">マリオネットの心</h3>
+					<img class="musictypeimage" src="/assets/musictypes/2-44c8eb726796f5d53966ac2e47d287cab7247c05e5c577c10e5afd6bb334cfea.png" alt="2" />
+					<table class="scoretable">
+						<tr>
+								<th>2M</th>
+								<th>2M+</th>
+								<th>4M</th>
+								<th>6M</th>
+								<th>MM</th>
+						</tr>
+						<tr>
+								<td class="diff0 bms_exist_true">
+									<a href="/musics/mariheart/0">4</a>
+								</td>
+								<p class="diffnum diffnum0">4</p>
+								<td class="diff1 bms_exist_true">
+									<a href="/musics/mariheart/1">11</a>
+								</td>
+								<p class="diffnum diffnum1">11</p>
+								<td class="diff2 bms_exist_true">
+									<a href="/musics/mariheart/2">7</a>
+								</td>
+								<p class="diffnum diffnum2">7</p>
+								<td class="diff3 bms_exist_true">
+									<a href="/musics/mariheart/3">12</a>
+								</td>
+								<p class="diffnum diffnum3">12</p>
+								<td class="diff4 bms_exist_true">
+									<a href="/musics/mariheart/4">17</a>
+								</td>
+								<p class="diffnum diffnum4">17</p>
+						</tr>
+					</table>
+					<p class="added_on">2019-07-30</p>
+					<p class="kana">まりおねっとのこころ</p>
+					<p class="order">3042</p>
+					<p class="musictype">2</p>
+				</li>
+				<li>
+					<img class="jacket" src="/assets/jackets/sakashima-8602af9e27efa4ea099497b5483b4167033fe078c46387148f88421dd8c501b4.jpg" alt="Sakashima" />
+					<h3 class="title">さかしまの言葉</h3>
+					<img class="musictypeimage" src="/assets/musictypes/1-c83a4defb0f7fd6d47d3e58aacef446916b4f1a7f16628081d36706d76a6c610.png" alt="1" />
+					<table class="scoretable">
+						<tr>
+								<th>2M</th>
+								<th>2M+</th>
+								<th>4M</th>
+								<th>6M</th>
+								<th>MM</th>
+						</tr>
+						<tr>
+								<td class="diff0 bms_exist_true">
+									<a href="/musics/sakashima/0">4</a>
+								</td>
+								<p class="diffnum diffnum0">4</p>
+								<td class="diff1 bms_exist_true">
+									<a href="/musics/sakashima/1">9</a>
+								</td>
+								<p class="diffnum diffnum1">9</p>
+								<td class="diff2 bms_exist_true">
+									<a href="/musics/sakashima/2">6</a>
+								</td>
+								<p class="diffnum diffnum2">6</p>
+								<td class="diff3 bms_exist_true">
+									<a href="/musics/sakashima/3">10</a>
+								</td>
+								<p class="diffnum diffnum3">10</p>
+								<td class="diff4 bms_exist_true">
+									<a href="/musics/sakashima/4">14</a>
+								</td>
+								<p class="diffnum diffnum4">14</p>
+						</tr>
+					</table>
+					<p class="added_on">2019-08-14</p>
+					<p class="kana">さかしまのことば</p>
+					<p class="order">3043</p>
+					<p class="musictype">1</p>
+				</li>
+				<li>
+					<img class="jacket" src="/assets/jackets/bemyself-83c881cc5f57b505308858fa10aeaeadc904524b37a2e8d099bd8d3fcf689a82.jpg" alt="Bemyself" />
+					<h3 class="title">Just be myself!!</h3>
+					<img class="musictypeimage" src="/assets/musictypes/1-c83a4defb0f7fd6d47d3e58aacef446916b4f1a7f16628081d36706d76a6c610.png" alt="1" />
+					<table class="scoretable">
+						<tr>
+								<th>2M</th>
+								<th>2M+</th>
+								<th>4M</th>
+								<th>6M</th>
+								<th>MM</th>
+						</tr>
+						<tr>
+								<td class="diff0 bms_exist_true">
+									<a href="/musics/bemyself/0">4</a>
+								</td>
+								<p class="diffnum diffnum0">4</p>
+								<td class="diff1 bms_exist_true">
+									<a href="/musics/bemyself/1">11</a>
+								</td>
+								<p class="diffnum diffnum1">11</p>
+								<td class="diff2 bms_exist_true">
+									<a href="/musics/bemyself/2">8</a>
+								</td>
+								<p class="diffnum diffnum2">8</p>
+								<td class="diff3 bms_exist_true">
+									<a href="/musics/bemyself/3">12</a>
+								</td>
+								<p class="diffnum diffnum3">12</p>
+								<td class="diff4 bms_exist_true">
+									<a href="/musics/bemyself/4">17</a>
+								</td>
+								<p class="diffnum diffnum4">17</p>
+						</tr>
+					</table>
+					<p class="added_on">2019-08-30</p>
+					<p class="kana">Just be myself</p>
+					<p class="order">3044</p>
+					<p class="musictype">1</p>
+				</li>
+				<li>
+					<img class="jacket" src="/assets/jackets/miraihikou-3fb3a00b957effac6dac147a444aae8503d150db3685a39e84fbaab5c90a218f.jpg" alt="Miraihikou" />
+					<h3 class="title">未来飛行</h3>
+					<img class="musictypeimage" src="/assets/musictypes/0-b88f61a6ecab0e60a288b49f1c83cc68a8b8364d1d29d90348a20e1f32003c6a.png" alt="0" />
+					<table class="scoretable">
+						<tr>
+								<th>2M</th>
+								<th>2M+</th>
+								<th>4M</th>
+								<th>6M</th>
+								<th>MM</th>
+						</tr>
+						<tr>
+								<td class="diff0 bms_exist_true">
+									<a href="/musics/miraihikou/0">4</a>
+								</td>
+								<p class="diffnum diffnum0">4</p>
+								<td class="diff1 bms_exist_true">
+									<a href="/musics/miraihikou/1">11</a>
+								</td>
+								<p class="diffnum diffnum1">11</p>
+								<td class="diff2 bms_exist_true">
+									<a href="/musics/miraihikou/2">8</a>
+								</td>
+								<p class="diffnum diffnum2">8</p>
+								<td class="diff3 bms_exist_true">
+									<a href="/musics/miraihikou/3">12</a>
+								</td>
+								<p class="diffnum diffnum3">12</p>
+								<td class="diff4 bms_exist_true">
+									<a href="/musics/miraihikou/4">17</a>
+								</td>
+								<p class="diffnum diffnum4">17</p>
+						</tr>
+					</table>
+					<p class="added_on">2019-09-12</p>
+					<p class="kana">みらいひこう</p>
+					<p class="order">3045</p>
+					<p class="musictype">0</p>
+				</li>
+				<li>
+					<img class="jacket" src="/assets/jackets/kirameki-f8ab19b280349d8759c14491651c40214e1ca60e632b772acbdc3e9803b92e8f.jpg" alt="Kirameki" />
+					<h3 class="title">キラメキラリ</h3>
+					<img class="musictypeimage" src="/assets/musictypes/2-44c8eb726796f5d53966ac2e47d287cab7247c05e5c577c10e5afd6bb334cfea.png" alt="2" />
+					<table class="scoretable">
+						<tr>
+								<th>2M</th>
+								<th>2M+</th>
+								<th>4M</th>
+								<th>6M</th>
+								<th>MM</th>
+						</tr>
+						<tr>
+								<td class="diff0 bms_exist_true">
+									<a href="/musics/kirameki/0">4</a>
+								</td>
+								<p class="diffnum diffnum0">4</p>
+								<td class="diff1 bms_exist_true">
+									<a href="/musics/kirameki/1">11</a>
+								</td>
+								<p class="diffnum diffnum1">11</p>
+								<td class="diff2 bms_exist_true">
+									<a href="/musics/kirameki/2">7</a>
+								</td>
+								<p class="diffnum diffnum2">7</p>
+								<td class="diff3 bms_exist_true">
+									<a href="/musics/kirameki/3">12</a>
+								</td>
+								<p class="diffnum diffnum3">12</p>
+								<td class="diff4 bms_exist_true">
+									<a href="/musics/kirameki/4">17</a>
+								</td>
+								<p class="diffnum diffnum4">17</p>
+						</tr>
+					</table>
+					<p class="added_on">2019-09-28</p>
+					<p class="kana">きらめきらり</p>
+					<p class="order">3046</p>
+					<p class="musictype">2</p>
+				</li>
+				<li>
+					<img class="jacket" src="/assets/jackets/sjoker-d56a4eaeee4c16ab8a518f4f314858d41da32176a9877c31549eb574bd87293f.jpg" alt="Sjoker" />
+					<h3 class="title">Silent Joker</h3>
+					<img class="musictypeimage" src="/assets/musictypes/1-c83a4defb0f7fd6d47d3e58aacef446916b4f1a7f16628081d36706d76a6c610.png" alt="1" />
+					<table class="scoretable">
+						<tr>
+								<th>2M</th>
+								<th>2M+</th>
+								<th>4M</th>
+								<th>6M</th>
+								<th>MM</th>
+						</tr>
+						<tr>
+								<td class="diff0 bms_exist_true">
+									<a href="/musics/sjoker/0">4</a>
+								</td>
+								<p class="diffnum diffnum0">4</p>
+								<td class="diff1 bms_exist_true">
+									<a href="/musics/sjoker/1">12</a>
+								</td>
+								<p class="diffnum diffnum1">12</p>
+								<td class="diff2 bms_exist_true">
+									<a href="/musics/sjoker/2">8</a>
+								</td>
+								<p class="diffnum diffnum2">8</p>
+								<td class="diff3 bms_exist_true">
+									<a href="/musics/sjoker/3">13</a>
+								</td>
+								<p class="diffnum diffnum3">13</p>
+								<td class="diff4 bms_exist_true">
+									<a href="/musics/sjoker/4">17</a>
+								</td>
+								<p class="diffnum diffnum4">17</p>
+						</tr>
+					</table>
+					<p class="added_on">2019-10-12</p>
+					<p class="kana">Silent Joker</p>
+					<p class="order">3047</p>
+					<p class="musictype">1</p>
+				</li>
+				<li>
+					<img class="jacket" src="/assets/jackets/blmstar-63980b251cc3dc38809806e12639cfac9b7e1b7cc8c1c896943603dfef61bea5.jpg" alt="Blmstar" />
+					<h3 class="title">Blooming Star</h3>
+					<img class="musictypeimage" src="/assets/musictypes/3-7ab4f84834a42642fd37f9e8278e913ea1b74b0fb91271094033a77547c44148.png" alt="3" />
+					<table class="scoretable">
+						<tr>
+								<th>2M</th>
+								<th>2M+</th>
+								<th>4M</th>
+								<th>6M</th>
+								<th>MM</th>
+						</tr>
+						<tr>
+								<td class="diff0 bms_exist_true">
+									<a href="/musics/blmstar/0">3</a>
+								</td>
+								<p class="diffnum diffnum0">3</p>
+								<td class="diff1 bms_exist_true">
+									<a href="/musics/blmstar/1">11</a>
+								</td>
+								<p class="diffnum diffnum1">11</p>
+								<td class="diff2 bms_exist_true">
+									<a href="/musics/blmstar/2">7</a>
+								</td>
+								<p class="diffnum diffnum2">7</p>
+								<td class="diff3 bms_exist_true">
+									<a href="/musics/blmstar/3">12</a>
+								</td>
+								<p class="diffnum diffnum3">12</p>
+								<td class="diff4 bms_exist_true">
+									<a href="/musics/blmstar/4">16</a>
+								</td>
+								<p class="diffnum diffnum4">16</p>
+						</tr>
+					</table>
+					<p class="added_on">2018-07-21</p>
+					<p class="kana">Blooming Star</p>
+					<p class="order">5001</p>
+					<p class="musictype">3</p>
+				</li>
+				<li>
+					<img class="jacket" src="/assets/jackets/hatsuboshimix-a15ee9bd327eb81b3325af4a742e4e1b61daf7d95ce7da2f6d14a106bd6f069e.jpg" alt="Hatsuboshimix" />
+					<h3 class="title">THE IDOLM＠STER 初星-mix</h3>
+					<img class="musictypeimage" src="/assets/musictypes/3-7ab4f84834a42642fd37f9e8278e913ea1b74b0fb91271094033a77547c44148.png" alt="3" />
+					<table class="scoretable">
+						<tr>
+								<th>2M</th>
+								<th>2M+</th>
+								<th>4M</th>
+								<th>6M</th>
+								<th>MM</th>
+						</tr>
+						<tr>
+								<td class="diff0 bms_exist_true">
+									<a href="/musics/hatsuboshimix/0">4</a>
+								</td>
+								<p class="diffnum diffnum0">4</p>
+								<td class="diff1 bms_exist_true">
+									<a href="/musics/hatsuboshimix/1">12</a>
+								</td>
+								<p class="diffnum diffnum1">12</p>
+								<td class="diff2 bms_exist_true">
+									<a href="/musics/hatsuboshimix/2">8</a>
+								</td>
+								<p class="diffnum diffnum2">8</p>
+								<td class="diff3 bms_exist_true">
+									<a href="/musics/hatsuboshimix/3">13</a>
+								</td>
+								<p class="diffnum diffnum3">13</p>
+								<td class="diff4 bms_exist_true">
+									<a href="/musics/hatsuboshimix/4">17</a>
+								</td>
+								<p class="diffnum diffnum4">17</p>
+						</tr>
+					</table>
+					<p class="added_on">2019-01-01</p>
+					<p class="kana">THE IDOLMASTER はつぼしmix</p>
+					<p class="order">5002</p>
+					<p class="musictype">3</p>
+				</li>
+		</ul>
+	</div>
+</div>
+
+	<div class="floating_div">
+		<a href="#pagetop"><i class="fa fa-angle-double-up" aria-hidden="true"></i></a><br>
+		<a href="#pagebottom"><i class="fa fa-angle-double-down" aria-hidden="true"></i></a>
+	</div>
+	<div id="pagebottom"></div>
+
+	<script type="text/javascript" src="https://js1.nend.net/js/nendAdLoader.js"></script>
+	<script src="/assets/application-9540673375a53904bcb30004a10788ec1e47bd3ec124d61982a7bc4b696780f0.js"></script>
+</body>
+</html>
